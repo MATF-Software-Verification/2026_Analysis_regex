@@ -1,3 +1,3 @@
 @echo off
-cd build
+cd build/windows-vcpkg/Debug
 regex_app.exe

@@ -1,3 +1,3 @@
 @echo off
-cd build
+cd build/windows-vcpkg
 ctest -C Debug --output-on-failure

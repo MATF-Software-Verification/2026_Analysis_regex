@@ -52,7 +52,7 @@ TEST(RegexAnchors, WordBoundary) {
 }
 
 TEST(RegexAnchors, StartEndAnchors) {
-    boost::regex pattern(R"(^\s*$)"); // 0 or more whitespaces
+    boost::regex pattern(R"(^\s*$)");
     EXPECT_TRUE(boost::regex_match("    ", pattern));
     EXPECT_FALSE(boost::regex_match("   s", pattern));
 }
@@ -67,3 +67,5 @@ TEST(RegexAnchors, MultilineAnchors) {
     std::string s2 = "abc\nfoo";
     EXPECT_FALSE(boost::regex_search(s2, pattern));
 }
+
+

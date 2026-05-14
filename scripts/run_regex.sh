@@ -1,3 +1,3 @@
 #!/bin/bash
-cd build
+cd build/linux-system
 ./regex_app
