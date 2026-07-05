@@ -1,0 +1,50 @@
+[.] Sanitizer coverage enabled. Counter map size: 67009, Cmp map size: 262144
+Note: Google Test filter = RegexFuzz.MatchPattern
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RegexFuzz
+[ RUN      ] RegexFuzz.MatchPattern
+FUZZTEST_PRNG_SEED=6GX7ITSmq8KnqgCOjiSy4hDBPRdM-ZHk5OPwNYeM5wI
+[.] Fuzzing timeout set to: 1m
+[!] Code under test used 132160 bytes of stack. Configured limit is 131072. You can change the limit by specifying --stack_limit_kb flag.
+
+=================================================================
+=== Fuzzing stats
+
+Elapsed time: 58.315933733s
+Total runs: 291183
+Edges covered: 3012
+Total edges: 67009
+Corpus size: 1346
+Max stack used: 102912
+
+=================================================================
+=== BUG FOUND!
+
+/home/anja/Desktop/verifikacija/2026_Analysis_regex/fuzztest/fuzz_regex.cc:16: Counterexample found for RegexFuzz.MatchPattern.
+The test fails with input:
+argument 0: "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"\367"
+argument 1: "T"
+
+=================================================================
+=== Regression test draft
+
+TEST(RegexFuzz, MatchPatternRegression) {
+  MatchPattern(
+    "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\"\367",
+    "T"
+  );
+}
+
+Please note that the code generated above is best effort and is intended
+to be used as a draft regression test.
+For reproducing findings please rely on file based reproduction.
+[.] No reproducer output location specified - not writing the reproducer file.
+
+=================================================================
+*** SIGABRT received at time=1783241425 on cpu 5 ***
+PC: @     0x7c57880969fc  (unknown)  pthread_kill
+    @     0x5cfa80b5cb9c        256  absl::lts_20260526::WriteFailureInfo()
+    @     0x5cfa80b5bfab        352  absl::lts_20260526::AbslFailureSignalHandler()
+    @     0x5cfa808fdc19       1056  fuzztest::internal::HandleCrash()
+    @     0x7c5788042520  (unknown)  (unknown)

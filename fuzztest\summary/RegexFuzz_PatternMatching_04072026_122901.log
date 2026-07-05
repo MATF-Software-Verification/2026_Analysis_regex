@@ -1,0 +1,27 @@
+[.] Sanitizer coverage enabled. Counter map size: 62259, Cmp map size: 262144
+Note: Google Test filter = RegexFuzz.PatternMatching
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RegexFuzz
+[ RUN      ] RegexFuzz.PatternMatching
+FUZZTEST_PRNG_SEED=EMonLAF9UyntMopVL89xGeB15L57KqI82-bJgWL6uZk
+[.] Fuzzing timeout set to: 1m
+
+[.] Fuzzing was terminated.
+
+=================================================================
+=== Fuzzing stats
+
+Elapsed time: 1m0.000092393s
+Total runs: 262942
+Edges covered: 3033
+Total edges: 62259
+Corpus size: 1289
+Max stack used: 99072
+
+[       OK ] RegexFuzz.PatternMatching (60010 ms)
+[----------] 1 test from RegexFuzz (60010 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (60010 ms total)
+[  PASSED  ] 1 test.

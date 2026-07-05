@@ -16,6 +16,7 @@ TEST(RegexMatch, SimpleMatchFailure) {
 
 TEST(RegexMatch, MatchEntireString) {
     boost::regex pattern(R"(\d+)");
+    EXPECT_TRUE(boost::regex_match("123", pattern));
     EXPECT_FALSE(boost::regex_match("123abc", pattern));
 }
 

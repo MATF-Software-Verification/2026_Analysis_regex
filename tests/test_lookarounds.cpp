@@ -22,7 +22,7 @@ TEST(RegexLookarounds, NegativeLookahead) {
     EXPECT_TRUE(boost::regex_search(std::string("ac"), pattern));
     EXPECT_FALSE(boost::regex_search(std::string("ab"), pattern));
     EXPECT_FALSE(boost::regex_search(std::string("abd"), pattern));
-    EXPECT_FALSE(boost::regex_search(std::string("abc"), pattern));
+    EXPECT_TRUE(boost::regex_search(std::string("abc"), pattern)); //double negative makes a positive 
 }
 
 TEST(RegexLookarounds, PositiveLookbehind) {

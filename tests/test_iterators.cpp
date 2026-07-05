@@ -1,5 +1,6 @@
 #include <boost/regex.hpp>
 #include <gtest/gtest.h>
+#include <gtest/gtest-death-test.h>
 #include <string>
 #include <vector>
 #include <tuple>
@@ -69,12 +70,31 @@ TEST(RegexIterator, OverlappingMatches) {
     EXPECT_EQ(matches[0], "12");
 }
 
+TEST(RegexIterator, SourceStringMustOutliveIterator) {
+    #ifndef __SANITIZE_ADDRESS__
+        GTEST_SKIP() << "Testing undefined behaviour, please enable ASan.";
+    #endif
+    
+    EXPECT_DEATH(
+        ([](){
+            boost::regex pattern(R"(\d+)");
+            boost::sregex_iterator it, end;
+            {
+                std::string s = "1 22 333";
+                it = boost::sregex_iterator(s.begin(), s.end(), pattern);
+                // s destroyed here
+            }
+            for (; it != end; ++it)
+                (void)(*it)[0].str();
+    })(), "");
+}
+
 // #### Token iterator ####     
 
 TEST(RegexTokenIterator, SplitString) {
     boost::regex pattern(R"(,\s*)");
     std::string s = "one, two, three,four";
-    boost::sregex_token_iterator it(s.begin(), s.end(), pattern, -1); // if submatch is -1, then enumerates all the text sequences that did not match the expression regex
+    boost::sregex_token_iterator it(s.begin(), s.end(), pattern, -1); 
     boost::sregex_token_iterator end;
 
     std::vector<std::string> tokens;
@@ -132,13 +152,11 @@ TEST(RegexTokenIterator, EmptyTokensBetweenSeparators) {
         tokens.push_back(m);
     }); 
 
-    ASSERT_EQ(tokens.size(), 3);
+    ASSERT_EQ(tokens.size(), 3); 
     EXPECT_EQ(tokens[0], "a");
     EXPECT_EQ(tokens[1], ""); 
     EXPECT_EQ(tokens[2], "b");
 }
-
-
 
 // #### Iterator Cases ####
 

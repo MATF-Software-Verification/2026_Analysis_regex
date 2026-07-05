@@ -55,7 +55,7 @@ TEST(RegexQuantifiers, LazyQuantifier) {
     EXPECT_EQ(m[0].str(), "fooaaafoo");
 }
 
-TEST(RegexQuantifier, PossessiveQuantifier) {
+TEST(RegexQuantifiers, PossessiveQuantifier) {
     boost::regex pattern(R"(a++[ab])");
     EXPECT_FALSE(boost::regex_match("aaa", pattern)); // doesnt backtrack
     EXPECT_TRUE(boost::regex_match("aab", pattern));

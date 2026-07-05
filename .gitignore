@@ -1,2 +1,6 @@
-build/
-CMakeUserPresets.json
+build*/
+*.cfg
+*.info
+cheatsheet.md
+fuzztest/log/
+fuzztest/summary

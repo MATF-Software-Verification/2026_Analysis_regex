@@ -19,6 +19,7 @@ TEST(RegexFlags, NoSubsSuppressesCaptureStorage) {
     EXPECT_EQ(pattern.mark_count(), 0u);
     EXPECT_EQ(m.size(), 1u);
     EXPECT_EQ(m[0].str(), "item-42");
+    EXPECT_FALSE(m[1].matched);
 }
 
 TEST(RegexMatchFlags, ContinuousSearchStartsAtBeginningOnly) {

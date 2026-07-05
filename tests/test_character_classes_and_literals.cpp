@@ -5,13 +5,13 @@
 // #### Character Classes ####
 
 TEST(RegexCharClasses, DigitClass) {
-    boost::regex pattern(R"(^\d+)"); 
+    boost::regex pattern(R"(^\d+$)"); 
     EXPECT_TRUE(boost::regex_match("12345", pattern));
     EXPECT_FALSE(boost::regex_match("abc123", pattern));
 }
 
 TEST(RegexCharClasses, WordClass) {
-    boost::regex pattern(R"(^\w+)"); 
+    boost::regex pattern(R"(^\w+$)"); 
     EXPECT_TRUE(boost::regex_match("hello_world", pattern));
     EXPECT_FALSE(boost::regex_match("hello world", pattern)); // space 
 }
@@ -23,13 +23,13 @@ TEST(RegexCharClasses, WhitespaceClass) {
 }
 
 TEST(RegexCharClasses, NotDigitClass) {
-    boost::regex pattern(R"(^\D+)");
+    boost::regex pattern(R"(^\D+$)");
     EXPECT_TRUE(boost::regex_match("abc", pattern));
     EXPECT_FALSE(boost::regex_match("abc123", pattern));
 }
 
 TEST(RegexCharClasses, NotWordClass) {
-    boost::regex pattern(R"(^\W+)");
+    boost::regex pattern(R"(^\W+$)");
     EXPECT_TRUE(boost::regex_match("!@#$", pattern));
     EXPECT_FALSE(boost::regex_match("hello!", pattern));
 }
@@ -41,19 +41,19 @@ TEST(RegexCharClasses, NotWhitespaceClass) {
 }
 
 TEST(RegexCharClasses, AnyOf) {
-    boost::regex pattern(R"([abc]+)");
+    boost::regex pattern(R"(^[abc]+$)");
     EXPECT_TRUE(boost::regex_match("aaaabbcccaabb", pattern));
     EXPECT_FALSE(boost::regex_match("hello", pattern));
 }
 
 TEST(RegexCharClasses, NotAnyOf) {
-    boost::regex pattern(R"([^abc]+)");
+    boost::regex pattern(R"([^abc]+$)");
     EXPECT_TRUE(boost::regex_match("hello", pattern));
     EXPECT_FALSE(boost::regex_match("abc", pattern));
 }
 
 TEST(RegexCharClasses, CharactersBetween) {
-    boost::regex pattern(R"([a-c]+)");
+    boost::regex pattern(R"(^[a-c]+$)");
     EXPECT_TRUE(boost::regex_match("aaabbccb", pattern));
     EXPECT_FALSE(boost::regex_match("AAABBCCB", pattern)); // uppercase
 }

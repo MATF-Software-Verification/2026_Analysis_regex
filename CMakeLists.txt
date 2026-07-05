@@ -1,10 +1,13 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.22)
 project(RegexAnalysis)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(ENABLE_ASAN "Enable AddressSanitizer" ON)
+option(ENABLE_COVERAGE "Enable coverage reporting" OFF)
+option(ENABLE_FUZZING "Enable libFuzzer build" OFF)
+
 
 if(ENABLE_ASAN)
     if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
@@ -14,13 +17,12 @@ if(ENABLE_ASAN)
 endif()
 
 set(BOOST_ROOT "" CACHE PATH "Path to Boost root dir")
-set(Boost_LIBRARY_DIRS "" CACHE PATH "Path to Boost libraries")
-set(Boost_NO_SYSTEM_PATHS TRUE)
-set(Boost_NO_BOOST_CMAKE ON)
-
-set(VCPKG_MANIFEST_NO_DEFAULT_FEATURES ON)
+set(Boost_NO_SYSTEM_PATHS TRUE CACHE BOOL "Do not search system Boost paths")
+set(Boost_NO_BOOST_CMAKE ON CACHE BOOL "Do not use Boost's own CMake config") 
 
 find_package(Boost REQUIRED COMPONENTS regex)
+
+enable_testing()
 
 add_executable(regex_app src/main.cpp)
 
@@ -41,13 +43,44 @@ set(TEST_SOURCES
     tests/test_replace.cpp
 )
 
-add_executable(tests ${TEST_SOURCES})
+add_executable(regex_tests ${TEST_SOURCES})
 
-target_link_libraries(tests PRIVATE 
+target_link_libraries(regex_tests PRIVATE 
     Boost::regex
     GTest::gtest 
     GTest::gtest_main
 )
 
-enable_testing()
-add_test(NAME RegexTests COMMAND tests)
+if(ENABLE_COVERAGE)
+    message("Coverage enabled")
+    target_compile_options(regex_tests PRIVATE --coverage)
+    target_link_options(regex_tests PRIVATE --coverage)
+endif()
+
+add_test(NAME RegexTests COMMAND regex_tests)
+
+# if(ENABLE_FUZZING)
+
+#     if(NOT CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+#         message(FATAL_ERROR "libFuzzer requires Clang")
+#     endif()
+
+#     add_exectuable(regex_fuzzer
+#         fuzz/fuzz_regex.cpp
+#     )
+
+#     target_link_libraries(regex_fuzzer PRIVATE
+#         Boost::regex
+#     )
+
+#     target_compile_options(regex_fuzzer PRIVATE
+#         -fsanitize=fuzzer,address,undefined
+#         -g
+#         -O1
+#     )
+
+#     target_link_options(regez_fuzzer PRIVATE 
+#         -fsanitize=fuzzer,address,undefines
+#     )
+
+# endif()
