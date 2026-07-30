@@ -31,27 +31,27 @@
             <td class="headerValue">coverage_regex.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">25</td>
-            <td class="headerCovTableEntry">26</td>
-            <td class="headerCovTableEntryHi">96.2 %</td>
+            <td class="headerCovTableEntry">70</td>
+            <td class="headerCovTableEntry">74</td>
+            <td class="headerCovTableEntryHi">94.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2026-05-20 19:57:09</td>
+            <td class="headerValue">2026-07-30 18:11:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">10</td>
-            <td class="headerCovTableEntry">12</td>
-            <td class="headerCovTableEntryMed">83.3 %</td>
+            <td class="headerCovTableEntry">36</td>
+            <td class="headerCovTableEntry">40</td>
+            <td class="headerCovTableEntryHi">90.0 %</td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">13</td>
-            <td class="headerCovTableEntry">20</td>
-            <td class="headerCovTableEntryLo">65.0 %</td>
+            <td class="headerCovTableEntry">25</td>
+            <td class="headerCovTableEntry">42</td>
+            <td class="headerCovTableEntryLo">59.5 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -108,62 +108,62 @@
 <a name="37"><span class="lineNum">      37 </span>                :            : </a>
 <a name="38"><span class="lineNum">      38 </span>                :            :    bool matched;</a>
 <a name="39"><span class="lineNum">      39 </span>                :            : </a>
-<a name="40"><span class="lineNum">      40 </span>                :<span class="lineCov">        159 :    sub_match() : std::pair&lt;BidiIterator, BidiIterator&gt;(), matched(false) {}</span></a>
-<a name="41"><span class="lineNum">      41 </span>                :<span class="lineCov">        193 :    sub_match(BidiIterator i) : std::pair&lt;BidiIterator, BidiIterator&gt;(i, i), matched(false) {}</span></a>
+<a name="40"><span class="lineNum">      40 </span>                :<span class="lineCov">        264 :    sub_match() : std::pair&lt;BidiIterator, BidiIterator&gt;(), matched(false) {}</span></a>
+<a name="41"><span class="lineNum">      41 </span>                :<span class="lineCov">        283 :    sub_match(BidiIterator i) : std::pair&lt;BidiIterator, BidiIterator&gt;(i, i), matched(false) {}</span></a>
 <a name="42"><span class="lineNum">      42 </span>                :            :    template &lt;class T, class A&gt;</a>
-<a name="43"><span class="lineNum">      43 </span>                :<span class="lineCov">         12 :    operator std::basic_string&lt;value_type, T, A&gt; ()const</span></a>
+<a name="43"><span class="lineNum">      43 </span>                :<span class="lineCov">         18 :    operator std::basic_string&lt;value_type, T, A&gt; ()const</span></a>
 <a name="44"><span class="lineNum">      44 </span>                :            :    {</a>
-<a name="45"><span class="lineNum">      45 </span>  [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span><span class="branchCov" title="Branch 2 was taken 11 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">         12 :       return matched ? std::basic_string&lt;value_type, T, A&gt;(this-&gt;first, this-&gt;second) : std::basic_string&lt;value_type, T, A&gt;();</span></a>
-<span class="lineNum">         </span>   <span class="branchCov" title="Branch 4 was taken 11 times"> + </span><span class="branchCov" title="Branch 5 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
+<a name="45"><span class="lineNum">      45 </span>  [<span class="branchCov" title="Branch 0 was taken 16 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span><span class="branchCov" title="Branch 2 was taken 16 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">         18 :       return matched ? std::basic_string&lt;value_type, T, A&gt;(this-&gt;first, this-&gt;second) : std::basic_string&lt;value_type, T, A&gt;();</span></a>
+<span class="lineNum">         </span>   <span class="branchCov" title="Branch 4 was taken 16 times"> + </span><span class="branchCov" title="Branch 5 was taken 2 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span><span class="branchNoCov" title="Branch 7 was not taken"> - </span>]
 <a name="46"><span class="lineNum">      46 </span>                :            :    }</a>
-<a name="47"><span class="lineNum">      47 </span>                :<span class="lineCov">         33 :    difference_type  length()const</span></a>
+<a name="47"><span class="lineNum">      47 </span>                :<span class="lineCov">         64 :    difference_type  length()const</span></a>
 <a name="48"><span class="lineNum">      48 </span>                :            :    {</a>
-<a name="49"><span class="lineNum">      49 </span>        [<span class="branchCov" title="Branch 0 was taken 33 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         33 :       difference_type n = matched ? std::distance((BidiIterator)this-&gt;first, (BidiIterator)this-&gt;second) : 0;</span></a>
-<a name="50"><span class="lineNum">      50 </span>                :<span class="lineCov">         33 :       return n;</span></a>
+<a name="49"><span class="lineNum">      49 </span>        [<span class="branchCov" title="Branch 0 was taken 62 times"> + </span><span class="branchCov" title="Branch 1 was taken 2 times"> + </span>]:<span class="lineCov">         64 :       difference_type n = matched ? std::distance((BidiIterator)this-&gt;first, (BidiIterator)this-&gt;second) : 0;</span></a>
+<a name="50"><span class="lineNum">      50 </span>                :<span class="lineCov">         64 :       return n;</span></a>
 <a name="51"><span class="lineNum">      51 </span>                :            :    }</a>
-<a name="52"><span class="lineNum">      52 </span>                :<span class="lineCov">         83 :    std::basic_string&lt;value_type&gt; str()const</span></a>
+<a name="52"><span class="lineNum">      52 </span>                :<span class="lineCov">        220 :    std::basic_string&lt;value_type&gt; str()const</span></a>
 <a name="53"><span class="lineNum">      53 </span>                :            :    {</a>
-<a name="54"><span class="lineNum">      54 </span>                :<span class="lineCov">         83 :       std::basic_string&lt;value_type&gt; result;</span></a>
-<a name="55"><span class="lineNum">      55 </span>        [<span class="branchCov" title="Branch 0 was taken 82 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">         83 :       if(matched)</span></a>
+<a name="54"><span class="lineNum">      54 </span>                :<span class="lineCov">        220 :       std::basic_string&lt;value_type&gt; result;</span></a>
+<a name="55"><span class="lineNum">      55 </span>        [<span class="branchCov" title="Branch 0 was taken 206 times"> + </span><span class="branchCov" title="Branch 1 was taken 14 times"> + </span>]:<span class="lineCov">        220 :       if(matched)</span></a>
 <a name="56"><span class="lineNum">      56 </span>                :            :       {</a>
-<a name="57"><span class="lineNum">      57 </span>        [<span class="branchCov" title="Branch 0 was taken 82 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         82 :          std::size_t len = std::distance((BidiIterator)this-&gt;first, (BidiIterator)this-&gt;second);</span></a>
-<a name="58"><span class="lineNum">      58 </span>        [<span class="branchCov" title="Branch 0 was taken 82 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         82 :          result.reserve(len);</span></a>
-<a name="59"><span class="lineNum">      59 </span>                :<span class="lineCov">         82 :          BidiIterator i = this-&gt;first;</span></a>
-<a name="60"><span class="lineNum">      60 </span>        [<span class="branchCov" title="Branch 0 was taken 309 times"> + </span><span class="branchCov" title="Branch 1 was taken 82 times"> + </span>]:<span class="lineCov">        391 :          while(i != this-&gt;second)</span></a>
+<a name="57"><span class="lineNum">      57 </span>        [<span class="branchCov" title="Branch 0 was taken 206 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        206 :          std::size_t len = std::distance((BidiIterator)this-&gt;first, (BidiIterator)this-&gt;second);</span></a>
+<a name="58"><span class="lineNum">      58 </span>        [<span class="branchCov" title="Branch 0 was taken 206 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        206 :          result.reserve(len);</span></a>
+<a name="59"><span class="lineNum">      59 </span>                :<span class="lineCov">        206 :          BidiIterator i = this-&gt;first;</span></a>
+<a name="60"><span class="lineNum">      60 </span>        [<span class="branchCov" title="Branch 0 was taken 861 times"> + </span><span class="branchCov" title="Branch 1 was taken 206 times"> + </span>]:<span class="lineCov">       1067 :          while(i != this-&gt;second)</span></a>
 <a name="61"><span class="lineNum">      61 </span>                :            :          {</a>
-<a name="62"><span class="lineNum">      62 </span>        [<span class="branchCov" title="Branch 0 was taken 309 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        309 :             result.append(1, *i);</span></a>
-<a name="63"><span class="lineNum">      63 </span>                :<span class="lineCov">        309 :             ++i;</span></a>
+<a name="62"><span class="lineNum">      62 </span>        [<span class="branchCov" title="Branch 0 was taken 861 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        861 :             result.append(1, *i);</span></a>
+<a name="63"><span class="lineNum">      63 </span>                :<span class="lineCov">        861 :             ++i;</span></a>
 <a name="64"><span class="lineNum">      64 </span>                :            :          }</a>
 <a name="65"><span class="lineNum">      65 </span>                :            :       }</a>
-<a name="66"><span class="lineNum">      66 </span>                :<span class="lineCov">         83 :       return result;</span></a>
+<a name="66"><span class="lineNum">      66 </span>                :<span class="lineCov">        220 :       return result;</span></a>
 <a name="67"><span class="lineNum">      67 </span>                :<span class="lineNoCov">          0 :    }</span></a>
-<a name="68"><span class="lineNum">      68 </span>                :            :    int compare(const sub_match&amp; s)const</a>
+<a name="68"><span class="lineNum">      68 </span>                :<span class="lineCov">         20 :    int compare(const sub_match&amp; s)const</span></a>
 <a name="69"><span class="lineNum">      69 </span>                :            :    {</a>
-<a name="70"><span class="lineNum">      70 </span>                :            :       if(matched != s.matched)</a>
-<a name="71"><span class="lineNum">      71 </span>                :            :          return static_cast&lt;int&gt;(matched) - static_cast&lt;int&gt;(s.matched);</a>
-<a name="72"><span class="lineNum">      72 </span>                :            :       return str().compare(s.str());</a>
+<a name="70"><span class="lineNum">      70 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 20 times"> + </span>]:<span class="lineCov">         20 :       if(matched != s.matched)</span></a>
+<a name="71"><span class="lineNum">      71 </span>                :<span class="lineNoCov">          0 :          return static_cast&lt;int&gt;(matched) - static_cast&lt;int&gt;(s.matched);</span></a>
+<a name="72"><span class="lineNum">      72 </span>  [<span class="branchCov" title="Branch 0 was taken 20 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 20 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         20 :       return str().compare(s.str());</span></a>
 <a name="73"><span class="lineNum">      73 </span>                :            :    }</a>
-<a name="74"><span class="lineNum">      74 </span>                :            :    int compare(const std::basic_string&lt;value_type&gt;&amp; s)const</a>
+<a name="74"><span class="lineNum">      74 </span>                :<span class="lineCov">          3 :    int compare(const std::basic_string&lt;value_type&gt;&amp; s)const</span></a>
 <a name="75"><span class="lineNum">      75 </span>                :            :    {</a>
-<a name="76"><span class="lineNum">      76 </span>                :            :       return str().compare(s);</a>
+<a name="76"><span class="lineNum">      76 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 :       return str().compare(s);</span></a>
 <a name="77"><span class="lineNum">      77 </span>                :            :    }</a>
-<a name="78"><span class="lineNum">      78 </span>                :            :    int compare(const value_type* p)const</a>
+<a name="78"><span class="lineNum">      78 </span>                :<span class="lineCov">          3 :    int compare(const value_type* p)const</span></a>
 <a name="79"><span class="lineNum">      79 </span>                :            :    {</a>
-<a name="80"><span class="lineNum">      80 </span>                :            :       return str().compare(p);</a>
+<a name="80"><span class="lineNum">      80 </span>                :<span class="lineCov">          3 :       return str().compare(p);</span></a>
 <a name="81"><span class="lineNum">      81 </span>                :            :    }</a>
 <a name="82"><span class="lineNum">      82 </span>                :            : </a>
-<a name="83"><span class="lineNum">      83 </span>                :            :    bool operator==(const sub_match&amp; that)const</a>
-<a name="84"><span class="lineNum">      84 </span>                :            :    { return compare(that) == 0; }</a>
-<a name="85"><span class="lineNum">      85 </span>                :            :    bool  operator !=(const sub_match&amp; that)const</a>
-<a name="86"><span class="lineNum">      86 </span>                :            :    { return compare(that) != 0; }</a>
-<a name="87"><span class="lineNum">      87 </span>                :            :    bool operator&lt;(const sub_match&amp; that)const</a>
-<a name="88"><span class="lineNum">      88 </span>                :            :    { return compare(that) &lt; 0; }</a>
-<a name="89"><span class="lineNum">      89 </span>                :            :    bool operator&gt;(const sub_match&amp; that)const</a>
-<a name="90"><span class="lineNum">      90 </span>                :            :    { return compare(that) &gt; 0; }</a>
-<a name="91"><span class="lineNum">      91 </span>                :            :    bool operator&lt;=(const sub_match&amp; that)const</a>
-<a name="92"><span class="lineNum">      92 </span>                :            :    { return compare(that) &lt;= 0; }</a>
-<a name="93"><span class="lineNum">      93 </span>                :            :    bool operator&gt;=(const sub_match&amp; that)const</a>
-<a name="94"><span class="lineNum">      94 </span>                :            :    { return compare(that) &gt;= 0; }</a>
+<a name="83"><span class="lineNum">      83 </span>                :<span class="lineCov">         12 :    bool operator==(const sub_match&amp; that)const</span></a>
+<a name="84"><span class="lineNum">      84 </span>                :<span class="lineCov">         12 :    { return compare(that) == 0; }</span></a>
+<a name="85"><span class="lineNum">      85 </span>                :<span class="lineCov">          1 :    bool  operator !=(const sub_match&amp; that)const</span></a>
+<a name="86"><span class="lineNum">      86 </span>                :<span class="lineCov">          1 :    { return compare(that) != 0; }</span></a>
+<a name="87"><span class="lineNum">      87 </span>                :<span class="lineCov">          1 :    bool operator&lt;(const sub_match&amp; that)const</span></a>
+<a name="88"><span class="lineNum">      88 </span>                :<span class="lineCov">          1 :    { return compare(that) &lt; 0; }</span></a>
+<a name="89"><span class="lineNum">      89 </span>                :<span class="lineCov">          1 :    bool operator&gt;(const sub_match&amp; that)const</span></a>
+<a name="90"><span class="lineNum">      90 </span>                :<span class="lineCov">          1 :    { return compare(that) &gt; 0; }</span></a>
+<a name="91"><span class="lineNum">      91 </span>                :<span class="lineCov">          1 :    bool operator&lt;=(const sub_match&amp; that)const</span></a>
+<a name="92"><span class="lineNum">      92 </span>                :<span class="lineCov">          1 :    { return compare(that) &lt;= 0; }</span></a>
+<a name="93"><span class="lineNum">      93 </span>                :<span class="lineCov">          1 :    bool operator&gt;=(const sub_match&amp; that)const</span></a>
+<a name="94"><span class="lineNum">      94 </span>                :<span class="lineCov">          1 :    { return compare(that) &gt;= 0; }</span></a>
 <a name="95"><span class="lineNum">      95 </span>                :            : </a>
 <a name="96"><span class="lineNum">      96 </span>                :            : #ifdef BOOST_REGEX_MATCH_EXTRA</a>
 <a name="97"><span class="lineNum">      97 </span>                :            :    typedef std::vector&lt;sub_match&lt;BidiIterator&gt; &gt; capture_sequence_type;</a>
@@ -189,37 +189,37 @@
 <a name="117"><span class="lineNum">     117 </span>                :            : public:</a>
 <a name="118"><span class="lineNum">     118 </span>                :            : </a>
 <a name="119"><span class="lineNum">     119 </span>                :            : #endif</a>
-<a name="120"><span class="lineNum">     120 </span>                :<span class="lineCov">        687 :    sub_match(const sub_match&amp; that, bool </span></a>
+<a name="120"><span class="lineNum">     120 </span>                :<span class="lineCov">       1212 :    sub_match(const sub_match&amp; that, bool </span></a>
 <a name="121"><span class="lineNum">     121 </span>                :            : #ifdef BOOST_REGEX_MATCH_EXTRA</a>
 <a name="122"><span class="lineNum">     122 </span>                :            :       deep_copy</a>
 <a name="123"><span class="lineNum">     123 </span>                :            : #endif</a>
 <a name="124"><span class="lineNum">     124 </span>                :            :       = true</a>
 <a name="125"><span class="lineNum">     125 </span>                :            :       ) </a>
 <a name="126"><span class="lineNum">     126 </span>                :            :       : std::pair&lt;BidiIterator, BidiIterator&gt;(that), </a>
-<a name="127"><span class="lineNum">     127 </span>                :<span class="lineCov">        687 :         matched(that.matched) </span></a>
+<a name="127"><span class="lineNum">     127 </span>                :<span class="lineCov">       1212 :         matched(that.matched) </span></a>
 <a name="128"><span class="lineNum">     128 </span>                :            :    {</a>
 <a name="129"><span class="lineNum">     129 </span>                :            : #ifdef BOOST_REGEX_MATCH_EXTRA</a>
 <a name="130"><span class="lineNum">     130 </span>                :            :       if(that.m_captures)</a>
 <a name="131"><span class="lineNum">     131 </span>                :            :          if(deep_copy)</a>
 <a name="132"><span class="lineNum">     132 </span>                :            :             m_captures.reset(new capture_sequence_type(*(that.m_captures)));</a>
 <a name="133"><span class="lineNum">     133 </span>                :            : #endif</a>
-<a name="134"><span class="lineNum">     134 </span>                :<span class="lineCov">        687 :    }</span></a>
-<a name="135"><span class="lineNum">     135 </span>                :<span class="lineCov">        203 :    sub_match&amp; operator=(const sub_match&amp; that)</span></a>
+<a name="134"><span class="lineNum">     134 </span>                :<span class="lineCov">       1212 :    }</span></a>
+<a name="135"><span class="lineNum">     135 </span>                :<span class="lineCov">        270 :    sub_match&amp; operator=(const sub_match&amp; that)</span></a>
 <a name="136"><span class="lineNum">     136 </span>                :            :    {</a>
-<a name="137"><span class="lineNum">     137 </span>                :<span class="lineCov">        203 :       this-&gt;first = that.first;</span></a>
-<a name="138"><span class="lineNum">     138 </span>                :<span class="lineCov">        203 :       this-&gt;second = that.second;</span></a>
-<a name="139"><span class="lineNum">     139 </span>                :<span class="lineCov">        203 :       matched = that.matched;</span></a>
+<a name="137"><span class="lineNum">     137 </span>                :<span class="lineCov">        270 :       this-&gt;first = that.first;</span></a>
+<a name="138"><span class="lineNum">     138 </span>                :<span class="lineCov">        270 :       this-&gt;second = that.second;</span></a>
+<a name="139"><span class="lineNum">     139 </span>                :<span class="lineCov">        270 :       matched = that.matched;</span></a>
 <a name="140"><span class="lineNum">     140 </span>                :            : #ifdef BOOST_REGEX_MATCH_EXTRA</a>
 <a name="141"><span class="lineNum">     141 </span>                :            :       if(that.m_captures)</a>
 <a name="142"><span class="lineNum">     142 </span>                :            :          get_captures() = *(that.m_captures);</a>
 <a name="143"><span class="lineNum">     143 </span>                :            : #endif</a>
-<a name="144"><span class="lineNum">     144 </span>                :<span class="lineCov">        203 :       return *this;</span></a>
+<a name="144"><span class="lineNum">     144 </span>                :<span class="lineCov">        270 :       return *this;</span></a>
 <a name="145"><span class="lineNum">     145 </span>                :            :    }</a>
 <a name="146"><span class="lineNum">     146 </span>                :            :    //</a>
 <a name="147"><span class="lineNum">     147 </span>                :            :    // Make this type a range, for both Boost.Range, and C++11:</a>
 <a name="148"><span class="lineNum">     148 </span>                :            :    //</a>
-<a name="149"><span class="lineNum">     149 </span>                :            :    BidiIterator begin()const { return this-&gt;first; }</a>
-<a name="150"><span class="lineNum">     150 </span>                :            :    BidiIterator end()const { return this-&gt;second; }</a>
+<a name="149"><span class="lineNum">     149 </span>                :<span class="lineNoCov">          0 :    BidiIterator begin()const { return this-&gt;first; }</span></a>
+<a name="150"><span class="lineNum">     150 </span>                :<span class="lineNoCov">          0 :    BidiIterator end()const { return this-&gt;second; }</span></a>
 <a name="151"><span class="lineNum">     151 </span>                :            : };</a>
 <a name="152"><span class="lineNum">     152 </span>                :            : </a>
 <a name="153"><span class="lineNum">     153 </span>                :            : BOOST_REGEX_MODULE_EXPORT typedef sub_match&lt;const char*&gt; csub_match;</a>
@@ -256,54 +256,54 @@
 <a name="184"><span class="lineNum">     184 </span>                :            : { return s.compare(m.str()) &gt; 0; }</a>
 <a name="185"><span class="lineNum">     185 </span>                :            : // comparison to std::basic_string&lt;&gt; part 2:</a>
 <a name="186"><span class="lineNum">     186 </span>                :            : BOOST_REGEX_MODULE_EXPORT template &lt;class RandomAccessIterator, class traits, class Allocator&gt;</a>
-<a name="187"><span class="lineNum">     187 </span>                :            : inline bool operator == (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</a>
+<a name="187"><span class="lineNum">     187 </span>                :<span class="lineCov">          3 : inline bool operator == (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</span></a>
 <a name="188"><span class="lineNum">     188 </span>                :            :                   const std::basic_string&lt;typename std::iterator_traits&lt;RandomAccessIterator&gt;::value_type, traits, Allocator&gt;&amp; s)</a>
-<a name="189"><span class="lineNum">     189 </span>                :            : { return m.str().compare(s) == 0; }</a>
+<a name="189"><span class="lineNum">     189 </span>        [<span class="branchCov" title="Branch 0 was taken 3 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          3 : { return m.str().compare(s) == 0; }</span></a>
 <a name="190"><span class="lineNum">     190 </span>                :            : BOOST_REGEX_MODULE_EXPORT template &lt;class RandomAccessIterator, class traits, class Allocator&gt;</a>
-<a name="191"><span class="lineNum">     191 </span>                :            : inline bool operator != (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</a>
+<a name="191"><span class="lineNum">     191 </span>                :<span class="lineCov">          1 : inline bool operator != (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</span></a>
 <a name="192"><span class="lineNum">     192 </span>                :            :                   const std::basic_string&lt;typename std::iterator_traits&lt;RandomAccessIterator&gt;::value_type, traits, Allocator&gt;&amp; s)</a>
-<a name="193"><span class="lineNum">     193 </span>                :            : { return m.str().compare(s) != 0; }</a>
+<a name="193"><span class="lineNum">     193 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 : { return m.str().compare(s) != 0; }</span></a>
 <a name="194"><span class="lineNum">     194 </span>                :            : BOOST_REGEX_MODULE_EXPORT template &lt;class RandomAccessIterator, class traits, class Allocator&gt;</a>
-<a name="195"><span class="lineNum">     195 </span>                :            : inline bool operator &lt; (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</a>
+<a name="195"><span class="lineNum">     195 </span>                :<span class="lineCov">          1 : inline bool operator &lt; (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</span></a>
 <a name="196"><span class="lineNum">     196 </span>                :            :                   const std::basic_string&lt;typename std::iterator_traits&lt;RandomAccessIterator&gt;::value_type, traits, Allocator&gt;&amp; s)</a>
-<a name="197"><span class="lineNum">     197 </span>                :            : { return m.str().compare(s) &lt; 0; }</a>
+<a name="197"><span class="lineNum">     197 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 : { return m.str().compare(s) &lt; 0; }</span></a>
 <a name="198"><span class="lineNum">     198 </span>                :            : BOOST_REGEX_MODULE_EXPORT template &lt;class RandomAccessIterator, class traits, class Allocator&gt;</a>
-<a name="199"><span class="lineNum">     199 </span>                :            : inline bool operator &gt; (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</a>
+<a name="199"><span class="lineNum">     199 </span>                :<span class="lineCov">          1 : inline bool operator &gt; (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</span></a>
 <a name="200"><span class="lineNum">     200 </span>                :            :                   const std::basic_string&lt;typename std::iterator_traits&lt;RandomAccessIterator&gt;::value_type, traits, Allocator&gt;&amp; s)</a>
-<a name="201"><span class="lineNum">     201 </span>                :            : { return m.str().compare(s) &gt; 0; }</a>
+<a name="201"><span class="lineNum">     201 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 : { return m.str().compare(s) &gt; 0; }</span></a>
 <a name="202"><span class="lineNum">     202 </span>                :            : BOOST_REGEX_MODULE_EXPORT template &lt;class RandomAccessIterator, class traits, class Allocator&gt;</a>
-<a name="203"><span class="lineNum">     203 </span>                :            : inline bool operator &lt;= (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</a>
+<a name="203"><span class="lineNum">     203 </span>                :<span class="lineCov">          1 : inline bool operator &lt;= (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</span></a>
 <a name="204"><span class="lineNum">     204 </span>                :            :                   const std::basic_string&lt;typename std::iterator_traits&lt;RandomAccessIterator&gt;::value_type, traits, Allocator&gt;&amp; s)</a>
-<a name="205"><span class="lineNum">     205 </span>                :            : { return m.str().compare(s) &lt;= 0; }</a>
+<a name="205"><span class="lineNum">     205 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 : { return m.str().compare(s) &lt;= 0; }</span></a>
 <a name="206"><span class="lineNum">     206 </span>                :            : BOOST_REGEX_MODULE_EXPORT template &lt;class RandomAccessIterator, class traits, class Allocator&gt;</a>
-<a name="207"><span class="lineNum">     207 </span>                :            : inline bool operator &gt;= (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</a>
+<a name="207"><span class="lineNum">     207 </span>                :<span class="lineCov">          1 : inline bool operator &gt;= (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</span></a>
 <a name="208"><span class="lineNum">     208 </span>                :            :                   const std::basic_string&lt;typename std::iterator_traits&lt;RandomAccessIterator&gt;::value_type, traits, Allocator&gt;&amp; s)</a>
-<a name="209"><span class="lineNum">     209 </span>                :            : { return m.str().compare(s) &gt;= 0; }</a>
+<a name="209"><span class="lineNum">     209 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 : { return m.str().compare(s) &gt;= 0; }</span></a>
 <a name="210"><span class="lineNum">     210 </span>                :            : // comparison to const charT* part 1:</a>
 <a name="211"><span class="lineNum">     211 </span>                :            : BOOST_REGEX_MODULE_EXPORT template &lt;class RandomAccessIterator&gt;</a>
-<a name="212"><span class="lineNum">     212 </span>                :            : inline bool operator == (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</a>
+<a name="212"><span class="lineNum">     212 </span>                :<span class="lineCov">          1 : inline bool operator == (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</span></a>
 <a name="213"><span class="lineNum">     213 </span>                :            :                   typename std::iterator_traits&lt;RandomAccessIterator&gt;::value_type const* s)</a>
-<a name="214"><span class="lineNum">     214 </span>                :            : { return m.str().compare(s) == 0; }</a>
+<a name="214"><span class="lineNum">     214 </span>                :<span class="lineCov">          1 : { return m.str().compare(s) == 0; }</span></a>
 <a name="215"><span class="lineNum">     215 </span>                :            : BOOST_REGEX_MODULE_EXPORT template &lt;class RandomAccessIterator&gt;</a>
-<a name="216"><span class="lineNum">     216 </span>                :            : inline bool operator != (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</a>
+<a name="216"><span class="lineNum">     216 </span>                :<span class="lineCov">          1 : inline bool operator != (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</span></a>
 <a name="217"><span class="lineNum">     217 </span>                :            :                   typename std::iterator_traits&lt;RandomAccessIterator&gt;::value_type const* s)</a>
-<a name="218"><span class="lineNum">     218 </span>                :            : { return m.str().compare(s) != 0; }</a>
+<a name="218"><span class="lineNum">     218 </span>                :<span class="lineCov">          1 : { return m.str().compare(s) != 0; }</span></a>
 <a name="219"><span class="lineNum">     219 </span>                :            : BOOST_REGEX_MODULE_EXPORT template &lt;class RandomAccessIterator&gt;</a>
-<a name="220"><span class="lineNum">     220 </span>                :            : inline bool operator &gt; (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</a>
+<a name="220"><span class="lineNum">     220 </span>                :<span class="lineCov">          1 : inline bool operator &gt; (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</span></a>
 <a name="221"><span class="lineNum">     221 </span>                :            :                   typename std::iterator_traits&lt;RandomAccessIterator&gt;::value_type const* s)</a>
-<a name="222"><span class="lineNum">     222 </span>                :            : { return m.str().compare(s) &gt; 0; }</a>
+<a name="222"><span class="lineNum">     222 </span>                :<span class="lineCov">          1 : { return m.str().compare(s) &gt; 0; }</span></a>
 <a name="223"><span class="lineNum">     223 </span>                :            : BOOST_REGEX_MODULE_EXPORT template &lt;class RandomAccessIterator&gt;</a>
-<a name="224"><span class="lineNum">     224 </span>                :            : inline bool operator &lt; (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</a>
+<a name="224"><span class="lineNum">     224 </span>                :<span class="lineCov">          1 : inline bool operator &lt; (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</span></a>
 <a name="225"><span class="lineNum">     225 </span>                :            :                   typename std::iterator_traits&lt;RandomAccessIterator&gt;::value_type const* s)</a>
-<a name="226"><span class="lineNum">     226 </span>                :            : { return m.str().compare(s) &lt; 0; }</a>
+<a name="226"><span class="lineNum">     226 </span>                :<span class="lineCov">          1 : { return m.str().compare(s) &lt; 0; }</span></a>
 <a name="227"><span class="lineNum">     227 </span>                :            : BOOST_REGEX_MODULE_EXPORT template &lt;class RandomAccessIterator&gt;</a>
-<a name="228"><span class="lineNum">     228 </span>                :            : inline bool operator &gt;= (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</a>
+<a name="228"><span class="lineNum">     228 </span>                :<span class="lineCov">          1 : inline bool operator &gt;= (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</span></a>
 <a name="229"><span class="lineNum">     229 </span>                :            :                   typename std::iterator_traits&lt;RandomAccessIterator&gt;::value_type const* s)</a>
-<a name="230"><span class="lineNum">     230 </span>                :            : { return m.str().compare(s) &gt;= 0; }</a>
+<a name="230"><span class="lineNum">     230 </span>                :<span class="lineCov">          1 : { return m.str().compare(s) &gt;= 0; }</span></a>
 <a name="231"><span class="lineNum">     231 </span>                :            : BOOST_REGEX_MODULE_EXPORT template &lt;class RandomAccessIterator&gt;</a>
-<a name="232"><span class="lineNum">     232 </span>                :            : inline bool operator &lt;= (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</a>
+<a name="232"><span class="lineNum">     232 </span>                :<span class="lineCov">          1 : inline bool operator &lt;= (const sub_match&lt;RandomAccessIterator&gt;&amp; m,</span></a>
 <a name="233"><span class="lineNum">     233 </span>                :            :                   typename std::iterator_traits&lt;RandomAccessIterator&gt;::value_type const* s)</a>
-<a name="234"><span class="lineNum">     234 </span>                :            : { return m.str().compare(s) &lt;= 0; }</a>
+<a name="234"><span class="lineNum">     234 </span>                :<span class="lineCov">          1 : { return m.str().compare(s) &lt;= 0; }</span></a>
 <a name="235"><span class="lineNum">     235 </span>                :            : // comparison to const charT* part 2:</a>
 <a name="236"><span class="lineNum">     236 </span>                :            : BOOST_REGEX_MODULE_EXPORT template &lt;class RandomAccessIterator&gt;</a>
 <a name="237"><span class="lineNum">     237 </span>                :            : inline bool operator == (typename std::iterator_traits&lt;RandomAccessIterator&gt;::value_type const* s,</a>
@@ -447,10 +447,10 @@
 <a name="375"><span class="lineNum">     375 </span>                :            : }</a>
 <a name="376"><span class="lineNum">     376 </span>                :            : BOOST_REGEX_MODULE_EXPORT template &lt;class charT, class traits, class RandomAccessIterator&gt;</a>
 <a name="377"><span class="lineNum">     377 </span>                :            : std::basic_ostream&lt;charT, traits&gt;&amp;</a>
-<a name="378"><span class="lineNum">     378 </span>                :            :    operator &lt;&lt; (std::basic_ostream&lt;charT, traits&gt;&amp; os,</a>
+<a name="378"><span class="lineNum">     378 </span>                :<span class="lineCov">          1 :    operator &lt;&lt; (std::basic_ostream&lt;charT, traits&gt;&amp; os,</span></a>
 <a name="379"><span class="lineNum">     379 </span>                :            :                 const sub_match&lt;RandomAccessIterator&gt;&amp; s)</a>
 <a name="380"><span class="lineNum">     380 </span>                :            : {</a>
-<a name="381"><span class="lineNum">     381 </span>                :            :    return (os &lt;&lt; s.str());</a>
+<a name="381"><span class="lineNum">     381 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :    return (os &lt;&lt; s.str());</span></a>
 <a name="382"><span class="lineNum">     382 </span>                :            : }</a>
 <a name="383"><span class="lineNum">     383 </span>                :            : </a>
 <a name="384"><span class="lineNum">     384 </span>                :            : } // namespace boost</a>

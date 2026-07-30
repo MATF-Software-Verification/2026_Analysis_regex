@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2026-05-20 19:57:09</td>
+            <td class="headerValue">2026-07-30 18:11:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -113,28 +113,28 @@
 <a name="42"><span class="lineNum">      42 </span>                :            : BOOST_REGEX_MODULE_EXPORT class regex_error : public std::runtime_error</a>
 <a name="43"><span class="lineNum">      43 </span>                :            : {</a>
 <a name="44"><span class="lineNum">      44 </span>                :            : public:</a>
-<a name="45"><span class="lineNum">      45 </span>                :<span class="lineCov">         15 :    explicit regex_error(const std::string&amp; s, regex_constants::error_type err = regex_constants::error_unknown, std::ptrdiff_t pos = 0)</span></a>
-<a name="46"><span class="lineNum">      46 </span>                :<span class="lineCov">         15 :       : std::runtime_error(s)</span></a>
-<a name="47"><span class="lineNum">      47 </span>                :<span class="lineCov">         15 :       , m_error_code(err)</span></a>
-<a name="48"><span class="lineNum">      48 </span>                :<span class="lineCov">         15 :       , m_position(pos)</span></a>
+<a name="45"><span class="lineNum">      45 </span>                :<span class="lineCov">         16 :    explicit regex_error(const std::string&amp; s, regex_constants::error_type err = regex_constants::error_unknown, std::ptrdiff_t pos = 0)</span></a>
+<a name="46"><span class="lineNum">      46 </span>                :<span class="lineCov">         16 :       : std::runtime_error(s)</span></a>
+<a name="47"><span class="lineNum">      47 </span>                :<span class="lineCov">         16 :       , m_error_code(err)</span></a>
+<a name="48"><span class="lineNum">      48 </span>                :<span class="lineCov">         16 :       , m_position(pos)</span></a>
 <a name="49"><span class="lineNum">      49 </span>                :            :    {</a>
-<a name="50"><span class="lineNum">      50 </span>                :<span class="lineCov">         15 :    }</span></a>
+<a name="50"><span class="lineNum">      50 </span>                :<span class="lineCov">         16 :    }</span></a>
 <a name="51"><span class="lineNum">      51 </span>                :            :    explicit regex_error(regex_constants::error_type err)</a>
 <a name="52"><span class="lineNum">      52 </span>                :            :       : std::runtime_error(::boost::BOOST_REGEX_DETAIL_NS::get_default_error_string(err))</a>
 <a name="53"><span class="lineNum">      53 </span>                :            :       , m_error_code(err)</a>
 <a name="54"><span class="lineNum">      54 </span>                :            :       , m_position(0)</a>
 <a name="55"><span class="lineNum">      55 </span>                :            :    {</a>
 <a name="56"><span class="lineNum">      56 </span>                :            :    }</a>
-<a name="57"><span class="lineNum">      57 </span>                :<span class="lineCov">         30 :    ~regex_error() noexcept override = default;</span></a>
-<a name="58"><span class="lineNum">      58 </span>                :<span class="lineCov">         15 :    regex_constants::error_type code()const</span></a>
-<a name="59"><span class="lineNum">      59 </span>                :<span class="lineCov">         15 :    { return m_error_code; }</span></a>
+<a name="57"><span class="lineNum">      57 </span>                :<span class="lineCov">         32 :    ~regex_error() noexcept override = default;</span></a>
+<a name="58"><span class="lineNum">      58 </span>                :<span class="lineCov">         16 :    regex_constants::error_type code()const</span></a>
+<a name="59"><span class="lineNum">      59 </span>                :<span class="lineCov">         16 :    { return m_error_code; }</span></a>
 <a name="60"><span class="lineNum">      60 </span>                :            :    std::ptrdiff_t position()const</a>
 <a name="61"><span class="lineNum">      61 </span>                :            :    { return m_position; }</a>
-<a name="62"><span class="lineNum">      62 </span>                :<span class="lineCov">         15 :    void raise()const </span></a>
+<a name="62"><span class="lineNum">      62 </span>                :<span class="lineCov">         16 :    void raise()const </span></a>
 <a name="63"><span class="lineNum">      63 </span>                :            :    {</a>
 <a name="64"><span class="lineNum">      64 </span>                :            : #ifndef BOOST_NO_EXCEPTIONS</a>
 <a name="65"><span class="lineNum">      65 </span>                :            : #ifndef BOOST_REGEX_STANDALONE</a>
-<a name="66"><span class="lineNum">      66 </span>                :<span class="lineCov">         15 :       ::boost::throw_exception(*this);</span></a>
+<a name="66"><span class="lineNum">      66 </span>                :<span class="lineCov">         16 :       ::boost::throw_exception(*this);</span></a>
 <a name="67"><span class="lineNum">      67 </span>                :            : #else</a>
 <a name="68"><span class="lineNum">      68 </span>                :            :       throw* this;</a>
 <a name="69"><span class="lineNum">      69 </span>                :            : #endif</a>

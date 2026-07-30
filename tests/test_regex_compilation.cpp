@@ -41,7 +41,7 @@ TEST(RegexError, BraceErrorExtended) {
     ExpectRegexError(R"(a{b}c)", boost::regex_constants::error_brace, boost::regex::extended);
 }
 
-TEST(RegexError, NoBraceErrorPerl) {
+TEST(RegexError, AmbiguousBraceCompilesPerl) {
     EXPECT_NO_THROW(boost::regex("a{}"));
     EXPECT_NO_THROW(boost::regex("a{1"));
     EXPECT_NO_THROW(boost::regex("a3}"));
@@ -53,39 +53,6 @@ TEST(RegexError, BadBraceError) {
     ExpectRegexError("a{3,1}", boost::regex_constants::error_badbrace);
 }
 
-// TEST(RegexError, BadRepeatError) {
-//     ExpectRegexError("*", boost::regex_constants::error_badrepeat);
-//     ExpectRegexError("+", boost::regex_constants::error_badrepeat);
-//     ExpectRegexError("?", boost::regex_constants::error_badrepeat);
-//     ExpectRegexError("a*+", boost::regex_constants::error_badrepeat);
-//     ExpectRegexError("a+{2}", boost::regex_constants::error_badrepeat);
-// }
-
-// TEST(RegexError, EscapeError) {
-//     ExpectRegexError(R"(a\)", boost::regex_constants::error_escape);
-//     ExpectRegexError(R"(\d)", boost::regex_constants::error_escape);
-// }
-
-// TEST(RegexCompilation, EmptyPattern) {
-//     const boost::regex pattern("");
-//     boost::smatch m;
-//     const std::string s = "abc";
-
-//     ASSERT_TRUE(boost::regex_search(s, m, pattern));
-//     EXPECT_TRUE(m[0].str().empty());
-//     EXPECT_EQ(m.position(std::size_t{0}), 0);
-// }
-
-// TEST(RegexCompilation, BasicSyntaxTreatsPlusAsLiteralCharacter) {
-//     const boost::regex pattern("a+b", boost::regex::basic);
-
-//     EXPECT_TRUE(boost::regex_match(std::string("a+b"), pattern));
-//     EXPECT_FALSE(boost::regex_match(std::string("aaab"), pattern));
-// }
-
-// TEST(RegexCompilation, ExtendedSyntaxTreatsPlusAsQuantifier) {
-//     const boost::regex pattern("a+b", boost::regex::extended);
-
-//     EXPECT_TRUE(boost::regex_match(std::string("aaab"), pattern));
-//     EXPECT_FALSE(boost::regex_match(std::string("a+b"), pattern));
-// }
+TEST(RegexErrpr, EscapeError) {
+    ExpectRegexError(R"(a\)", boost::regex_constants::error_escape);
+}

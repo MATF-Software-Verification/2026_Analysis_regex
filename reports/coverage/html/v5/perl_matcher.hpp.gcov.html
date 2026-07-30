@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2026-05-20 19:57:09</td>
+            <td class="headerValue">2026-07-30 18:11:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -124,12 +124,12 @@
 <a name="53"><span class="lineNum">      53 </span>                :            : //</a>
 <a name="54"><span class="lineNum">      54 </span>                :            : // error checking API:</a>
 <a name="55"><span class="lineNum">      55 </span>                :            : //</a>
-<a name="56"><span class="lineNum">      56 </span>                :<span class="lineCov">        193 : inline void verify_options(boost::regex_constants::syntax_option_type, match_flag_type mf)</span></a>
+<a name="56"><span class="lineNum">      56 </span>                :<span class="lineCov">        283 : inline void verify_options(boost::regex_constants::syntax_option_type, match_flag_type mf)</span></a>
 <a name="57"><span class="lineNum">      57 </span>                :            : {</a>
-<a name="58"><span class="lineNum">      58 </span>                :<span class="lineCov">        193 :    auto is_perl = (mf &amp; match_perl);</span></a>
-<a name="59"><span class="lineNum">      59 </span>                :<span class="lineCov">        193 :    auto is_posix = (mf &amp; match_posix);</span></a>
+<a name="58"><span class="lineNum">      58 </span>                :<span class="lineCov">        283 :    auto is_perl = (mf &amp; match_perl);</span></a>
+<a name="59"><span class="lineNum">      59 </span>                :<span class="lineCov">        283 :    auto is_posix = (mf &amp; match_posix);</span></a>
 <a name="60"><span class="lineNum">      60 </span>                :            : </a>
-<a name="61"><span class="lineNum">      61 </span>  [<span class="branchCov" title="Branch 0 was taken 193 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 193 times"> + </span>]:<span class="lineCov">        193 :    if (is_perl &amp;&amp; is_posix)</span></a>
+<a name="61"><span class="lineNum">      61 </span>  [<span class="branchCov" title="Branch 0 was taken 283 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 283 times"> + </span>]:<span class="lineCov">        283 :    if (is_perl &amp;&amp; is_posix)</span></a>
 <a name="62"><span class="lineNum">      62 </span>                :            :    {</a>
 <a name="63"><span class="lineNum">      63 </span>                :<span class="lineNoCov">          0 :       BOOST_REGEX_DETAIL_THROW(std::logic_error(&quot;Usage Error: Can't mix Perl and POSIX matching rules&quot;));</span></a>
 <a name="64"><span class="lineNum">      64 </span>                :            :    }</a>
@@ -137,12 +137,12 @@
 <a name="66"><span class="lineNum">      66 </span>                :            :    //</a>
 <a name="67"><span class="lineNum">      67 </span>                :            :    // can't mix match_extra with POSIX matching rules:</a>
 <a name="68"><span class="lineNum">      68 </span>                :            :    //</a>
-<a name="69"><span class="lineNum">      69 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 193 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">        193 :    if ((mf &amp; match_extra) &amp;&amp; is_posix)</span></a>
-<span class="lineNum">         </span>         <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 193 times"> + </span>]
+<a name="69"><span class="lineNum">      69 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 283 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">        283 :    if ((mf &amp; match_extra) &amp;&amp; is_posix)</span></a>
+<span class="lineNum">         </span>         <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 283 times"> + </span>]
 <a name="70"><span class="lineNum">      70 </span>                :            :    {</a>
 <a name="71"><span class="lineNum">      71 </span>                :<span class="lineNoCov">          0 :       BOOST_REGEX_DETAIL_THROW(std::logic_error(&quot;Usage Error: Can't mix regular expression captures with POSIX matching rules&quot;));</span></a>
 <a name="72"><span class="lineNum">      72 </span>                :            :    }</a>
-<a name="73"><span class="lineNum">      73 </span>                :<span class="lineCov">        193 : }</span></a>
+<a name="73"><span class="lineNum">      73 </span>                :<span class="lineCov">        283 : }</span></a>
 <a name="74"><span class="lineNum">      74 </span>                :            : //</a>
 <a name="75"><span class="lineNum">      75 </span>                :            : // function can_start:</a>
 <a name="76"><span class="lineNum">      76 </span>                :            : //</a>
@@ -151,9 +151,9 @@
 <a name="79"><span class="lineNum">      79 </span>                :            : {</a>
 <a name="80"><span class="lineNum">      80 </span>                :            :    return ((c &lt; static_cast&lt;charT&gt;(0)) ? true : ((c &gt;= static_cast&lt;charT&gt;(1 &lt;&lt; CHAR_BIT)) ? true : map[c] &amp; mask));</a>
 <a name="81"><span class="lineNum">      81 </span>                :            : }</a>
-<a name="82"><span class="lineNum">      82 </span>                :<span class="lineCov">        753 : inline bool can_start(char c, const unsigned char* map, unsigned char mask)</span></a>
+<a name="82"><span class="lineNum">      82 </span>                :<span class="lineCov">       1039 : inline bool can_start(char c, const unsigned char* map, unsigned char mask)</span></a>
 <a name="83"><span class="lineNum">      83 </span>                :            : {</a>
-<a name="84"><span class="lineNum">      84 </span>                :<span class="lineCov">        753 :    return map[(unsigned char)c] &amp; mask;</span></a>
+<a name="84"><span class="lineNum">      84 </span>                :<span class="lineCov">       1039 :    return map[(unsigned char)c] &amp; mask;</span></a>
 <a name="85"><span class="lineNum">      85 </span>                :            : }</a>
 <a name="86"><span class="lineNum">      86 </span>                :            : inline bool can_start(signed char c, const unsigned char* map, unsigned char mask)</a>
 <a name="87"><span class="lineNum">      87 </span>                :            : {</a>
@@ -333,14 +333,14 @@
 <a name="258"><span class="lineNum">     258 </span>                :            :    std::size_t count;        // the number of iterations so far</a>
 <a name="259"><span class="lineNum">     259 </span>                :            :    BidiIterator start_pos;   // where the last repeat started</a>
 <a name="260"><span class="lineNum">     260 </span>                :            : </a>
-<a name="261"><span class="lineNum">     261 </span>                :<span class="lineCov">         11 :    repeater_count* unwind_until(int n, repeater_count* p, int current_recursion_id)</span></a>
+<a name="261"><span class="lineNum">     261 </span>                :<span class="lineCov">         13 :    repeater_count* unwind_until(int n, repeater_count* p, int current_recursion_id)</span></a>
 <a name="262"><span class="lineNum">     262 </span>                :            :    { </a>
-<a name="263"><span class="lineNum">     263 </span>  [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span><span class="branchCov" title="Branch 2 was taken 5 times"> + </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span>]:<span class="lineCov">         16 :       while(p &amp;&amp; (p-&gt;state_id != n))</span></a>
+<a name="263"><span class="lineNum">     263 </span>  [<span class="branchCov" title="Branch 0 was taken 13 times"> + </span><span class="branchCov" title="Branch 1 was taken 7 times"> + </span><span class="branchCov" title="Branch 2 was taken 7 times"> + </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span>]:<span class="lineCov">         20 :       while(p &amp;&amp; (p-&gt;state_id != n))</span></a>
 <a name="264"><span class="lineNum">     264 </span>                :            :       {</a>
-<a name="265"><span class="lineNum">     265 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">          5 :          if(-2 - current_recursion_id == p-&gt;state_id)</span></a>
+<a name="265"><span class="lineNum">     265 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 7 times"> + </span>]:<span class="lineCov">          7 :          if(-2 - current_recursion_id == p-&gt;state_id)</span></a>
 <a name="266"><span class="lineNum">     266 </span>                :<span class="lineNoCov">          0 :             return 0;</span></a>
-<a name="267"><span class="lineNum">     267 </span>                :<span class="lineCov">          5 :          p = p-&gt;next;</span></a>
-<a name="268"><span class="lineNum">     268 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          5 :          if(p &amp;&amp; (p-&gt;state_id &lt; 0))</span></a>
+<a name="267"><span class="lineNum">     267 </span>                :<span class="lineCov">          7 :          p = p-&gt;next;</span></a>
+<a name="268"><span class="lineNum">     268 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 7 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          7 :          if(p &amp;&amp; (p-&gt;state_id &lt; 0))</span></a>
 <a name="269"><span class="lineNum">     269 </span>                :            :          {</a>
 <a name="270"><span class="lineNum">     270 </span>                :<span class="lineNoCov">          0 :             p = unwind_until(p-&gt;state_id, p, current_recursion_id);</span></a>
 <a name="271"><span class="lineNum">     271 </span>        [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span>]:<span class="lineNoCov">          0 :             if(!p)</span></a>
@@ -348,52 +348,52 @@
 <a name="273"><span class="lineNum">     273 </span>                :<span class="lineNoCov">          0 :             p = p-&gt;next;</span></a>
 <a name="274"><span class="lineNum">     274 </span>                :            :          }</a>
 <a name="275"><span class="lineNum">     275 </span>                :            :       }</a>
-<a name="276"><span class="lineNum">     276 </span>                :<span class="lineCov">         11 :       return p;</span></a>
+<a name="276"><span class="lineNum">     276 </span>                :<span class="lineCov">         13 :       return p;</span></a>
 <a name="277"><span class="lineNum">     277 </span>                :            :    }</a>
 <a name="278"><span class="lineNum">     278 </span>                :            : public:</a>
-<a name="279"><span class="lineNum">     279 </span>                :<span class="lineCov">        193 :    repeater_count(repeater_count** s) : stack(s), next(0), state_id(-1), count(0), start_pos() {}</span></a>
+<a name="279"><span class="lineNum">     279 </span>                :<span class="lineCov">        283 :    repeater_count(repeater_count** s) : stack(s), next(0), state_id(-1), count(0), start_pos() {}</span></a>
 <a name="280"><span class="lineNum">     280 </span>                :            :    </a>
-<a name="281"><span class="lineNum">     281 </span>                :<span class="lineCov">         11 :    repeater_count(int i, repeater_count** s, BidiIterator start, int current_recursion_id)</span></a>
-<a name="282"><span class="lineNum">     282 </span>                :<span class="lineCov">         11 :       : start_pos(start)</span></a>
+<a name="281"><span class="lineNum">     281 </span>                :<span class="lineCov">         13 :    repeater_count(int i, repeater_count** s, BidiIterator start, int current_recursion_id)</span></a>
+<a name="282"><span class="lineNum">     282 </span>                :<span class="lineCov">         13 :       : start_pos(start)</span></a>
 <a name="283"><span class="lineNum">     283 </span>                :            :    {</a>
-<a name="284"><span class="lineNum">     284 </span>                :<span class="lineCov">         11 :       state_id = i;</span></a>
-<a name="285"><span class="lineNum">     285 </span>                :<span class="lineCov">         11 :       stack = s;</span></a>
-<a name="286"><span class="lineNum">     286 </span>                :<span class="lineCov">         11 :       next = *stack;</span></a>
-<a name="287"><span class="lineNum">     287 </span>                :<span class="lineCov">         11 :       *stack = this;</span></a>
-<a name="288"><span class="lineNum">     288 </span>  [<span class="branchCov" title="Branch 0 was taken 5 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 5 times"> + </span>]:<span class="lineCov">         11 :       if((state_id &gt; next-&gt;state_id) &amp;&amp; (next-&gt;state_id &gt;= 0))</span></a>
+<a name="284"><span class="lineNum">     284 </span>                :<span class="lineCov">         13 :       state_id = i;</span></a>
+<a name="285"><span class="lineNum">     285 </span>                :<span class="lineCov">         13 :       stack = s;</span></a>
+<a name="286"><span class="lineNum">     286 </span>                :<span class="lineCov">         13 :       next = *stack;</span></a>
+<a name="287"><span class="lineNum">     287 </span>                :<span class="lineCov">         13 :       *stack = this;</span></a>
+<a name="288"><span class="lineNum">     288 </span>  [<span class="branchCov" title="Branch 0 was taken 7 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 7 times"> + </span>]:<span class="lineCov">         13 :       if((state_id &gt; next-&gt;state_id) &amp;&amp; (next-&gt;state_id &gt;= 0))</span></a>
 <a name="289"><span class="lineNum">     289 </span>                :<span class="lineNoCov">          0 :          count = 0;</span></a>
 <a name="290"><span class="lineNum">     290 </span>                :            :       else</a>
 <a name="291"><span class="lineNum">     291 </span>                :            :       {</a>
-<a name="292"><span class="lineNum">     292 </span>                :<span class="lineCov">         11 :          repeater_count* p = next;</span></a>
-<a name="293"><span class="lineNum">     293 </span>                :<span class="lineCov">         11 :          p = unwind_until(state_id, p, current_recursion_id);</span></a>
-<a name="294"><span class="lineNum">     294 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span>]:<span class="lineCov">         11 :          if(p)</span></a>
+<a name="292"><span class="lineNum">     292 </span>                :<span class="lineCov">         13 :          repeater_count* p = next;</span></a>
+<a name="293"><span class="lineNum">     293 </span>                :<span class="lineCov">         13 :          p = unwind_until(state_id, p, current_recursion_id);</span></a>
+<a name="294"><span class="lineNum">     294 </span>        [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 7 times"> + </span>]:<span class="lineCov">         13 :          if(p)</span></a>
 <a name="295"><span class="lineNum">     295 </span>                :            :          {</a>
 <a name="296"><span class="lineNum">     296 </span>                :<span class="lineCov">          6 :             count = p-&gt;count;</span></a>
 <a name="297"><span class="lineNum">     297 </span>                :<span class="lineCov">          6 :             start_pos = p-&gt;start_pos;</span></a>
 <a name="298"><span class="lineNum">     298 </span>                :            :          }</a>
 <a name="299"><span class="lineNum">     299 </span>                :            :          else</a>
-<a name="300"><span class="lineNum">     300 </span>                :<span class="lineCov">          5 :             count = 0;</span></a>
+<a name="300"><span class="lineNum">     300 </span>                :<span class="lineCov">          7 :             count = 0;</span></a>
 <a name="301"><span class="lineNum">     301 </span>                :            :       }</a>
-<a name="302"><span class="lineNum">     302 </span>                :<span class="lineCov">         11 :    }</span></a>
-<a name="303"><span class="lineNum">     303 </span>                :<span class="lineCov">        204 :    ~repeater_count()</span></a>
+<a name="302"><span class="lineNum">     302 </span>                :<span class="lineCov">         13 :    }</span></a>
+<a name="303"><span class="lineNum">     303 </span>                :<span class="lineCov">        296 :    ~repeater_count()</span></a>
 <a name="304"><span class="lineNum">     304 </span>                :            :    {</a>
-<a name="305"><span class="lineNum">     305 </span>        [<span class="branchCov" title="Branch 0 was taken 11 times"> + </span><span class="branchCov" title="Branch 1 was taken 193 times"> + </span>]:<span class="lineCov">        204 :       if(next)</span></a>
-<a name="306"><span class="lineNum">     306 </span>                :<span class="lineCov">         11 :          *stack = next;</span></a>
-<a name="307"><span class="lineNum">     307 </span>                :<span class="lineCov">        204 :    }</span></a>
-<a name="308"><span class="lineNum">     308 </span>                :<span class="lineCov">         21 :    std::size_t get_count() { return count; }</span></a>
+<a name="305"><span class="lineNum">     305 </span>        [<span class="branchCov" title="Branch 0 was taken 13 times"> + </span><span class="branchCov" title="Branch 1 was taken 283 times"> + </span>]:<span class="lineCov">        296 :       if(next)</span></a>
+<a name="306"><span class="lineNum">     306 </span>                :<span class="lineCov">         13 :          *stack = next;</span></a>
+<a name="307"><span class="lineNum">     307 </span>                :<span class="lineCov">        296 :    }</span></a>
+<a name="308"><span class="lineNum">     308 </span>                :<span class="lineCov">         25 :    std::size_t get_count() { return count; }</span></a>
 <a name="309"><span class="lineNum">     309 </span>                :<span class="lineNoCov">          0 :    int get_id() { return state_id; }</span></a>
-<a name="310"><span class="lineNum">     310 </span>                :<span class="lineCov">          6 :    std::size_t operator++() { return ++count; }</span></a>
-<a name="311"><span class="lineNum">     311 </span>                :<span class="lineCov">         11 :    bool check_null_repeat(const BidiIterator&amp; pos, std::size_t max)</span></a>
+<a name="310"><span class="lineNum">     310 </span>                :<span class="lineCov">          7 :    std::size_t operator++() { return ++count; }</span></a>
+<a name="311"><span class="lineNum">     311 </span>                :<span class="lineCov">         13 :    bool check_null_repeat(const BidiIterator&amp; pos, std::size_t max)</span></a>
 <a name="312"><span class="lineNum">     312 </span>                :            :    {</a>
 <a name="313"><span class="lineNum">     313 </span>                :            :       // this is called when we are about to start a new repeat,</a>
 <a name="314"><span class="lineNum">     314 </span>                :            :       // if the last one was NULL move our count to max,</a>
 <a name="315"><span class="lineNum">     315 </span>                :            :       // otherwise save the current position.</a>
-<a name="316"><span class="lineNum">     316 </span>  [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 5 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span>]:<span class="lineCov">         11 :       bool result = (count == 0) ? false : (pos == start_pos);</span></a>
-<a name="317"><span class="lineNum">     317 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 11 times"> + </span>]:<span class="lineCov">         11 :       if(result)</span></a>
+<a name="316"><span class="lineNum">     316 </span>  [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 7 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 6 times"> + </span>]:<span class="lineCov">         13 :       bool result = (count == 0) ? false : (pos == start_pos);</span></a>
+<a name="317"><span class="lineNum">     317 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 13 times"> + </span>]:<span class="lineCov">         13 :       if(result)</span></a>
 <a name="318"><span class="lineNum">     318 </span>                :<span class="lineNoCov">          0 :          count = max;</span></a>
 <a name="319"><span class="lineNum">     319 </span>                :            :       else</a>
-<a name="320"><span class="lineNum">     320 </span>                :<span class="lineCov">         11 :          start_pos = pos;</span></a>
-<a name="321"><span class="lineNum">     321 </span>                :<span class="lineCov">         11 :       return result;</span></a>
+<a name="320"><span class="lineNum">     320 </span>                :<span class="lineCov">         13 :          start_pos = pos;</span></a>
+<a name="321"><span class="lineNum">     321 </span>                :<span class="lineCov">         13 :       return result;</span></a>
 <a name="322"><span class="lineNum">     322 </span>                :            :    }</a>
 <a name="323"><span class="lineNum">     323 </span>                :            : };</a>
 <a name="324"><span class="lineNum">     324 </span>                :            : </a>
@@ -451,18 +451,18 @@
 <a name="376"><span class="lineNum">     376 </span>                :            :    typedef typename std::iterator_traits&lt;BidiIterator&gt;::difference_type difference_type;</a>
 <a name="377"><span class="lineNum">     377 </span>                :            :    typedef match_results&lt;BidiIterator, Allocator&gt; results_type;</a>
 <a name="378"><span class="lineNum">     378 </span>                :            : </a>
-<a name="379"><span class="lineNum">     379 </span>                :<span class="lineCov">        193 :    perl_matcher(BidiIterator first, BidiIterator end, </span></a>
+<a name="379"><span class="lineNum">     379 </span>                :<span class="lineCov">        283 :    perl_matcher(BidiIterator first, BidiIterator end, </span></a>
 <a name="380"><span class="lineNum">     380 </span>                :            :       match_results&lt;BidiIterator, Allocator&gt;&amp; what, </a>
 <a name="381"><span class="lineNum">     381 </span>                :            :       const basic_regex&lt;char_type, traits&gt;&amp; e,</a>
 <a name="382"><span class="lineNum">     382 </span>                :            :       match_flag_type f,</a>
 <a name="383"><span class="lineNum">     383 </span>                :            :       BidiIterator l_base)</a>
-<a name="384"><span class="lineNum">     384 </span>                :<span class="lineCov">        386 :       :  m_result(what), base(first), last(end), </span></a>
-<a name="385"><span class="lineNum">     385 </span>        [<span class="branchCov" title="Branch 0 was taken 193 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        193 :          position(first), backstop(l_base), re(e), traits_inst(e.get_traits()), </span></a>
-<a name="386"><span class="lineNum">     386 </span>                :<span class="lineCov">        193 :          m_independent(false), next_count(&amp;rep_obj), rep_obj(&amp;next_count)</span></a>
-<a name="387"><span class="lineNum">     387 </span>                :<span class="lineCov">        386 :       , m_recursions(0)</span></a>
+<a name="384"><span class="lineNum">     384 </span>                :<span class="lineCov">        566 :       :  m_result(what), base(first), last(end), </span></a>
+<a name="385"><span class="lineNum">     385 </span>        [<span class="branchCov" title="Branch 0 was taken 283 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        283 :          position(first), backstop(l_base), re(e), traits_inst(e.get_traits()), </span></a>
+<a name="386"><span class="lineNum">     386 </span>                :<span class="lineCov">        283 :          m_independent(false), next_count(&amp;rep_obj), rep_obj(&amp;next_count)</span></a>
+<a name="387"><span class="lineNum">     387 </span>                :<span class="lineCov">        566 :       , m_recursions(0)</span></a>
 <a name="388"><span class="lineNum">     388 </span>                :            :    {</a>
-<a name="389"><span class="lineNum">     389 </span>        [<span class="branchCov" title="Branch 0 was taken 193 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        193 :       construct_init(e, f);</span></a>
-<a name="390"><span class="lineNum">     390 </span>                :<span class="lineCov">        193 :    }</span></a>
+<a name="389"><span class="lineNum">     389 </span>        [<span class="branchCov" title="Branch 0 was taken 283 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        283 :       construct_init(e, f);</span></a>
+<a name="390"><span class="lineNum">     390 </span>                :<span class="lineCov">        283 :    }</span></a>
 <a name="391"><span class="lineNum">     391 </span>                :            : </a>
 <a name="392"><span class="lineNum">     392 </span>                :            :    bool match();</a>
 <a name="393"><span class="lineNum">     393 </span>                :            :    bool find();</a>
@@ -510,9 +510,9 @@
 <a name="435"><span class="lineNum">     435 </span>                :            :    bool match_char_repeat();</a>
 <a name="436"><span class="lineNum">     436 </span>                :            :    bool match_dot_repeat_fast();</a>
 <a name="437"><span class="lineNum">     437 </span>                :            :    bool match_dot_repeat_slow();</a>
-<a name="438"><span class="lineNum">     438 </span>                :<span class="lineCov">         11 :    bool match_dot_repeat_dispatch()</span></a>
+<a name="438"><span class="lineNum">     438 </span>                :<span class="lineCov">          9 :    bool match_dot_repeat_dispatch()</span></a>
 <a name="439"><span class="lineNum">     439 </span>                :            :    {</a>
-<a name="440"><span class="lineNum">     440 </span>                :<span class="lineCov">         11 :       return ::boost::is_random_access_iterator&lt;BidiIterator&gt;::value ? match_dot_repeat_fast() : match_dot_repeat_slow();</span></a>
+<a name="440"><span class="lineNum">     440 </span>                :<span class="lineCov">          9 :       return ::boost::is_random_access_iterator&lt;BidiIterator&gt;::value ? match_dot_repeat_fast() : match_dot_repeat_slow();</span></a>
 <a name="441"><span class="lineNum">     441 </span>                :            :    }</a>
 <a name="442"><span class="lineNum">     442 </span>                :            :    bool match_backstep();</a>
 <a name="443"><span class="lineNum">     443 </span>                :            :    bool match_assert_backref();</a>
@@ -656,14 +656,14 @@
 <a name="581"><span class="lineNum">     581 </span>                :            : };</a>
 <a name="582"><span class="lineNum">     582 </span>                :            : </a>
 <a name="583"><span class="lineNum">     583 </span>                :            : template &lt;class Matcher&gt;</a>
-<a name="584"><span class="lineNum">     584 </span>                :<span class="lineCov">         92 : inline bool factory_match(Matcher&amp; m)</span></a>
+<a name="584"><span class="lineNum">     584 </span>                :<span class="lineCov">        121 : inline bool factory_match(Matcher&amp; m)</span></a>
 <a name="585"><span class="lineNum">     585 </span>                :            : {</a>
-<a name="586"><span class="lineNum">     586 </span>                :<span class="lineCov">         92 :    return m.match();</span></a>
+<a name="586"><span class="lineNum">     586 </span>                :<span class="lineCov">        121 :    return m.match();</span></a>
 <a name="587"><span class="lineNum">     587 </span>                :            : }</a>
 <a name="588"><span class="lineNum">     588 </span>                :            : template &lt;class Matcher&gt;</a>
-<a name="589"><span class="lineNum">     589 </span>                :<span class="lineCov">        101 : inline bool factory_find(Matcher&amp; m)</span></a>
+<a name="589"><span class="lineNum">     589 </span>                :<span class="lineCov">        162 : inline bool factory_find(Matcher&amp; m)</span></a>
 <a name="590"><span class="lineNum">     590 </span>                :            : {</a>
-<a name="591"><span class="lineNum">     591 </span>                :<span class="lineCov">        101 :    return m.find();</span></a>
+<a name="591"><span class="lineNum">     591 </span>                :<span class="lineCov">        162 :    return m.find();</span></a>
 <a name="592"><span class="lineNum">     592 </span>                :            : }</a>
 <a name="593"><span class="lineNum">     593 </span>                :            : </a>
 <a name="594"><span class="lineNum">     594 </span>                :            : #ifdef BOOST_REGEX_AS_MODULE</a>

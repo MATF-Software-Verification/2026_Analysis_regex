@@ -10,8 +10,8 @@ TEST(RegexGroups, SimpleCaptureGroup) {
     std::string s = "abc 123 edf";
     boost::smatch m;
     ASSERT_TRUE(boost::regex_search(s, m, pattern));
-    EXPECT_EQ(m.position(std::size_t{0}), 4);
-    EXPECT_EQ(m.length(std::size_t{0}), 3);
+    EXPECT_EQ(m.position(0uz), 4);
+    EXPECT_EQ(m.length(0), 3);
     EXPECT_EQ(m.prefix().str(), "abc ");
     EXPECT_EQ(m.suffix().str(), " edf");
     EXPECT_EQ(m[0].str(), "123");

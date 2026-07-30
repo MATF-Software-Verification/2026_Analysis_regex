@@ -8,7 +8,6 @@ CFG_FILE="$PROJECT_ROOT/project.cfg"
  
 if [[ -f "$CFG_FILE" ]]; then
     set -a
-    # shellcheck source=/dev/null
     source "$CFG_FILE"
     set +a
 else

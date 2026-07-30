@@ -4,18 +4,118 @@
 #include <string>
 #include <vector>
 #include <tuple>
+#include <algorithm>
+#include <iterator>
+#include <cstring>
 
 // #### Iterators ####
 
-TEST(RegexIterator, FindAllMatches) {
+TEST(RegexIterator, DefaultConstruction) {
+    const boost::sregex_iterator first;
+    const boost::sregex_iterator second;
+
+    EXPECT_EQ(first, second);
+}
+
+TEST(RegexIterator, CopyConstructedIterator) {
+    const std::string input_str = "id=123 foo=42";
+    const boost::regex pattern(R"((\w+)=(\d+))");
+
+    const boost::sregex_iterator original(input_str.begin(), input_str.end(), pattern);
+    const boost::sregex_iterator copied(original);
+
+    ASSERT_NE(original, boost::sregex_iterator());
+    ASSERT_NE(copied, boost::sregex_iterator());
+
+    EXPECT_EQ((*original)[0].str(), (*copied)[0].str());
+    EXPECT_EQ((*original)[1].str(), (*copied)[1].str());
+    EXPECT_EQ((*original)[2].str(), (*copied)[2].str());
+
+}
+
+TEST(RegexIterator, AssignedIterator) {
+    const std::string input_str = "id=123 foo=42";
+    const boost::regex pattern(R"((\w+)=(\d+))");
+
+    const boost::sregex_iterator original(input_str.begin(), input_str.end(), pattern);
+    boost::sregex_iterator assigned;
+
+    assigned = original;
+
+    ASSERT_NE(original, boost::sregex_iterator());
+    ASSERT_NE(assigned, boost::sregex_iterator());
+
+    EXPECT_EQ((*original)[0].str(), (*assigned)[0].str());
+    EXPECT_EQ((*original)[1].str(), (*assigned)[1].str());
+    EXPECT_EQ((*original)[2].str(), (*assigned)[2].str());
+
+}
+
+
+TEST(RegexIterator, IncrementMovesToNextMatch) {
+    const std::string input_str = "id=123 foo=42";
+    const boost::regex pattern(R"((\w+)=(\d+))");
+
+    boost::sregex_iterator iterator(input_str.begin(), input_str.end(), pattern);
+    const boost::sregex_iterator end;
+
+    ASSERT_NE(iterator, end);
+
+    EXPECT_EQ("id=123", (*iterator)[0].str());
+
+    ++iterator;
+
+    ASSERT_NE(iterator, end);
+    EXPECT_EQ("foo=42", (*iterator)[0].str());
+
+    iterator++;
+
+    EXPECT_EQ(iterator, end);
+}
+
+TEST(RegexIterator, PostIncrementReturnsPreviousMatch) {
+    const std::string input_str = "id=123 foo=42";
+    const boost::regex pattern(R"((\w+)=(\d+))");
+
+    boost::sregex_iterator iterator(input_str.begin(), input_str.end(), pattern);
+  
+    const boost::smatch previous = *iterator++;
+
+    ASSERT_NE(iterator, boost::sregex_iterator());
+
+    EXPECT_EQ("id=123", previous[0].str());
+    EXPECT_EQ("foo=42", (*iterator)[0].str());
+}
+
+TEST(RegexIterator, MatchNotNullSkipsEmptyMatches)
+{
+    const std::string input_str = "abc";
+    const boost::regex pattern(R"(z*)");
+
+    const boost::sregex_iterator iterator(input_str.begin(), input_str.end(), pattern);
+    const boost::sregex_iterator not_null_iterator(
+        input_str.begin(),
+        input_str.end(),
+        pattern,
+        boost::regex_constants::match_not_null);
+
+    ASSERT_NE(iterator, boost::sregex_iterator());
+    EXPECT_EQ("", iterator->str());
+
+    EXPECT_EQ(not_null_iterator, boost::sregex_iterator());
+}
+
+
+
+TEST(RegexIterator, CRegexIteratorOnConstCharPointerRange) {
     boost::regex pattern(R"(\b\w+\b)");
-    std::string s = "This is a test.";
+    const char* s = "This is a test.";
     std::vector<std::string> expected = {"This", "is", "a", "test"};
     
     std::vector<std::string> actual;
-    boost::sregex_iterator it(s.begin(), s.end(), pattern);
-    boost::sregex_iterator end;
-    std::for_each(it, end, [&actual](const boost::smatch& m) {
+    boost::cregex_iterator it(s, s + std::strlen(s), pattern);
+    boost::cregex_iterator end;
+    std::for_each(it, end, [&actual](const boost::cmatch& m) {
         actual.push_back(m.str());
     });
     
@@ -45,7 +145,7 @@ TEST(RegexIterator, CaptureGroupsWithIterator) {
         {"z", "3"}
     };
     std::vector<std::tuple<std::string, std::string>> actual;
-    std::for_each(it, end, [&actual](const boost::smatch& m) { // same as const boost::match_results<std::string::const_iterator>
+    std::for_each(it, end, [&actual](const boost::smatch& m) {
         actual.emplace_back(m[1].str(), m[2].str());
     });
 
@@ -91,27 +191,101 @@ TEST(RegexIterator, SourceStringMustOutliveIterator) {
 
 // #### Token iterator ####     
 
-TEST(RegexTokenIterator, SplitString) {
-    boost::regex pattern(R"(,\s*)");
-    std::string s = "one, two, three,four";
-    boost::sregex_token_iterator it(s.begin(), s.end(), pattern, -1); 
-    boost::sregex_token_iterator end;
+TEST(RegexTokenIterator, DefaultConstruction) {
+    const boost::sregex_token_iterator first;
+    const boost::sregex_token_iterator second;
 
-    std::vector<std::string> tokens;
-    std::for_each(it, end, [&tokens](const std::string& m) {
-        tokens.push_back(m);
-    });
+    EXPECT_EQ(first, second);
+}
 
-    ASSERT_EQ(tokens.size(), 4);
-    EXPECT_EQ(tokens[0], "one");
-    EXPECT_EQ(tokens[3], "four");
+TEST(RegexTokenIterator, CopyConstructedIterator) {
+    const std::string input_str = "one,two,three";
+    const boost::regex pattern(R"(,)");
+
+    const boost::sregex_token_iterator original(input_str.begin(), input_str.end(), pattern, -1);
+    const boost::sregex_token_iterator copied(original);
+
+    ASSERT_NE(original, boost::sregex_token_iterator());
+    ASSERT_NE(copied, boost::sregex_token_iterator());
+
+    EXPECT_EQ((*original).str(), (*copied).str());
+    EXPECT_EQ("one", (*copied).str());
+}
+
+TEST(RegexTokenIterator, AssignedIterator) {
+    const std::string input_str = "one,two,three";
+    const boost::regex pattern(R"(,)");
+
+    const boost::sregex_token_iterator original(input_str.begin(), input_str.end(), pattern, -1);
+    boost::sregex_token_iterator assigned;
+
+    assigned = original;
+
+    ASSERT_NE(original, boost::sregex_token_iterator());
+    ASSERT_NE(assigned, boost::sregex_token_iterator());
+
+    EXPECT_EQ((*original).str(), (*assigned).str());
+    EXPECT_EQ("one", (*assigned).str());
+}
+
+
+TEST(RegexTokenIterator, IncrementMovesToNextToken) {
+    const std::string input_str = "one,two";
+    const boost::regex pattern(R"(,)");
+
+    boost::sregex_token_iterator iterator(input_str.begin(), input_str.end(), pattern, -1);
+    const boost::sregex_token_iterator end;
+
+    ASSERT_NE(iterator, end);
+
+    EXPECT_EQ("one", iterator->str());
+
+    ++iterator;
+
+    ASSERT_NE(iterator, end);
+    EXPECT_EQ("two", iterator->str());
+
+    iterator++;
+
+    EXPECT_EQ(iterator, end);
+}
+
+TEST(RegexTokenIterator, PostIncrementReturnsPreviousToken) {
+    const std::string input_str = "one,two";
+    const boost::regex pattern(R"(,)");
+
+    boost::sregex_token_iterator iterator(input_str.begin(), input_str.end(), pattern, -1);
+  
+    const boost::ssub_match previous = *iterator++;
+
+    ASSERT_NE(iterator, boost::sregex_token_iterator());
+
+    EXPECT_EQ("one", previous.str());
+    EXPECT_EQ("two", iterator->str());
+}
+
+TEST(RegexTokenIterator, SplitNoMatchReturnsWholeInput) {
+    const boost::regex pattern(R"(,)");
+    const std::string input_str = "one two three";
+
+    boost::sregex_token_iterator iterator(input_str.begin(), input_str.end(), pattern, -1); 
+    const boost::sregex_token_iterator end;
+
+    ASSERT_NE(iterator, end);
+
+    EXPECT_EQ(input_str, iterator->str());
+
+    ++iterator;
+
+    EXPECT_EQ(iterator, end);
+
 } 
 
 TEST(RegexTokenIterator, ExtractWholeSubmatch) {
-    boost::regex pattern(R"((\d{2})\.(\d{2})\.(\d{4}))");
-    std::string s = "01.01.2001, 02.02.2002";
+    const boost::regex pattern(R"((\d{2})\.(\d{2})\.(\d{4}))");
+    const std::string s = "01.01.2001, 02.02.2002";
     boost::sregex_token_iterator it(s.begin(), s.end(), pattern, 0);
-    boost::sregex_token_iterator end;
+    const boost::sregex_token_iterator end;
 
     std::vector<std::string> tokens;
     std::for_each(it, end, [&tokens](const std::string& m) {
@@ -125,27 +299,32 @@ TEST(RegexTokenIterator, ExtractWholeSubmatch) {
 } 
 
 TEST(RegexTokenIterator, ExtractCaptureGroupTokens) {
-    boost::regex pattern(R"((\d{2})\.(\d{2})\.(\d{4}))");
-    std::string s = "01.01.2001";
-    boost::sregex_token_iterator it(s.begin(), s.end(), pattern, {1, 2, 3}); // if submatch is a positive integer n, then enumerates the text that matches the nth submatch of the expression regex
-    boost::sregex_token_iterator end;
+    const boost::regex pattern(R"((\d{2})\.(\d{2})\.(\d{4}))");
+    const std::string s = "01.01.2001, 02.02.2002";
+    boost::sregex_token_iterator it(s.begin(), s.end(), pattern, {1, 2, 3});
+    const boost::sregex_token_iterator end;
 
     std::vector<std::string> tokens;
     std::for_each(it, end, [&tokens](const std::string& m) {
         tokens.push_back(m);
     });
 
-    ASSERT_EQ(tokens.size(), 3);
+    ASSERT_EQ(tokens.size(), 6);
+
     EXPECT_EQ(tokens[0], "01");
     EXPECT_EQ(tokens[1], "01");
     EXPECT_EQ(tokens[2], "2001");
+
+    EXPECT_EQ(tokens[3], "02");
+    EXPECT_EQ(tokens[4], "02");
+    EXPECT_EQ(tokens[5], "2002");
 }
 
 TEST(RegexTokenIterator, EmptyTokensBetweenSeparators) {
-    boost::regex pattern(R"(,)");
-    std::string s = "a,,b,";
+    const boost::regex pattern(R"(,)");
+    const std::string s = "a,,b,";
     boost::sregex_token_iterator it(s.begin(), s.end(), pattern, -1);
-    boost::sregex_token_iterator end;
+    const boost::sregex_token_iterator end;
 
     std::vector<std::string> tokens;
     std::for_each(it, end, [&tokens](const std::string& m) {
@@ -158,49 +337,28 @@ TEST(RegexTokenIterator, EmptyTokensBetweenSeparators) {
     EXPECT_EQ(tokens[2], "b");
 }
 
-// #### Iterator Cases ####
 
-TEST(RegexIterator, ExtractQuotedStringsWithBackreference) {
-    const boost::regex pattern(R"((['"])(.*?)\1)");
-    const std::string s = R"("hello" and 'world')";
+TEST(RegexTokenIterator, MixedSplitAndCaptureGroupTokens)
+{
+    const std::string input_str = "x=1;y=2";
+    const boost::regex pattern(R"((\w+)=(\d+))");
 
-    boost::sregex_iterator it(s.begin(), s.end(), pattern);
-    boost::sregex_iterator end;
-
-    std::vector<std::string> quotes;
-    std::vector<std::string> contents;
-
-    for (; it != end; ++it) {
-        quotes.push_back((*it)[1].str());
-        contents.push_back((*it)[2].str());
-    }
-
-    ASSERT_EQ(quotes.size(), 2u);
-    ASSERT_EQ(contents.size(), 2u);
-    EXPECT_EQ(quotes[0], "\"");
-    EXPECT_EQ(contents[0], "hello");
-    EXPECT_EQ(quotes[1], "'");
-    EXPECT_EQ(contents[1], "world");
-}
-
-TEST(RegexTokenIterator, KeepSeparatorsAndTokens) {
-    const boost::regex pattern(R"(,\s*)");
-    const std::string s = "one, two,three";
-
-    boost::sregex_token_iterator it(s.begin(), s.end(), pattern, {-1, 0});
-    boost::sregex_token_iterator end;
+    boost::sregex_token_iterator iterator(input_str.begin(), input_str.end(), pattern, {-1, 1, 2});
+    const boost::sregex_token_iterator end;
 
     std::vector<std::string> tokens;
-    for (; it != end; ++it) {
-        tokens.push_back(it->str());
-    }
+    std::for_each(iterator, end, [&tokens](const std::string& m) {
+        tokens.push_back(m);
+    }); 
 
-    ASSERT_EQ(tokens.size(), 5u);
-    EXPECT_EQ(tokens[0], "one");
-    EXPECT_EQ(tokens[1], ", ");
-    EXPECT_EQ(tokens[2], "two");
-    EXPECT_EQ(tokens[3], ",");
-    EXPECT_EQ(tokens[4], "three");
+    ASSERT_EQ(tokens.size(), 6);
+
+    EXPECT_EQ("", tokens[0]);
+    EXPECT_EQ("x", tokens[1]);
+    EXPECT_EQ("1", tokens[2]);
+
+    EXPECT_EQ(";", tokens[3]);
+    EXPECT_EQ("y", tokens[4]);
+    EXPECT_EQ("2", tokens[5]);
 }
-
 

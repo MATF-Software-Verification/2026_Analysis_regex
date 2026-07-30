@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2026-05-20 19:57:09</td>
+            <td class="headerValue">2026-07-30 18:11:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">9</td>
@@ -181,58 +181,58 @@
 <a name="110"><span class="lineNum">     110 </span>                :            :    raw_storage();</a>
 <a name="111"><span class="lineNum">     111 </span>                :            :    raw_storage(size_type n);</a>
 <a name="112"><span class="lineNum">     112 </span>                :            : </a>
-<a name="113"><span class="lineNum">     113 </span>                :<span class="lineCov">        115 :    ~raw_storage()</span></a>
+<a name="113"><span class="lineNum">     113 </span>                :<span class="lineCov">        174 :    ~raw_storage()</span></a>
 <a name="114"><span class="lineNum">     114 </span>                :            :    {</a>
-<a name="115"><span class="lineNum">     115 </span>                :<span class="lineCov">        115 :       ::operator delete(start);</span></a>
-<a name="116"><span class="lineNum">     116 </span>                :<span class="lineCov">        115 :    }</span></a>
+<a name="115"><span class="lineNum">     115 </span>                :<span class="lineCov">        174 :       ::operator delete(start);</span></a>
+<a name="116"><span class="lineNum">     116 </span>                :<span class="lineCov">        174 :    }</span></a>
 <a name="117"><span class="lineNum">     117 </span>                :            : </a>
-<a name="118"><span class="lineNum">     118 </span>                :<span class="lineCov">        156 :    void  resize(size_type n)</span></a>
+<a name="118"><span class="lineNum">     118 </span>                :<span class="lineCov">        257 :    void  resize(size_type n)</span></a>
 <a name="119"><span class="lineNum">     119 </span>                :            :    {</a>
-<a name="120"><span class="lineNum">     120 </span>        [<span class="branchCov" title="Branch 0 was taken 41 times"> + </span><span class="branchCov" title="Branch 1 was taken 115 times"> + </span>]:<span class="lineCov">        156 :       size_type newsize = start ? last - start : 1024;</span></a>
-<a name="121"><span class="lineNum">     121 </span>        [<span class="branchCov" title="Branch 0 was taken 41 times"> + </span><span class="branchCov" title="Branch 1 was taken 156 times"> + </span>]:<span class="lineCov">        197 :       while (newsize &lt; n)</span></a>
-<a name="122"><span class="lineNum">     122 </span>                :<span class="lineCov">         41 :          newsize *= 2;</span></a>
-<a name="123"><span class="lineNum">     123 </span>                :<span class="lineCov">        156 :       size_type datasize = end - start;</span></a>
+<a name="120"><span class="lineNum">     120 </span>        [<span class="branchCov" title="Branch 0 was taken 83 times"> + </span><span class="branchCov" title="Branch 1 was taken 174 times"> + </span>]:<span class="lineCov">        257 :       size_type newsize = start ? last - start : 1024;</span></a>
+<a name="121"><span class="lineNum">     121 </span>        [<span class="branchCov" title="Branch 0 was taken 83 times"> + </span><span class="branchCov" title="Branch 1 was taken 257 times"> + </span>]:<span class="lineCov">        340 :       while (newsize &lt; n)</span></a>
+<a name="122"><span class="lineNum">     122 </span>                :<span class="lineCov">         83 :          newsize *= 2;</span></a>
+<a name="123"><span class="lineNum">     123 </span>                :<span class="lineCov">        257 :       size_type datasize = end - start;</span></a>
 <a name="124"><span class="lineNum">     124 </span>                :            :       // extend newsize to WORD/DWORD boundary:</a>
-<a name="125"><span class="lineNum">     125 </span>                :<span class="lineCov">        156 :       newsize = (newsize + padding_mask) &amp; ~(padding_mask);</span></a>
+<a name="125"><span class="lineNum">     125 </span>                :<span class="lineCov">        257 :       newsize = (newsize + padding_mask) &amp; ~(padding_mask);</span></a>
 <a name="126"><span class="lineNum">     126 </span>                :            : </a>
 <a name="127"><span class="lineNum">     127 </span>                :            :       // allocate and copy data:</a>
-<a name="128"><span class="lineNum">     128 </span>                :<span class="lineCov">        156 :       pointer ptr = static_cast&lt;pointer&gt;(::operator new(newsize));</span></a>
+<a name="128"><span class="lineNum">     128 </span>                :<span class="lineCov">        257 :       pointer ptr = static_cast&lt;pointer&gt;(::operator new(newsize));</span></a>
 <a name="129"><span class="lineNum">     129 </span>                :            :       BOOST_REGEX_NOEH_ASSERT(ptr)</a>
-<a name="130"><span class="lineNum">     130 </span>        [<span class="branchCov" title="Branch 0 was taken 41 times"> + </span><span class="branchCov" title="Branch 1 was taken 115 times"> + </span>]:<span class="lineCov">        156 :          if (start)</span></a>
-<a name="131"><span class="lineNum">     131 </span>                :<span class="lineCov">         41 :             std::memcpy(ptr, start, datasize);</span></a>
+<a name="130"><span class="lineNum">     130 </span>        [<span class="branchCov" title="Branch 0 was taken 83 times"> + </span><span class="branchCov" title="Branch 1 was taken 174 times"> + </span>]:<span class="lineCov">        257 :          if (start)</span></a>
+<a name="131"><span class="lineNum">     131 </span>                :<span class="lineCov">         83 :             std::memcpy(ptr, start, datasize);</span></a>
 <a name="132"><span class="lineNum">     132 </span>                :            : </a>
 <a name="133"><span class="lineNum">     133 </span>                :            :       // get rid of old buffer:</a>
-<a name="134"><span class="lineNum">     134 </span>                :<span class="lineCov">        156 :       ::operator delete(start);</span></a>
+<a name="134"><span class="lineNum">     134 </span>                :<span class="lineCov">        257 :       ::operator delete(start);</span></a>
 <a name="135"><span class="lineNum">     135 </span>                :            : </a>
 <a name="136"><span class="lineNum">     136 </span>                :            :       // and set up pointers:</a>
-<a name="137"><span class="lineNum">     137 </span>                :<span class="lineCov">        156 :       start = ptr;</span></a>
-<a name="138"><span class="lineNum">     138 </span>                :<span class="lineCov">        156 :       end = ptr + datasize;</span></a>
-<a name="139"><span class="lineNum">     139 </span>                :<span class="lineCov">        156 :       last = ptr + newsize;</span></a>
-<a name="140"><span class="lineNum">     140 </span>                :<span class="lineCov">        156 :    }</span></a>
+<a name="137"><span class="lineNum">     137 </span>                :<span class="lineCov">        257 :       start = ptr;</span></a>
+<a name="138"><span class="lineNum">     138 </span>                :<span class="lineCov">        257 :       end = ptr + datasize;</span></a>
+<a name="139"><span class="lineNum">     139 </span>                :<span class="lineCov">        257 :       last = ptr + newsize;</span></a>
+<a name="140"><span class="lineNum">     140 </span>                :<span class="lineCov">        257 :    }</span></a>
 <a name="141"><span class="lineNum">     141 </span>                :            : </a>
-<a name="142"><span class="lineNum">     142 </span>                :<span class="lineCov">       1032 :    void*  extend(size_type n)</span></a>
+<a name="142"><span class="lineNum">     142 </span>                :<span class="lineCov">       1662 :    void*  extend(size_type n)</span></a>
 <a name="143"><span class="lineNum">     143 </span>                :            :    {</a>
-<a name="144"><span class="lineNum">     144 </span>        [<span class="branchCov" title="Branch 0 was taken 131 times"> + </span><span class="branchCov" title="Branch 1 was taken 901 times"> + </span>]:<span class="lineCov">       1032 :       if(size_type(last - end) &lt; n)</span></a>
-<a name="145"><span class="lineNum">     145 </span>                :<span class="lineCov">        131 :          resize(n + (end - start));</span></a>
-<a name="146"><span class="lineNum">     146 </span>                :<span class="lineCov">       1032 :       pointer result = end;</span></a>
-<a name="147"><span class="lineNum">     147 </span>                :<span class="lineCov">       1032 :       end += n;</span></a>
-<a name="148"><span class="lineNum">     148 </span>                :<span class="lineCov">       1032 :       return result;</span></a>
+<a name="144"><span class="lineNum">     144 </span>        [<span class="branchCov" title="Branch 0 was taken 199 times"> + </span><span class="branchCov" title="Branch 1 was taken 1463 times"> + </span>]:<span class="lineCov">       1662 :       if(size_type(last - end) &lt; n)</span></a>
+<a name="145"><span class="lineNum">     145 </span>                :<span class="lineCov">        199 :          resize(n + (end - start));</span></a>
+<a name="146"><span class="lineNum">     146 </span>                :<span class="lineCov">       1662 :       pointer result = end;</span></a>
+<a name="147"><span class="lineNum">     147 </span>                :<span class="lineCov">       1662 :       end += n;</span></a>
+<a name="148"><span class="lineNum">     148 </span>                :<span class="lineCov">       1662 :       return result;</span></a>
 <a name="149"><span class="lineNum">     149 </span>                :            :    }</a>
 <a name="150"><span class="lineNum">     150 </span>                :            : </a>
-<a name="151"><span class="lineNum">     151 </span>                :<span class="lineCov">        125 :    void*  insert(size_type pos, size_type n)</span></a>
+<a name="151"><span class="lineNum">     151 </span>                :<span class="lineCov">        211 :    void*  insert(size_type pos, size_type n)</span></a>
 <a name="152"><span class="lineNum">     152 </span>                :            :    {</a>
-<a name="153"><span class="lineNum">     153 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 125 times"> + </span>]:<span class="lineCov">        125 :       BOOST_REGEX_ASSERT(pos &lt;= size_type(end - start));</span></a>
-<a name="154"><span class="lineNum">     154 </span>        [<span class="branchCov" title="Branch 0 was taken 25 times"> + </span><span class="branchCov" title="Branch 1 was taken 100 times"> + </span>]:<span class="lineCov">        125 :       if (size_type(last - end) &lt; n)</span></a>
-<a name="155"><span class="lineNum">     155 </span>                :<span class="lineCov">         25 :          resize(n + (end - start));</span></a>
-<a name="156"><span class="lineNum">     156 </span>                :<span class="lineCov">        125 :       void* result = start + pos;</span></a>
-<a name="157"><span class="lineNum">     157 </span>                :<span class="lineCov">        125 :       std::memmove(start + pos + n, start + pos, (end - start) - pos);</span></a>
-<a name="158"><span class="lineNum">     158 </span>                :<span class="lineCov">        125 :       end += n;</span></a>
-<a name="159"><span class="lineNum">     159 </span>                :<span class="lineCov">        125 :       return result;</span></a>
+<a name="153"><span class="lineNum">     153 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 211 times"> + </span>]:<span class="lineCov">        211 :       BOOST_REGEX_ASSERT(pos &lt;= size_type(end - start));</span></a>
+<a name="154"><span class="lineNum">     154 </span>        [<span class="branchCov" title="Branch 0 was taken 58 times"> + </span><span class="branchCov" title="Branch 1 was taken 153 times"> + </span>]:<span class="lineCov">        211 :       if (size_type(last - end) &lt; n)</span></a>
+<a name="155"><span class="lineNum">     155 </span>                :<span class="lineCov">         58 :          resize(n + (end - start));</span></a>
+<a name="156"><span class="lineNum">     156 </span>                :<span class="lineCov">        211 :       void* result = start + pos;</span></a>
+<a name="157"><span class="lineNum">     157 </span>                :<span class="lineCov">        211 :       std::memmove(start + pos + n, start + pos, (end - start) - pos);</span></a>
+<a name="158"><span class="lineNum">     158 </span>                :<span class="lineCov">        211 :       end += n;</span></a>
+<a name="159"><span class="lineNum">     159 </span>                :<span class="lineCov">        211 :       return result;</span></a>
 <a name="160"><span class="lineNum">     160 </span>                :            :    }</a>
 <a name="161"><span class="lineNum">     161 </span>                :            : </a>
-<a name="162"><span class="lineNum">     162 </span>                :<span class="lineCov">       1287 :    size_type  size()</span></a>
+<a name="162"><span class="lineNum">     162 </span>                :<span class="lineCov">       2150 :    size_type  size()</span></a>
 <a name="163"><span class="lineNum">     163 </span>                :            :    {</a>
-<a name="164"><span class="lineNum">     164 </span>                :<span class="lineCov">       1287 :       return size_type(end - start);</span></a>
+<a name="164"><span class="lineNum">     164 </span>                :<span class="lineCov">       2150 :       return size_type(end - start);</span></a>
 <a name="165"><span class="lineNum">     165 </span>                :            :    }</a>
 <a name="166"><span class="lineNum">     166 </span>                :            : </a>
 <a name="167"><span class="lineNum">     167 </span>                :            :    size_type  capacity()</a>
@@ -240,9 +240,9 @@
 <a name="169"><span class="lineNum">     169 </span>                :            :       return size_type(last - start);</a>
 <a name="170"><span class="lineNum">     170 </span>                :            :    }</a>
 <a name="171"><span class="lineNum">     171 </span>                :            : </a>
-<a name="172"><span class="lineNum">     172 </span>                :<span class="lineCov">       2007 :    void*  data()const</span></a>
+<a name="172"><span class="lineNum">     172 </span>                :<span class="lineCov">       3308 :    void*  data()const</span></a>
 <a name="173"><span class="lineNum">     173 </span>                :            :    {</a>
-<a name="174"><span class="lineNum">     174 </span>                :<span class="lineCov">       2007 :       return start;</span></a>
+<a name="174"><span class="lineNum">     174 </span>                :<span class="lineCov">       3308 :       return start;</span></a>
 <a name="175"><span class="lineNum">     175 </span>                :            :    }</a>
 <a name="176"><span class="lineNum">     176 </span>                :            : </a>
 <a name="177"><span class="lineNum">     177 </span>                :            :    size_type  index(void* ptr)</a>
@@ -250,16 +250,16 @@
 <a name="179"><span class="lineNum">     179 </span>                :            :       return size_type(static_cast&lt;pointer&gt;(ptr) - static_cast&lt;pointer&gt;(data()));</a>
 <a name="180"><span class="lineNum">     180 </span>                :            :    }</a>
 <a name="181"><span class="lineNum">     181 </span>                :            : </a>
-<a name="182"><span class="lineNum">     182 </span>                :<span class="lineCov">        115 :    void  clear()</span></a>
+<a name="182"><span class="lineNum">     182 </span>                :<span class="lineCov">        174 :    void  clear()</span></a>
 <a name="183"><span class="lineNum">     183 </span>                :            :    {</a>
-<a name="184"><span class="lineNum">     184 </span>                :<span class="lineCov">        115 :       end = start;</span></a>
-<a name="185"><span class="lineNum">     185 </span>                :<span class="lineCov">        115 :    }</span></a>
+<a name="184"><span class="lineNum">     184 </span>                :<span class="lineCov">        174 :       end = start;</span></a>
+<a name="185"><span class="lineNum">     185 </span>                :<span class="lineCov">        174 :    }</span></a>
 <a name="186"><span class="lineNum">     186 </span>                :            : </a>
-<a name="187"><span class="lineNum">     187 </span>                :<span class="lineCov">       1199 :    void  align()</span></a>
+<a name="187"><span class="lineNum">     187 </span>                :<span class="lineCov">       1980 :    void  align()</span></a>
 <a name="188"><span class="lineNum">     188 </span>                :            :    {</a>
 <a name="189"><span class="lineNum">     189 </span>                :            :       // move end up to a boundary:</a>
-<a name="190"><span class="lineNum">     190 </span>                :<span class="lineCov">       1199 :       end = start + (((end - start) + padding_mask) &amp; ~padding_mask);</span></a>
-<a name="191"><span class="lineNum">     191 </span>                :<span class="lineCov">       1199 :    }</span></a>
+<a name="190"><span class="lineNum">     190 </span>                :<span class="lineCov">       1980 :       end = start + (((end - start) + padding_mask) &amp; ~padding_mask);</span></a>
+<a name="191"><span class="lineNum">     191 </span>                :<span class="lineCov">       1980 :    }</span></a>
 <a name="192"><span class="lineNum">     192 </span>                :            :    void swap(raw_storage&amp; that)</a>
 <a name="193"><span class="lineNum">     193 </span>                :            :    {</a>
 <a name="194"><span class="lineNum">     194 </span>                :            :       std::swap(start, that.start);</a>
@@ -268,10 +268,10 @@
 <a name="197"><span class="lineNum">     197 </span>                :            :   }</a>
 <a name="198"><span class="lineNum">     198 </span>                :            : };</a>
 <a name="199"><span class="lineNum">     199 </span>                :            : </a>
-<a name="200"><span class="lineNum">     200 </span>                :<span class="lineCov">        115 : inline raw_storage::raw_storage()</span></a>
+<a name="200"><span class="lineNum">     200 </span>                :<span class="lineCov">        174 : inline raw_storage::raw_storage()</span></a>
 <a name="201"><span class="lineNum">     201 </span>                :            : {</a>
-<a name="202"><span class="lineNum">     202 </span>                :<span class="lineCov">        115 :    last = start = end = 0;</span></a>
-<a name="203"><span class="lineNum">     203 </span>                :<span class="lineCov">        115 : }</span></a>
+<a name="202"><span class="lineNum">     202 </span>                :<span class="lineCov">        174 :    last = start = end = 0;</span></a>
+<a name="203"><span class="lineNum">     203 </span>                :<span class="lineCov">        174 : }</span></a>
 <a name="204"><span class="lineNum">     204 </span>                :            : </a>
 <a name="205"><span class="lineNum">     205 </span>                :            : inline raw_storage::raw_storage(size_type n)</a>
 <a name="206"><span class="lineNum">     206 </span>                :            : {</a>

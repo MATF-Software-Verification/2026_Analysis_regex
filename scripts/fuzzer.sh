@@ -7,7 +7,7 @@ CFG_FILE="$PROJECT_ROOT/fuzztest.cfg"
 FUZZ_DIR="$PROJECT_ROOT/fuzztest"
 BUILD_DIR="$PROJECT_ROOT/build_fuzz"
 LOG_ROOT="$FUZZ_DIR/log"
-SUMMARY_ROOT="$FUZZ_DIR\summary"
+SUMMARY_ROOT="$FUZZ_DIR/summary"
 
 if [[ -f "$CFG_FILE" ]]; then
     set -a
@@ -79,14 +79,5 @@ for t in "${TARGETS[@]}"; do
     --fuzz_for="${FUZZ_DURATION}s" \
     --stack_limit_kb=4069 2>&1 | tee "$LOG_FILE" || true
 
-    {
-        grep -v '^\[\*\]' "$LOG_FILE" > "$SUMMARY_FILE"
-    } >> "$SUMMARY_FILE"
+    grep -v '^\[\*\]' "$LOG_FILE" > "$SUMMARY_FILE"
 done
-
-# --replay-corpus=MySuite.FuzzTest or empty, no crashing inputs
-# --reproduce_findings_as_separate_tests for files in crashing dir
-
-#echo "$t $(date +%d%m%Y_%H%M%S)"
-        #sed -n '/=== Fuzzing stats/,$p' "$LOG_FILE"
-        #echo ""

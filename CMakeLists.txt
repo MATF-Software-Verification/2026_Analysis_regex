@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
 project(RegexAnalysis)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(ENABLE_ASAN "Enable AddressSanitizer" ON)
@@ -31,16 +31,18 @@ target_link_libraries(regex_app PRIVATE Boost::regex)
 find_package(GTest CONFIG REQUIRED)
 
 set(TEST_SOURCES 
-    tests/test_basic_matching.cpp
-    tests/test_flags.cpp
-    tests/test_groups.cpp
+    tests/test_basic_regex.cpp
+    tests/test_match_results_sub_match.cpp
+    tests/test_matching.cpp
+    tests/test_replace.cpp
     tests/test_iterators.cpp
-    tests/test_character_classes_and_literals.cpp
+    tests/test_match_flags.cpp
+    tests/test_groups.cpp
+    tests/test_character_classes_and_word_boundaries.cpp
     tests/test_quantifiers_and_alternation.cpp
     tests/test_lookarounds.cpp
     tests/test_regex_compilation.cpp
-    tests/test_match_flags_extended.cpp
-    tests/test_replace.cpp
+    
 )
 
 add_executable(regex_tests ${TEST_SOURCES})
@@ -59,28 +61,3 @@ endif()
 
 add_test(NAME RegexTests COMMAND regex_tests)
 
-# if(ENABLE_FUZZING)
-
-#     if(NOT CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-#         message(FATAL_ERROR "libFuzzer requires Clang")
-#     endif()
-
-#     add_exectuable(regex_fuzzer
-#         fuzz/fuzz_regex.cpp
-#     )
-
-#     target_link_libraries(regex_fuzzer PRIVATE
-#         Boost::regex
-#     )
-
-#     target_compile_options(regex_fuzzer PRIVATE
-#         -fsanitize=fuzzer,address,undefined
-#         -g
-#         -O1
-#     )
-
-#     target_link_options(regez_fuzzer PRIVATE 
-#         -fsanitize=fuzzer,address,undefines
-#     )
-
-# endif()

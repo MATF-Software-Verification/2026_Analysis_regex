@@ -31,27 +31,27 @@
             <td class="headerValue">coverage_regex.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">19</td>
-            <td class="headerCovTableEntry">37</td>
-            <td class="headerCovTableEntryLo">51.4 %</td>
+            <td class="headerCovTableEntry">40</td>
+            <td class="headerCovTableEntry">66</td>
+            <td class="headerCovTableEntryLo">60.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2026-05-20 19:57:09</td>
+            <td class="headerValue">2026-07-30 18:11:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">6</td>
-            <td class="headerCovTableEntry">10</td>
-            <td class="headerCovTableEntryLo">60.0 %</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">16</td>
+            <td class="headerCovTableEntryLo">50.0 %</td>
           </tr>
           <tr>
             <td></td>
             <td></td>
             <td></td>
             <td class="headerItem">Branches:</td>
-            <td class="headerCovTableEntry">13</td>
-            <td class="headerCovTableEntry">32</td>
-            <td class="headerCovTableEntryLo">40.6 %</td>
+            <td class="headerCovTableEntry">28</td>
+            <td class="headerCovTableEntry">58</td>
+            <td class="headerCovTableEntryLo">48.3 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -189,7 +189,7 @@
 <a name="118"><span class="lineNum">     118 </span>        [<span class="branchCov" title="Branch 0 was taken 59 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         59 :    return ((n &gt;= (sizeof(messages) / sizeof(messages[1]))) ? &quot;&quot; : messages[n]);</span></a>
 <a name="119"><span class="lineNum">     119 </span>                :            : }</a>
 <a name="120"><span class="lineNum">     120 </span>                :            : </a>
-<a name="121"><span class="lineNum">     121 </span>                :<span class="lineCov">          6 : inline const char*  get_default_error_string(regex_constants::error_type n)</span></a>
+<a name="121"><span class="lineNum">     121 </span>                :<span class="lineCov">          7 : inline const char*  get_default_error_string(regex_constants::error_type n)</span></a>
 <a name="122"><span class="lineNum">     122 </span>                :            : {</a>
 <a name="123"><span class="lineNum">     123 </span>                :            :    static const char* const s_default_error_messages[] = {</a>
 <a name="124"><span class="lineNum">     124 </span>                :            :       &quot;Success&quot;,                                                            /* REG_NOERROR 0 error_ok */</a>
@@ -219,7 +219,7 @@
 <a name="148"><span class="lineNum">     148 </span>                :            :       &quot;Unknown error.&quot;,                                                     /* REG_E_UNKNOWN 21 error_unknown */</a>
 <a name="149"><span class="lineNum">     149 </span>                :            :    };</a>
 <a name="150"><span class="lineNum">     150 </span>                :            : </a>
-<a name="151"><span class="lineNum">     151 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">          6 :    return (n &gt; ::boost::regex_constants::error_unknown) ? s_default_error_messages[::boost::regex_constants::error_unknown] : s_default_error_messages[n];</span></a>
+<a name="151"><span class="lineNum">     151 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 7 times"> + </span>]:<span class="lineCov">          7 :    return (n &gt; ::boost::regex_constants::error_unknown) ? s_default_error_messages[::boost::regex_constants::error_unknown] : s_default_error_messages[n];</span></a>
 <a name="152"><span class="lineNum">     152 </span>                :            : }</a>
 <a name="153"><span class="lineNum">     153 </span>                :            : </a>
 <a name="154"><span class="lineNum">     154 </span>                :            : inline regex_constants::syntax_type  get_default_syntax_type(char c)</a>
@@ -719,10 +719,10 @@
 <a name="648"><span class="lineNum">     648 </span>                :            :       || (static_cast&lt;std::uint16_t&gt;(c) == 0x85u));</a>
 <a name="649"><span class="lineNum">     649 </span>                :            : }</a>
 <a name="650"><span class="lineNum">     650 </span>                :            : template &lt;&gt;</a>
-<a name="651"><span class="lineNum">     651 </span>                :<span class="lineCov">         28 : inline bool is_separator&lt;char&gt;(char c)</span></a>
+<a name="651"><span class="lineNum">     651 </span>                :<span class="lineCov">         16 : inline bool is_separator&lt;char&gt;(char c)</span></a>
 <a name="652"><span class="lineNum">     652 </span>                :            : {</a>
-<a name="653"><span class="lineNum">     653 </span>  [<span class="branchCov" title="Branch 0 was taken 22 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span><span class="branchCov" title="Branch 2 was taken 22 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">         28 :    return BOOST_REGEX_MAKE_BOOL((c == '\n') || (c == '\r') || (c == '\f'));</span></a>
-<span class="lineNum">         </span>         <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 22 times"> + </span>]
+<a name="653"><span class="lineNum">     653 </span>  [<span class="branchCov" title="Branch 0 was taken 13 times"> + </span><span class="branchCov" title="Branch 1 was taken 3 times"> + </span><span class="branchCov" title="Branch 2 was taken 13 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">         16 :    return BOOST_REGEX_MAKE_BOOL((c == '\n') || (c == '\r') || (c == '\f'));</span></a>
+<span class="lineNum">         </span>         <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 13 times"> + </span>]
 <a name="654"><span class="lineNum">     654 </span>                :            : }</a>
 <a name="655"><span class="lineNum">     655 </span>                :            : </a>
 <a name="656"><span class="lineNum">     656 </span>                :            : //</a>
@@ -810,18 +810,18 @@
 <a name="738"><span class="lineNum">     738 </span>                :            :    const charT* p1;</a>
 <a name="739"><span class="lineNum">     739 </span>                :            :    const charT* p2;</a>
 <a name="740"><span class="lineNum">     740 </span>                :            : </a>
-<a name="741"><span class="lineNum">     741 </span>                :<span class="lineCov">       3160 :    bool operator &lt; (const character_pointer_range&amp; r)const</span></a>
+<a name="741"><span class="lineNum">     741 </span>                :<span class="lineCov">       4897 :    bool operator &lt; (const character_pointer_range&amp; r)const</span></a>
 <a name="742"><span class="lineNum">     742 </span>                :            :    {</a>
-<a name="743"><span class="lineNum">     743 </span>                :<span class="lineCov">       3160 :       return std::lexicographical_compare(p1, p2, r.p1, r.p2);</span></a>
+<a name="743"><span class="lineNum">     743 </span>                :<span class="lineCov">       4897 :       return std::lexicographical_compare(p1, p2, r.p1, r.p2);</span></a>
 <a name="744"><span class="lineNum">     744 </span>                :            :    }</a>
-<a name="745"><span class="lineNum">     745 </span>                :<span class="lineCov">        678 :    bool operator == (const character_pointer_range&amp; r)const</span></a>
+<a name="745"><span class="lineNum">     745 </span>                :<span class="lineCov">       1049 :    bool operator == (const character_pointer_range&amp; r)const</span></a>
 <a name="746"><span class="lineNum">     746 </span>                :            :    {</a>
 <a name="747"><span class="lineNum">     747 </span>                :            :       // Not only do we check that the ranges are of equal size before</a>
 <a name="748"><span class="lineNum">     748 </span>                :            :       // calling std::equal, but there is no other algorithm available:</a>
 <a name="749"><span class="lineNum">     749 </span>                :            :       // not even a non-standard MS one.  So forward to unchecked_equal</a>
 <a name="750"><span class="lineNum">     750 </span>                :            :       // in the MS case.</a>
 <a name="751"><span class="lineNum">     751 </span>                :            : #ifdef __cpp_lib_robust_nonmodifying_seq_ops</a>
-<a name="752"><span class="lineNum">     752 </span>                :<span class="lineCov">        678 :       return std::equal(p1, p2, r.p1, r.p2);</span></a>
+<a name="752"><span class="lineNum">     752 </span>                :<span class="lineCov">       1049 :       return std::equal(p1, p2, r.p1, r.p2);</span></a>
 <a name="753"><span class="lineNum">     753 </span>                :            : #elif defined(BOOST_REGEX_MSVC)</a>
 <a name="754"><span class="lineNum">     754 </span>                :            :       if (((p2 - p1) != (r.p2 - r.p1)))</a>
 <a name="755"><span class="lineNum">     755 </span>                :            :          return false;</a>
@@ -837,7 +837,7 @@
 <a name="765"><span class="lineNum">     765 </span>                :            :    }</a>
 <a name="766"><span class="lineNum">     766 </span>                :            : };</a>
 <a name="767"><span class="lineNum">     767 </span>                :            : template &lt;class charT&gt;</a>
-<a name="768"><span class="lineNum">     768 </span>                :<span class="lineCov">        678 : int get_default_class_id(const charT* p1, const charT* p2)</span></a>
+<a name="768"><span class="lineNum">     768 </span>                :<span class="lineCov">       1049 : int get_default_class_id(const charT* p1, const charT* p2)</span></a>
 <a name="769"><span class="lineNum">     769 </span>                :            : {</a>
 <a name="770"><span class="lineNum">     770 </span>                :            :    static const charT data[73] = {</a>
 <a name="771"><span class="lineNum">     771 </span>                :            :       'a', 'l', 'n', 'u', 'm',</a>
@@ -881,14 +881,14 @@
 <a name="809"><span class="lineNum">     809 </span>                :            :       {data+63, data+67,}, // word</a>
 <a name="810"><span class="lineNum">     810 </span>                :            :       {data+67, data+73,}, // xdigit</a>
 <a name="811"><span class="lineNum">     811 </span>                :            :    };</a>
-<a name="812"><span class="lineNum">     812 </span>                :<span class="lineCov">        678 :    const character_pointer_range&lt;charT&gt;* ranges_begin = ranges;</span></a>
-<a name="813"><span class="lineNum">     813 </span>                :<span class="lineCov">        678 :    const character_pointer_range&lt;charT&gt;* ranges_end = ranges + (sizeof(ranges)/sizeof(ranges[0]));</span></a>
+<a name="812"><span class="lineNum">     812 </span>                :<span class="lineCov">       1049 :    const character_pointer_range&lt;charT&gt;* ranges_begin = ranges;</span></a>
+<a name="813"><span class="lineNum">     813 </span>                :<span class="lineCov">       1049 :    const character_pointer_range&lt;charT&gt;* ranges_end = ranges + (sizeof(ranges)/sizeof(ranges[0]));</span></a>
 <a name="814"><span class="lineNum">     814 </span>                :            : </a>
-<a name="815"><span class="lineNum">     815 </span>                :<span class="lineCov">        678 :    character_pointer_range&lt;charT&gt; t = { p1, p2, };</span></a>
-<a name="816"><span class="lineNum">     816 </span>        [<span class="branchCov" title="Branch 0 was taken 678 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        678 :    const character_pointer_range&lt;charT&gt;* p = std::lower_bound(ranges_begin, ranges_end, t);</span></a>
-<a name="817"><span class="lineNum">     817 </span>  [<span class="branchCov" title="Branch 0 was taken 678 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 678 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">        678 :    if((p != ranges_end) &amp;&amp; (t == *p))</span></a>
-<span class="lineNum">         </span>   <span class="branchCov" title="Branch 4 was taken 675 times"> + </span><span class="branchCov" title="Branch 5 was taken 3 times"> + </span><span class="branchCov" title="Branch 6 was taken 675 times"> + </span><span class="branchCov" title="Branch 7 was taken 3 times"> + </span>]
-<a name="818"><span class="lineNum">     818 </span>                :<span class="lineCov">        675 :       return static_cast&lt;int&gt;(p - ranges);</span></a>
+<a name="815"><span class="lineNum">     815 </span>                :<span class="lineCov">       1049 :    character_pointer_range&lt;charT&gt; t = { p1, p2, };</span></a>
+<a name="816"><span class="lineNum">     816 </span>        [<span class="branchCov" title="Branch 0 was taken 1049 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       1049 :    const character_pointer_range&lt;charT&gt;* p = std::lower_bound(ranges_begin, ranges_end, t);</span></a>
+<a name="817"><span class="lineNum">     817 </span>  [<span class="branchCov" title="Branch 0 was taken 1049 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 1049 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">       1049 :    if((p != ranges_end) &amp;&amp; (t == *p))</span></a>
+<span class="lineNum">         </span>   <span class="branchCov" title="Branch 4 was taken 1046 times"> + </span><span class="branchCov" title="Branch 5 was taken 3 times"> + </span><span class="branchCov" title="Branch 6 was taken 1046 times"> + </span><span class="branchCov" title="Branch 7 was taken 3 times"> + </span>]
+<a name="818"><span class="lineNum">     818 </span>                :<span class="lineCov">       1046 :       return static_cast&lt;int&gt;(p - ranges);</span></a>
 <a name="819"><span class="lineNum">     819 </span>                :<span class="lineCov">          3 :    return -1;</span></a>
 <a name="820"><span class="lineNum">     820 </span>                :            : }</a>
 <a name="821"><span class="lineNum">     821 </span>                :            : </a>
@@ -929,14 +929,14 @@
 <a name="856"><span class="lineNum">     856 </span>                :            :    return c;</a>
 <a name="857"><span class="lineNum">     857 </span>                :            : }</a>
 <a name="858"><span class="lineNum">     858 </span>                :            : </a>
-<a name="859"><span class="lineNum">     859 </span>                :            : inline char  do_global_lower(char c)</a>
+<a name="859"><span class="lineNum">     859 </span>                :<span class="lineNoCov">          0 : inline char  do_global_lower(char c)</span></a>
 <a name="860"><span class="lineNum">     860 </span>                :            : {</a>
-<a name="861"><span class="lineNum">     861 </span>                :            :    return static_cast&lt;char&gt;((std::tolower)((unsigned char)c));</a>
+<a name="861"><span class="lineNum">     861 </span>                :<span class="lineNoCov">          0 :    return static_cast&lt;char&gt;((std::tolower)((unsigned char)c));</span></a>
 <a name="862"><span class="lineNum">     862 </span>                :            : }</a>
 <a name="863"><span class="lineNum">     863 </span>                :            : </a>
-<a name="864"><span class="lineNum">     864 </span>                :            : inline char  do_global_upper(char c)</a>
+<a name="864"><span class="lineNum">     864 </span>                :<span class="lineNoCov">          0 : inline char  do_global_upper(char c)</span></a>
 <a name="865"><span class="lineNum">     865 </span>                :            : {</a>
-<a name="866"><span class="lineNum">     866 </span>                :            :    return static_cast&lt;char&gt;((std::toupper)((unsigned char)c));</a>
+<a name="866"><span class="lineNum">     866 </span>                :<span class="lineNoCov">          0 :    return static_cast&lt;char&gt;((std::toupper)((unsigned char)c));</span></a>
 <a name="867"><span class="lineNum">     867 </span>                :            : }</a>
 <a name="868"><span class="lineNum">     868 </span>                :            : #ifndef BOOST_NO_WREGEX</a>
 <a name="869"><span class="lineNum">     869 </span>                :            : inline wchar_t  do_global_lower(wchar_t c)</a>
@@ -959,15 +959,15 @@
 <a name="886"><span class="lineNum">     886 </span>                :            : // otherwise the &quot;local template instantiation&quot; compiler option can pick</a>
 <a name="887"><span class="lineNum">     887 </span>                :            : // the wrong instantiation when linking:</a>
 <a name="888"><span class="lineNum">     888 </span>                :            : //</a>
-<a name="889"><span class="lineNum">     889 </span>                :            : template&lt;&gt; inline char  global_lower&lt;char&gt;(char c) { return do_global_lower(c); }</a>
-<a name="890"><span class="lineNum">     890 </span>                :            : template&lt;&gt; inline char  global_upper&lt;char&gt;(char c) { return do_global_upper(c); }</a>
+<a name="889"><span class="lineNum">     889 </span>                :<span class="lineNoCov">          0 : template&lt;&gt; inline char  global_lower&lt;char&gt;(char c) { return do_global_lower(c); }</span></a>
+<a name="890"><span class="lineNum">     890 </span>                :<span class="lineNoCov">          0 : template&lt;&gt; inline char  global_upper&lt;char&gt;(char c) { return do_global_upper(c); }</span></a>
 <a name="891"><span class="lineNum">     891 </span>                :            : #ifndef BOOST_NO_WREGEX</a>
 <a name="892"><span class="lineNum">     892 </span>                :            : template&lt;&gt; inline wchar_t  global_lower&lt;wchar_t&gt;(wchar_t c) { return do_global_lower(c); }</a>
 <a name="893"><span class="lineNum">     893 </span>                :            : template&lt;&gt; inline wchar_t  global_upper&lt;wchar_t&gt;(wchar_t c) { return do_global_upper(c); }</a>
 <a name="894"><span class="lineNum">     894 </span>                :            : #endif</a>
 <a name="895"><span class="lineNum">     895 </span>                :            : </a>
 <a name="896"><span class="lineNum">     896 </span>                :            : template &lt;class charT&gt;</a>
-<a name="897"><span class="lineNum">     897 </span>                :            : int global_value(charT c)</a>
+<a name="897"><span class="lineNum">     897 </span>                :<span class="lineCov">         18 : int global_value(charT c)</span></a>
 <a name="898"><span class="lineNum">     898 </span>                :            : {</a>
 <a name="899"><span class="lineNum">     899 </span>                :            :    static const charT zero = '0';</a>
 <a name="900"><span class="lineNum">     900 </span>                :            :    static const charT nine = '9';</a>
@@ -976,35 +976,36 @@
 <a name="903"><span class="lineNum">     903 </span>                :            :    static const charT A = 'A';</a>
 <a name="904"><span class="lineNum">     904 </span>                :            :    static const charT F = 'F';</a>
 <a name="905"><span class="lineNum">     905 </span>                :            : </a>
-<a name="906"><span class="lineNum">     906 </span>                :            :    if(c &gt; f) return -1;</a>
-<a name="907"><span class="lineNum">     907 </span>                :            :    if(c &gt;= a) return 10 + (c - a);</a>
-<a name="908"><span class="lineNum">     908 </span>                :            :    if(c &gt; F) return -1;</a>
-<a name="909"><span class="lineNum">     909 </span>                :            :    if(c &gt;= A) return 10 + (c - A);</a>
-<a name="910"><span class="lineNum">     910 </span>                :            :    if(c &gt; nine) return -1;</a>
-<a name="911"><span class="lineNum">     911 </span>                :            :    if(c &gt;= zero) return c - zero;</a>
-<a name="912"><span class="lineNum">     912 </span>                :            :    return -1;</a>
+<a name="906"><span class="lineNum">     906 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>]:<span class="lineCov">         18 :    if(c &gt; f) return -1;</span></a>
+<a name="907"><span class="lineNum">     907 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>]:<span class="lineCov">         18 :    if(c &gt;= a) return 10 + (c - a);</span></a>
+<a name="908"><span class="lineNum">     908 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>]:<span class="lineCov">         18 :    if(c &gt; F) return -1;</span></a>
+<a name="909"><span class="lineNum">     909 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>]:<span class="lineCov">         18 :    if(c &gt;= A) return 10 + (c - A);</span></a>
+<a name="910"><span class="lineNum">     910 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 18 times"> + </span>]:<span class="lineCov">         18 :    if(c &gt; nine) return -1;</span></a>
+<a name="911"><span class="lineNum">     911 </span>        [<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">         18 :    if(c &gt;= zero) return c - zero;</span></a>
+<a name="912"><span class="lineNum">     912 </span>                :<span class="lineCov">          6 :    return -1;</span></a>
 <a name="913"><span class="lineNum">     913 </span>                :            : }</a>
 <a name="914"><span class="lineNum">     914 </span>                :            : template &lt;class charT, class traits&gt;</a>
-<a name="915"><span class="lineNum">     915 </span>                :            : std::intmax_t global_toi(const charT*&amp; p1, const charT* p2, int radix, const traits&amp; t)</a>
+<a name="915"><span class="lineNum">     915 </span>                :<span class="lineCov">          6 : std::intmax_t global_toi(const charT*&amp; p1, const charT* p2, int radix, const traits&amp; t)</span></a>
 <a name="916"><span class="lineNum">     916 </span>                :            : {</a>
 <a name="917"><span class="lineNum">     917 </span>                :            :    (void)t; // warning suppression</a>
-<a name="918"><span class="lineNum">     918 </span>                :            :    std::intmax_t limit = (std::numeric_limits&lt;std::intmax_t&gt;::max)() / radix;</a>
-<a name="919"><span class="lineNum">     919 </span>                :            :    std::intmax_t next_value = t.value(*p1, radix);</a>
-<a name="920"><span class="lineNum">     920 </span>                :            :    if((p1 == p2) || (next_value &lt; 0) || (next_value &gt;= radix))</a>
-<a name="921"><span class="lineNum">     921 </span>                :            :       return -1;</a>
-<a name="922"><span class="lineNum">     922 </span>                :            :    std::intmax_t result = 0;</a>
-<a name="923"><span class="lineNum">     923 </span>                :            :    while(p1 != p2)</a>
+<a name="918"><span class="lineNum">     918 </span>                :<span class="lineCov">          6 :    std::intmax_t limit = (std::numeric_limits&lt;std::intmax_t&gt;::max)() / radix;</span></a>
+<a name="919"><span class="lineNum">     919 </span>                :<span class="lineCov">          6 :    std::intmax_t next_value = t.value(*p1, radix);</span></a>
+<a name="920"><span class="lineNum">     920 </span>  [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">          6 :    if((p1 == p2) || (next_value &lt; 0) || (next_value &gt;= radix))</span></a>
+<span class="lineNum">         </span>         <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 6 times"> + </span>]
+<a name="921"><span class="lineNum">     921 </span>                :<span class="lineNoCov">          0 :       return -1;</span></a>
+<a name="922"><span class="lineNum">     922 </span>                :<span class="lineCov">          6 :    std::intmax_t result = 0;</span></a>
+<a name="923"><span class="lineNum">     923 </span>        [<span class="branchCov" title="Branch 0 was taken 12 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         12 :    while(p1 != p2)</span></a>
 <a name="924"><span class="lineNum">     924 </span>                :            :    {</a>
-<a name="925"><span class="lineNum">     925 </span>                :            :       next_value = t.value(*p1, radix);</a>
-<a name="926"><span class="lineNum">     926 </span>                :            :       if((next_value &lt; 0) || (next_value &gt;= radix))</a>
+<a name="925"><span class="lineNum">     925 </span>                :<span class="lineCov">         12 :       next_value = t.value(*p1, radix);</span></a>
+<a name="926"><span class="lineNum">     926 </span>  [<span class="branchCov" title="Branch 0 was taken 6 times"> + </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span><span class="branchCov" title="Branch 2 was taken 6 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         12 :       if((next_value &lt; 0) || (next_value &gt;= radix))</span></a>
 <a name="927"><span class="lineNum">     927 </span>                :            :          break;</a>
-<a name="928"><span class="lineNum">     928 </span>                :            :       result *= radix;</a>
-<a name="929"><span class="lineNum">     929 </span>                :            :       result += next_value;</a>
-<a name="930"><span class="lineNum">     930 </span>                :            :       ++p1;</a>
-<a name="931"><span class="lineNum">     931 </span>                :            :       if (result &gt; limit)</a>
-<a name="932"><span class="lineNum">     932 </span>                :            :          return -1;</a>
+<a name="928"><span class="lineNum">     928 </span>                :<span class="lineCov">          6 :       result *= radix;</span></a>
+<a name="929"><span class="lineNum">     929 </span>                :<span class="lineCov">          6 :       result += next_value;</span></a>
+<a name="930"><span class="lineNum">     930 </span>                :<span class="lineCov">          6 :       ++p1;</span></a>
+<a name="931"><span class="lineNum">     931 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 6 times"> + </span>]:<span class="lineCov">          6 :       if (result &gt; limit)</span></a>
+<a name="932"><span class="lineNum">     932 </span>                :<span class="lineNoCov">          0 :          return -1;</span></a>
 <a name="933"><span class="lineNum">     933 </span>                :            :    }</a>
-<a name="934"><span class="lineNum">     934 </span>                :            :    return result;</a>
+<a name="934"><span class="lineNum">     934 </span>                :<span class="lineCov">          6 :    return result;</span></a>
 <a name="935"><span class="lineNum">     935 </span>                :            : }</a>
 <a name="936"><span class="lineNum">     936 </span>                :            : </a>
 <a name="937"><span class="lineNum">     937 </span>                :            : template &lt;class charT&gt;</a>

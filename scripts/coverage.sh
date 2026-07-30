@@ -9,7 +9,6 @@ CFG_FILE="$PROJECT_ROOT/coverage.cfg"
  
 if [[ -f "$CFG_FILE" ]]; then
     set -a
-    # shellcheck source=/dev/null
     source "$CFG_FILE"
     set +a
 else
@@ -19,7 +18,6 @@ else
 fi
  
 BUILD_TYPE="${BUILD_TYPE:-Debug}"
-ENABLE_ASAN="${ENABLE_ASAN:-ON}"
 CXX="${CXX:-g++}"
 JOBS="${JOBS:-$(nproc)}"
 

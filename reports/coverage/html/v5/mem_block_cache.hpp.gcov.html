@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2026-05-20 19:57:09</td>
+            <td class="headerValue">2026-07-30 18:11:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -121,31 +121,31 @@
 <a name="50"><span class="lineNum">      50 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 15 times"> + </span>]:<span class="lineCov">         16 :        if (cache[i].load()) ::operator delete(cache[i].load());</span></a>
 <a name="51"><span class="lineNum">      51 </span>                :            :      }</a>
 <a name="52"><span class="lineNum">      52 </span>                :<span class="lineCov">          1 :    }</span></a>
-<a name="53"><span class="lineNum">      53 </span>                :<span class="lineCov">        193 :    void* get()</span></a>
+<a name="53"><span class="lineNum">      53 </span>                :<span class="lineCov">        283 :    void* get()</span></a>
 <a name="54"><span class="lineNum">      54 </span>                :            :    {</a>
-<a name="55"><span class="lineNum">      55 </span>        [<span class="branchCov" title="Branch 0 was taken 208 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">        209 :      for (size_t i = 0;i &lt; BOOST_REGEX_MAX_CACHE_BLOCKS; ++i) {</span></a>
-<a name="56"><span class="lineNum">      56 </span>                :<span class="lineCov">        208 :        void* p = cache[i].load();</span></a>
-<a name="57"><span class="lineNum">      57 </span>        [<span class="branchCov" title="Branch 0 was taken 192 times"> + </span><span class="branchCov" title="Branch 1 was taken 16 times"> + </span>]:<span class="lineCov">        208 :        if (p != NULL) {</span></a>
-<a name="58"><span class="lineNum">      58 </span>        [<span class="branchCov" title="Branch 0 was taken 192 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        192 :          if (cache[i].compare_exchange_strong(p, NULL)) return p;</span></a>
+<a name="55"><span class="lineNum">      55 </span>        [<span class="branchCov" title="Branch 0 was taken 298 times"> + </span><span class="branchCov" title="Branch 1 was taken 1 time"> + </span>]:<span class="lineCov">        299 :      for (size_t i = 0;i &lt; BOOST_REGEX_MAX_CACHE_BLOCKS; ++i) {</span></a>
+<a name="56"><span class="lineNum">      56 </span>                :<span class="lineCov">        298 :        void* p = cache[i].load();</span></a>
+<a name="57"><span class="lineNum">      57 </span>        [<span class="branchCov" title="Branch 0 was taken 282 times"> + </span><span class="branchCov" title="Branch 1 was taken 16 times"> + </span>]:<span class="lineCov">        298 :        if (p != NULL) {</span></a>
+<a name="58"><span class="lineNum">      58 </span>        [<span class="branchCov" title="Branch 0 was taken 282 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        282 :          if (cache[i].compare_exchange_strong(p, NULL)) return p;</span></a>
 <a name="59"><span class="lineNum">      59 </span>                :            :        }</a>
 <a name="60"><span class="lineNum">      60 </span>                :            :      }</a>
 <a name="61"><span class="lineNum">      61 </span>                :<span class="lineCov">          1 :      return ::operator new(BOOST_REGEX_BLOCKSIZE);</span></a>
 <a name="62"><span class="lineNum">      62 </span>                :            :    }</a>
-<a name="63"><span class="lineNum">      63 </span>                :<span class="lineCov">        193 :    void put(void* ptr)</span></a>
+<a name="63"><span class="lineNum">      63 </span>                :<span class="lineCov">        283 :    void put(void* ptr)</span></a>
 <a name="64"><span class="lineNum">      64 </span>                :            :    {</a>
-<a name="65"><span class="lineNum">      65 </span>        [<span class="branchCov" title="Branch 0 was taken 193 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        193 :      for (size_t i = 0;i &lt; BOOST_REGEX_MAX_CACHE_BLOCKS; ++i) {</span></a>
-<a name="66"><span class="lineNum">      66 </span>                :<span class="lineCov">        193 :        void* p = cache[i].load();</span></a>
-<a name="67"><span class="lineNum">      67 </span>        [<span class="branchCov" title="Branch 0 was taken 193 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        193 :        if (p == NULL) {</span></a>
-<a name="68"><span class="lineNum">      68 </span>        [<span class="branchCov" title="Branch 0 was taken 193 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        193 :          if (cache[i].compare_exchange_strong(p, ptr)) return;</span></a>
+<a name="65"><span class="lineNum">      65 </span>        [<span class="branchCov" title="Branch 0 was taken 283 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        283 :      for (size_t i = 0;i &lt; BOOST_REGEX_MAX_CACHE_BLOCKS; ++i) {</span></a>
+<a name="66"><span class="lineNum">      66 </span>                :<span class="lineCov">        283 :        void* p = cache[i].load();</span></a>
+<a name="67"><span class="lineNum">      67 </span>        [<span class="branchCov" title="Branch 0 was taken 283 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        283 :        if (p == NULL) {</span></a>
+<a name="68"><span class="lineNum">      68 </span>        [<span class="branchCov" title="Branch 0 was taken 283 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        283 :          if (cache[i].compare_exchange_strong(p, ptr)) return;</span></a>
 <a name="69"><span class="lineNum">      69 </span>                :            :        }</a>
 <a name="70"><span class="lineNum">      70 </span>                :            :      }</a>
 <a name="71"><span class="lineNum">      71 </span>                :<span class="lineNoCov">          0 :      ::operator delete(ptr);</span></a>
 <a name="72"><span class="lineNum">      72 </span>                :            :    }</a>
 <a name="73"><span class="lineNum">      73 </span>                :            : </a>
-<a name="74"><span class="lineNum">      74 </span>                :<span class="lineCov">        386 :    static mem_block_cache&amp; instance()</span></a>
+<a name="74"><span class="lineNum">      74 </span>                :<span class="lineCov">        566 :    static mem_block_cache&amp; instance()</span></a>
 <a name="75"><span class="lineNum">      75 </span>                :            :    {</a>
-<a name="76"><span class="lineNum">      76 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 385 times"> + </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        386 :       static mem_block_cache block_cache = { { {nullptr} } };</span></a>
-<a name="77"><span class="lineNum">      77 </span>                :<span class="lineCov">        386 :       return block_cache;</span></a>
+<a name="76"><span class="lineNum">      76 </span>  [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 565 times"> + </span><span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        566 :       static mem_block_cache block_cache = { { {nullptr} } };</span></a>
+<a name="77"><span class="lineNum">      77 </span>                :<span class="lineCov">        566 :       return block_cache;</span></a>
 <a name="78"><span class="lineNum">      78 </span>                :            :    }</a>
 <a name="79"><span class="lineNum">      79 </span>                :            : };</a>
 <a name="80"><span class="lineNum">      80 </span>                :            : </a>
@@ -230,15 +230,15 @@
 <a name="159"><span class="lineNum">     159 </span>                :            : </a>
 <a name="160"><span class="lineNum">     160 </span>                :            : #else</a>
 <a name="161"><span class="lineNum">     161 </span>                :            : </a>
-<a name="162"><span class="lineNum">     162 </span>                :<span class="lineCov">        193 : inline void*  get_mem_block()</span></a>
+<a name="162"><span class="lineNum">     162 </span>                :<span class="lineCov">        283 : inline void*  get_mem_block()</span></a>
 <a name="163"><span class="lineNum">     163 </span>                :            : {</a>
-<a name="164"><span class="lineNum">     164 </span>                :<span class="lineCov">        193 :    return mem_block_cache::instance().get();</span></a>
+<a name="164"><span class="lineNum">     164 </span>                :<span class="lineCov">        283 :    return mem_block_cache::instance().get();</span></a>
 <a name="165"><span class="lineNum">     165 </span>                :            : }</a>
 <a name="166"><span class="lineNum">     166 </span>                :            : </a>
-<a name="167"><span class="lineNum">     167 </span>                :<span class="lineCov">        193 : inline void  put_mem_block(void* p)</span></a>
+<a name="167"><span class="lineNum">     167 </span>                :<span class="lineCov">        283 : inline void  put_mem_block(void* p)</span></a>
 <a name="168"><span class="lineNum">     168 </span>                :            : {</a>
-<a name="169"><span class="lineNum">     169 </span>                :<span class="lineCov">        193 :    mem_block_cache::instance().put(p);</span></a>
-<a name="170"><span class="lineNum">     170 </span>                :<span class="lineCov">        193 : }</span></a>
+<a name="169"><span class="lineNum">     169 </span>                :<span class="lineCov">        283 :    mem_block_cache::instance().put(p);</span></a>
+<a name="170"><span class="lineNum">     170 </span>                :<span class="lineCov">        283 : }</span></a>
 <a name="171"><span class="lineNum">     171 </span>                :            : </a>
 <a name="172"><span class="lineNum">     172 </span>                :            : #endif</a>
 <a name="173"><span class="lineNum">     173 </span>                :            : }</a>
