@@ -1,7 +1,0 @@
-# Copy this file to cppcheck.cfg and fill in your local values
-
-# Required: path to your local Boost source directory
-BOOST_SOURCE_ROOT=
-
-# Optional
-JOBS=

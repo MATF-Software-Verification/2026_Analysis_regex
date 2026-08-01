@@ -4,3 +4,8 @@ build*/
 cheatsheet.md
 fuzztest/log/
 fuzztest/summary
+fuzztest/dist
+fuzztest/fuzz_artifacts
+*/reports/
+
+

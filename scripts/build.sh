@@ -4,7 +4,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 BUILD_DIR="$PROJECT_ROOT/build"
-CFG_FILE="$PROJECT_ROOT/project.cfg"
+CFG_FILE="$SCRIPT_DIR/project.cfg"
  
 if [[ -f "$CFG_FILE" ]]; then
     set -a
@@ -17,21 +17,15 @@ else
 fi
  
 BUILD_TYPE="${BUILD_TYPE:-Debug}"
-ENABLE_ASAN="${ENABLE_ASAN:-ON}"
+ENABLE_SANITIZERS="${ENABLE_SANITIZERS:-OFF}"
 CXX="${CXX:-g++}"
 JOBS="${JOBS:-$(nproc)}"
 
-if [[ -z "${BOOST_ROOT:-}" ]]; then
-    echo "BOOST_ROOT is not set in build.cfg"
-    echo "This project requires a locally built Boost — set BOOST_ROOT in build.cfg"
+if [[ -z "${BOOST_ROOT:-}" || ! -d "$BOOST_ROOT"]]; then
+    echo "BOOST_ROOT is not set or does not exist"
     exit 1
 fi
- 
-if [[ ! -d "$BOOST_ROOT" ]]; then
-    echo "BOOST_ROOT directory does not exist: $BOOST_ROOT"
-    echo "Build Boost first — see README for instructions."
-    exit 1
-fi
+
  
 cmake -S "$PROJECT_ROOT" -B "$BUILD_DIR" \
     -DBOOST_ROOT="$BOOST_ROOT" \
@@ -39,6 +33,6 @@ cmake -S "$PROJECT_ROOT" -B "$BUILD_DIR" \
     -DBoost_NO_BOOST_CMAKE=ON \
     -DCMAKE_BUILD_TYPE="$BUILD_TYPE" \
     -DCMAKE_CXX_COMPILER="$CXX" \
-    -DENABLE_ASAN="$ENABLE_ASAN"
+    -DENABLE_SANITIZERS="$ENABLE_SANIRIZERS"
  
 cmake --build "$BUILD_DIR" --parallel "$JOBS"

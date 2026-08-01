@@ -1,0 +1,16 @@
+# Copy this file to fuzz.cfg and fill in your local values.
+#
+# FuzzTest requires Clang - GCC is not supported.
+
+# Required: path to your locally built Boost
+BOOST_ROOT=
+
+# Optional: how long to run the fuzzer in seconds (default 60)
+FUZZ_DURATION=60
+
+# Optional: number of parallel fuzzer jobs
+JOBS=1
+
+# Optional: space-separated list of specific targets to fuzz
+# Leave empty to fuzz everything.
+FUZZ_TARGETS="RegexFuzz.MatchPattern RegexFuzz.MatchSelf"

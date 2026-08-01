@@ -125,7 +125,7 @@ int main(int argc, char* argv[])
         print_results("possessive quantifier", result);   
 
         result = run_ambiguous_alternation(input_size, iterations);        
-        print_results("ambiguous quantifier", result);
+        print_results("ambiguous alternation", result);
 
         result = run_long_search(input_size, iterations);
         print_results("long search", result);

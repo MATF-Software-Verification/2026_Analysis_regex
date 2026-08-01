@@ -1,0 +1,16 @@
+# Copy this file to memcheck.cfg and fill in your local values.
+#
+# This project requires a locally built Boost::regex.
+# See README for build instructions.
+
+# Required: path to your locally built Boost installation
+BOOST_ROOT=
+
+#Required: Memcheck shoudl be run without AddressSanitizer
+ENABLE_SANITIZERS=OFF
+
+# Optional: defaults are shown below
+BUILD_TYPE=Debug
+CXX=g++
+JOBS=$(nproc)
+VALGRIND_TARGET=regex_tests
