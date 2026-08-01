@@ -56,7 +56,7 @@ export ASAN_OPTIONS="alloc_dealloc_mismatch=0" #due to libc++abi.so library impl
 
 cmake -S "$FUZZ_DIR" -B "$BUILD_DIR" \
     -DBOOST_ROOT="$BOOST_ROOT" \
-    -DBoost_NO_SYSTEM_PATH=ON \
+    -DBoost_NO_SYSTEM_PATHS=ON \
     -DBoost_NO_BOOST_CMAKE=ON \
     -DCMAKE_BUILD_TYPE="$BUILD_TYPE" \
     -DCMAKE_CXX_COMPILER="$CXX" \

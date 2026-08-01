@@ -1,6 +1,6 @@
-# Copy this file to config.cfg and fill in your local values.
+# Copy this file to perf.cfg and fill in your local values
 #
-# This project requires a locally built Boost::regex.
+# This project requires a locally built Boost::regex
 # See README for build instructions.
 
 # Required: path to your locally built Boost installation
@@ -11,24 +11,25 @@ BUILD_TYPE=RelWithDebInfo
 CXX=g++
 JOBS=4
 
-# Optional Boost.Build toolset override. Leave empty to infer gcc or clang from CXX.
-BOOST_TOOLSET=
-
-#Executable profiled by perf
+#Settings for regex_tests
 PERF_TARGET=regex_tests
+PERF_TARGET_ARGS=(
+    "--gtest_filter=*"
+    "--gtest_repeat=100"
+    "--gtest_brief=1"
+    "--gtest_print_time=0"
+    "--gtest_color=no"
+)
 
-# GoogleTest selection. 
-PERF_GTEST_FILTER=*
+#Settings for regex_app
+PERF_TARGET=regex_app
+PERF_ARGS=(
+    18      # input size
+    1000    # num of iterations
+)
 
-PERF_TEST_REPEAT=100
-
+# Perf settings
 PERF_STAT_REPEAT=5
-
-# Sampling settings for perf record
 PERF_FREQUENCY=999
 PERF_CALL_GRAPH=dwarf
 PERF_PERCENT_LIMIT=0.5
-
-# Leave empty to use perf stat's default event set.
-# A portable explicit set is shown below.
-PERF_EVENTS=task-clock,context-switches,cpu-migrations,page-faults,cycles,instructions,branches,branch-misses

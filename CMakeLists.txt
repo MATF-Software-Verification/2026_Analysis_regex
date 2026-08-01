@@ -8,7 +8,6 @@ option(ENABLE_ASAN "Enable AddressSanitizer" ON)
 option(ENABLE_COVERAGE "Enable coverage reporting" OFF)
 option(ENABLE_FUZZING "Enable libFuzzer build" OFF)
 
-
 if(ENABLE_ASAN)
     if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
         add_compile_options(-fsanitize=address -g)
