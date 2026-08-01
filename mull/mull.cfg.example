@@ -1,0 +1,11 @@
+# Copy this file to config.cfg and fill in your local values.
+#
+# This project requires a locally built Boost::regex.
+# See README for build instructions.
+
+# Required: path to your locally built Boost installation
+BOOST_ROOT=
+
+# Optional: default are shown below
+MULL_TIMEOUT_MS=10000
+MULL_WORKERS=4

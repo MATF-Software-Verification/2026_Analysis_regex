@@ -1,0 +1,14 @@
+mutators:
+  - cxx_all
+  - cxx_logical
+
+includePaths:
+  - .*/include/boost/regex.*
+  - .*/include/boost/regex/.*
+
+excludePaths:
+  - .*/2026_Analysis_regex/tests/.*
+  - .*googletest.*
+  - .*googlemock.*
+  - .*gtest.*
+  - .*gmock.*
