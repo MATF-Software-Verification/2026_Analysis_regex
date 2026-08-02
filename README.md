@@ -27,7 +27,7 @@ Svaki alat ima poseban direktorijum koji sadrži:
 
 1. skriptu za konfiguraciju, izgradnju i pokretanje alata
 2. primer lokalnog konfiguracionog fajla sa nastavkom `.cfg.example`
-3. direktorijum `reports/`, `summary/` ili `log/` za generisane rezultate
+3. direktorijum `reports/` za dobijene rezultate
 
 Lokalni `.cfg` fajlovi i generisani izveštaji nisu namenjeni verzionisanju.
 

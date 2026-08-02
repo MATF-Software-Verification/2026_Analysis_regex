@@ -13,4 +13,4 @@ JOBS=1
 
 # Optional: space-separated list of specific targets to fuzz
 # Leave empty to fuzz everything.
-FUZZ_TARGETS="RegexFuzz.MatchPattern RegexFuzz.MatchSelf"
+FUZZ_TARGETS="RegexFuzz.MatchPattern"

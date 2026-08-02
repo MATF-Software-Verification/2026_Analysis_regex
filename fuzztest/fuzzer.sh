@@ -3,10 +3,13 @@ set -euo pipefail
 
 FUZZ_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$FUZZ_DIR/.." && pwd)"
-CFG_FILE="$FUZZ_ROOT/fuzztest.cfg"
+CFG_FILE="$FUZZ_DIR/fuzztest.cfg"
 BUILD_DIR="$PROJECT_ROOT/build_fuzz"
-LOG_ROOT="$FUZZ_DIR/log"
-SUMMARY_ROOT="$FUZZ_DIR/summary"
+REPORT_ROOT="$FUZZ_DIR/reports"
+TIMESTAMP="$(date +%d%m%Y_%H%M%S)"
+REPORT_DIR="$REPORT_ROOT/run_$TIMESTAMP"
+SUMMARY_ROOT="$REPORT_DIR/summary"
+
 
 if [[ -f "$CFG_FILE" ]]; then
     set -a
@@ -52,19 +55,20 @@ cmake -S "$FUZZ_DIR" -B "$BUILD_DIR" \
 
 cmake --build "$BUILD_DIR" --parallel "${JOBS}" 
 
-mkdir -p "$LOG_ROOT" "$SUMMARY_ROOT"
+mkdir -p "$REPORT_DIR" "$SUMMARY_ROOT"
+
+LOG_FILE="$REPORT_DIR/output.log"
 
 for t in "${TARGETS[@]}"; do
     NAME="${t//./_}"
-    SUMMARY_FILE="$SUMMARY_ROOT/${NAME}_$(date +%d%m%Y_%H%M%S).log"
-    LOG_FILE="$LOG_ROOT/log_${NAME}.raw"
+    SUMMARY_FILE="$SUMMARY_ROOT/${NAME}.log"
 
     echo "================================================================="
     echo "=== Fuzzing $t"
     stdbuf -oL -eL "$BUILD_DIR/fuzz_regex" \
     --fuzz="$t" \
     --fuzz_for="${FUZZ_DURATION}s" \
-    --stack_limit_kb=4069 2>&1 | tee "$LOG_FILE" || true
+    --stack_limit_kb=4069 2>&1 | tee -a "$LOG_FILE" || true
 
     grep -v '^\[\*\]' "$LOG_FILE" > "$SUMMARY_FILE"
 done
