@@ -1,0 +1,16 @@
+Scenario: nested quantifier
+Matches: 0
+Misses: 0
+Complexity errors: 100
+Scenario: possessive quantifier
+Matches: 0
+Misses: 100
+Complexity errors: 0
+Scenario: ambiguous alternation
+Matches: 0
+Misses: 100
+Complexity errors: 0
+Scenario: long search
+Matches: 0
+Misses: 100
+Complexity errors: 0

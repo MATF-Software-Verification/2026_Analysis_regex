@@ -33,9 +33,7 @@ RunResult run_match(const boost::regex& pattern, const std::string& input, std::
 RunResult run_search(const boost::regex& pattern, const std::string& input, std::size_t iterations) {
     RunResult result;
 
-    for (std::size_t iteration = 0;
-         iteration < iterations;
-         ++iteration) {
+    for (std::size_t iteration = 0;iteration < iterations; ++iteration) {
         try {
             if (boost::regex_search(input, pattern)) {
                 ++result.matches;

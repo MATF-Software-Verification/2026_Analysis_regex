@@ -1,4 +1,4 @@
-# Copy this file to config.cfg and fill in your local values.
+# Copy this file to coverage.cfg and fill in your local values.
 #
 # This project requires a locally built Boost::regex.
 # See README for build instructions.
@@ -8,6 +8,5 @@ BOOST_ROOT=
 
 # Optional: defaults are shown below
 BUILD_TYPE=Debug
-ENABLE_SANITIZERS=OFF
 CXX=g++
 JOBS=$(nproc)

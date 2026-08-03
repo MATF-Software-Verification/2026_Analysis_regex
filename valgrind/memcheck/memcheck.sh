@@ -5,9 +5,10 @@ TOOL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$TOOL_DIR/../.." && pwd)"
 CFG_FILE="$TOOL_DIR/memcheck.cfg"
 BUILD_DIR="$PROJECT_ROOT/build_memcheck"
-REPORT_DIR="$TOOL_DIR/reports"
+REPORT_ROOT="$TOOL_DIR/reports"
 TIMESTAMP="$(date +%d%m%Y_%H%M%S)"
-LOG_FILE="$REPORT_DIR/memcheck_regex_tests_${TIMESTAMP}.log"
+REPORT_DIR="$REPORT_ROOT/run_$TIMESTAMP"
+LOG_FILE="$REPORT_DIR/memcheck_regex_tests.log"
 
 if [[ -f "$CFG_FILE" ]]; then
     set -a
@@ -21,7 +22,7 @@ fi
 BOOST_TYPE="${BUILD_TYPE:-Debug}"
 CXX="${CXX:-g++}"
 JOBS="${JOBS:-$(nproc)}"
-VALGRIND_TARGET="${VALGRIND_TARGET:-regex_tests}"
+
 
 if [[ -z "${BOOST_ROOT:-}" || ! -d "$BOOST_ROOT" ]]; then 
     echo "BOOST_ROOT is not set or does not exist"
@@ -46,7 +47,7 @@ cmake -S "$PROJECT_ROOT" -B "$BUILD_DIR" \
     -DBoost_NO_BOOST_CMAKE=ON \
     -DCMAKE_BUILD_TYPE="$BUILD_TYPE" \
     -DCMAKE_CXX_COMPILER="$CXX" \
-    -DENABLE_ASAN=OFF \
+    -DENABLE_SANITIZERS=OFF \
     -DENABLE_COVERAGE=OFF
 
 cmake --build "$BUILD_DIR" --parallel "$JOBS"
@@ -54,11 +55,9 @@ cmake --build "$BUILD_DIR" --parallel "$JOBS"
 valgrind \
     --tool=memcheck \
     --leak-check=full \
-    --show-leak-kinds=definite,indirect,possible \
+    --show-leak-kinds=all \
     --track-origins=yes \
     --num-callers=30 \
-    --error-exitcode=101 \
     --log-file="$LOG_FILE" \
-    "$BUILD_DIR/$VALGRIND_TARGET"
-
+    "$BUILD_DIR/regex_app" 18 100 | tee "$REPORT_DIR/output.log"
 echo "Valgrind Memcheck report: $LOG_FILE"

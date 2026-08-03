@@ -1,0 +1,400 @@
+UpdateCTestConfiguration  from :/home/anja/Desktop/verifikacija/2026_Analysis_regex/build/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/anja/Desktop/verifikacija/2026_Analysis_regex/build/DartConfiguration.tcl
+Test project /home/anja/Desktop/verifikacija/2026_Analysis_regex/build
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: RegexTests
+
+1: Test command: /home/anja/Desktop/verifikacija/2026_Analysis_regex/build/regex_tests
+1: Test timeout computed to be: 10000000
+1: Running main() from ./googletest/src/gtest_main.cc
+1: [==========] Running 156 tests from 21 test suites.
+1: [----------] Global test environment set-up.
+1: [----------] 6 tests from BasicRegex
+1: [ RUN      ] BasicRegex.BasicRegexDefaultConstructionAndAssign
+1: [       OK ] BasicRegex.BasicRegexDefaultConstructionAndAssign (0 ms)
+1: [ RUN      ] BasicRegex.BasicRegexConstructFromIteratorRangeAndPointerRange
+1: [       OK ] BasicRegex.BasicRegexConstructFromIteratorRangeAndPointerRange (0 ms)
+1: [ RUN      ] BasicRegex.BasicRegexCopyCompareAssignOp
+1: [       OK ] BasicRegex.BasicRegexCopyCompareAssignOp (0 ms)
+1: [ RUN      ] BasicRegex.BasicRegexCompareOperatorsSwapAndStreams
+1: [       OK ] BasicRegex.BasicRegexCompareOperatorsSwapAndStreams (0 ms)
+1: [ RUN      ] BasicRegex.SetExpressionStoresStatus
+1: [       OK ] BasicRegex.SetExpressionStoresStatus (0 ms)
+1: [ RUN      ] BasicRegex.Subexpression
+1: [       OK ] BasicRegex.Subexpression (0 ms)
+1: [----------] 6 tests from BasicRegex (1 ms total)
+1: 
+1: [----------] 16 tests from MatchResults
+1: [ RUN      ] MatchResults.SMatchDefaultConstruction
+1: [       OK ] MatchResults.SMatchDefaultConstruction (0 ms)
+1: [ RUN      ] MatchResults.CMatchDefaultConstruction
+1: [       OK ] MatchResults.CMatchDefaultConstruction (0 ms)
+1: [ RUN      ] MatchResults.ExplicitDefaultConstruction
+1: [       OK ] MatchResults.ExplicitDefaultConstruction (0 ms)
+1: [ RUN      ] MatchResults.EmptyObjectCopy
+1: [       OK ] MatchResults.EmptyObjectCopy (0 ms)
+1: [ RUN      ] MatchResults.AssignOperatorEmptyObjects
+1: [       OK ] MatchResults.AssignOperatorEmptyObjects (0 ms)
+1: [ RUN      ] MatchResults.SwapEmptyObjects
+1: [       OK ] MatchResults.SwapEmptyObjects (0 ms)
+1: [ RUN      ] MatchResults.MatchResultsThrowsLogicError
+1: [       OK ] MatchResults.MatchResultsThrowsLogicError (0 ms)
+1: [ RUN      ] MatchResults.RegexMatchInitializesCMatch
+1: [       OK ] MatchResults.RegexMatchInitializesCMatch (0 ms)
+1: [ RUN      ] MatchResults.IteratorAccess
+1: [       OK ] MatchResults.IteratorAccess (0 ms)
+1: [ RUN      ] MatchResults.InitializedObjectsCopy
+1: [       OK ] MatchResults.InitializedObjectsCopy (0 ms)
+1: [ RUN      ] MatchResults.AssignOperatorInitializedObjects
+1: [       OK ] MatchResults.AssignOperatorInitializedObjects (0 ms)
+1: [ RUN      ] MatchResults.InitializedObjectsSwap
+1: [       OK ] MatchResults.InitializedObjectsSwap (0 ms)
+1: [ RUN      ] MatchResults.NamedSubexpressionAccessByName
+1: [       OK ] MatchResults.NamedSubexpressionAccessByName (0 ms)
+1: [ RUN      ] MatchResults.MissingSubexpressions
+1: [       OK ] MatchResults.MissingSubexpressions (0 ms)
+1: [ RUN      ] MatchResults.FormatCaptures
+1: [       OK ] MatchResults.FormatCaptures (0 ms)
+1: [ RUN      ] MatchResults.FormatOutputIterator
+1: [       OK ] MatchResults.FormatOutputIterator (0 ms)
+1: [----------] 16 tests from MatchResults (1 ms total)
+1: 
+1: [----------] 7 tests from SubMatch
+1: [ RUN      ] SubMatch.CapturedSubMatchesIteratorRange
+1: [       OK ] SubMatch.CapturedSubMatchesIteratorRange (0 ms)
+1: [ RUN      ] SubMatch.OptionalUnmatchedSubMatch
+1: [       OK ] SubMatch.OptionalUnmatchedSubMatch (0 ms)
+1: [ RUN      ] SubMatch.PrefixAndSuffixSubMatchObjects
+1: [       OK ] SubMatch.PrefixAndSuffixSubMatchObjects (0 ms)
+1: [ RUN      ] SubMatch.SubMatchCompareWithString
+1: [       OK ] SubMatch.SubMatchCompareWithString (0 ms)
+1: [ RUN      ] SubMatch.SubMatchCompareWithCString
+1: [       OK ] SubMatch.SubMatchCompareWithCString (0 ms)
+1: [ RUN      ] SubMatch.SubMatchCompareWithSubMatch
+1: [       OK ] SubMatch.SubMatchCompareWithSubMatch (0 ms)
+1: [ RUN      ] SubMatch.SubMatchCToOutputStream
+1: [       OK ] SubMatch.SubMatchCToOutputStream (0 ms)
+1: [----------] 7 tests from SubMatch (0 ms total)
+1: 
+1: [----------] 8 tests from RegexMatch
+1: [ RUN      ] RegexMatch.SimpleMatchSuccess
+1: [       OK ] RegexMatch.SimpleMatchSuccess (0 ms)
+1: [ RUN      ] RegexMatch.SimpleMatchFailure
+1: [       OK ] RegexMatch.SimpleMatchFailure (0 ms)
+1: [ RUN      ] RegexMatch.MatchEntireString
+1: [       OK ] RegexMatch.MatchEntireString (0 ms)
+1: [ RUN      ] RegexMatch.PopulateMatchResults
+1: [       OK ] RegexMatch.PopulateMatchResults (0 ms)
+1: [ RUN      ] RegexMatch.RegexMatchPostconditionsForFullMatch
+1: [       OK ] RegexMatch.RegexMatchPostconditionsForFullMatch (0 ms)
+1: [ RUN      ] RegexMatch.RegexMatchPostconditionsForPartialMatch
+1: [       OK ] RegexMatch.RegexMatchPostconditionsForPartialMatch (0 ms)
+1: [ RUN      ] RegexMatch.CompareConstructionOverloadsOnMatchedInput
+1: [       OK ] RegexMatch.CompareConstructionOverloadsOnMatchedInput (0 ms)
+1: [ RUN      ] RegexMatch.CompareConstructionOverloadsOnUnmatchedInput
+1: [       OK ] RegexMatch.CompareConstructionOverloadsOnUnmatchedInput (0 ms)
+1: [----------] 8 tests from RegexMatch (0 ms total)
+1: 
+1: [----------] 9 tests from RegexSearch
+1: [ RUN      ] RegexSearch.MatchSubstringSuccess
+1: [       OK ] RegexSearch.MatchSubstringSuccess (0 ms)
+1: [ RUN      ] RegexSearch.MatchSubstringFailure
+1: [       OK ] RegexSearch.MatchSubstringFailure (0 ms)
+1: [ RUN      ] RegexSearch.StringMatchCapturedGroups
+1: [       OK ] RegexSearch.StringMatchCapturedGroups (0 ms)
+1: [ RUN      ] RegexSearch.CompareConstructionOverloadsMatchExists
+1: [       OK ] RegexSearch.CompareConstructionOverloadsMatchExists (0 ms)
+1: [ RUN      ] RegexSearch.CompareConstionOverloadsNoMatchExists
+1: [       OK ] RegexSearch.CompareConstionOverloadsNoMatchExists (0 ms)
+1: [ RUN      ] RegexSearch.RegexSearchPostconditionsForFullMatch
+1: [       OK ] RegexSearch.RegexSearchPostconditionsForFullMatch (0 ms)
+1: [ RUN      ] RegexSearch.RegexSearchPostconditionsForPartialMatch
+1: [       OK ] RegexSearch.RegexSearchPostconditionsForPartialMatch (0 ms)
+1: [ RUN      ] RegexSearch.FindsFirstOccurrenceOnly
+1: [       OK ] RegexSearch.FindsFirstOccurrenceOnly (0 ms)
+1: [ RUN      ] RegexSearch.ReportsUnmatchedOptionalSubexpression
+1: [       OK ] RegexSearch.ReportsUnmatchedOptionalSubexpression (0 ms)
+1: [----------] 9 tests from RegexSearch (0 ms total)
+1: 
+1: [----------] 17 tests from RegexReplace
+1: [ RUN      ] RegexReplace.ConstructionOverloadsReplacesAllOccurances
+1: [       OK ] RegexReplace.ConstructionOverloadsReplacesAllOccurances (0 ms)
+1: [ RUN      ] RegexReplace.OutputIteratorOverloadReturnsIterator
+1: [       OK ] RegexReplace.OutputIteratorOverloadReturnsIterator (0 ms)
+1: [ RUN      ] RegexReplace.ReturnsInputWhenNoMatchFound
+1: [       OK ] RegexReplace.ReturnsInputWhenNoMatchFound (0 ms)
+1: [ RUN      ] RegexReplace.ReturnsEmptyOutputWhenNoMatchFoundAndFormatNoCopy
+1: [       OK ] RegexReplace.ReturnsEmptyOutputWhenNoMatchFoundAndFormatNoCopy (0 ms)
+1: [ RUN      ] RegexReplace.FormatNoCopyOmitsUnmatchedText
+1: [       OK ] RegexReplace.FormatNoCopyOmitsUnmatchedText (0 ms)
+1: [ RUN      ] RegexReplace.FormatFirstOnlyReplacesFirstMatch
+1: [       OK ] RegexReplace.FormatFirstOnlyReplacesFirstMatch (0 ms)
+1: [ RUN      ] RegexReplace.FormatFirstOnlyFormatNoCopyReturnsOnlyFirstReplacement
+1: [       OK ] RegexReplace.FormatFirstOnlyFormatNoCopyReturnsOnlyFirstReplacement (0 ms)
+1: [ RUN      ] RegexReplace.SupportsWholeMatchReference
+1: [       OK ] RegexReplace.SupportsWholeMatchReference (0 ms)
+1: [ RUN      ] RegexReplace.StringFormatter
+1: [       OK ] RegexReplace.StringFormatter (0 ms)
+1: [ RUN      ] RegexReplace.CStringFormatter
+1: [       OK ] RegexReplace.CStringFormatter (0 ms)
+1: [ RUN      ] RegexReplace.ConditionalFormatterWithFormatAll
+1: [       OK ] RegexReplace.ConditionalFormatterWithFormatAll (0 ms)
+1: [ RUN      ] RegexReplace.SedFormatter
+1: [       OK ] RegexReplace.SedFormatter (0 ms)
+1: [ RUN      ] RegexReplace.FunctorFormatter
+1: [       OK ] RegexReplace.FunctorFormatter (0 ms)
+1: [ RUN      ] RegexReplace.CaseInsensitiveSearch
+1: [       OK ] RegexReplace.CaseInsensitiveSearch (0 ms)
+1: [ RUN      ] RegexReplace.FormatLiteralKeepsBackreferencesAsPlainText
+1: [       OK ] RegexReplace.FormatLiteralKeepsBackreferencesAsPlainText (0 ms)
+1: [ RUN      ] RegexReplace.PrefixMatchAndSuffixTokensCanBeUsedInReplacement
+1: [       OK ] RegexReplace.PrefixMatchAndSuffixTokensCanBeUsedInReplacement (0 ms)
+1: [ RUN      ] RegexReplace.EmptyFromatterRemovesMatches
+1: [       OK ] RegexReplace.EmptyFromatterRemovesMatches (0 ms)
+1: [----------] 17 tests from RegexReplace (1 ms total)
+1: 
+1: [----------] 11 tests from RegexIterator
+1: [ RUN      ] RegexIterator.DefaultConstruction
+1: [       OK ] RegexIterator.DefaultConstruction (0 ms)
+1: [ RUN      ] RegexIterator.CopyConstructedIterator
+1: [       OK ] RegexIterator.CopyConstructedIterator (0 ms)
+1: [ RUN      ] RegexIterator.AssignedIterator
+1: [       OK ] RegexIterator.AssignedIterator (0 ms)
+1: [ RUN      ] RegexIterator.IncrementMovesToNextMatch
+1: [       OK ] RegexIterator.IncrementMovesToNextMatch (0 ms)
+1: [ RUN      ] RegexIterator.PostIncrementReturnsPreviousMatch
+1: [       OK ] RegexIterator.PostIncrementReturnsPreviousMatch (0 ms)
+1: [ RUN      ] RegexIterator.MatchNotNullSkipsEmptyMatches
+1: [       OK ] RegexIterator.MatchNotNullSkipsEmptyMatches (0 ms)
+1: [ RUN      ] RegexIterator.CRegexIteratorOnConstCharPointerRange
+1: [       OK ] RegexIterator.CRegexIteratorOnConstCharPointerRange (0 ms)
+1: [ RUN      ] RegexIterator.NoMatchesIterator
+1: [       OK ] RegexIterator.NoMatchesIterator (0 ms)
+1: [ RUN      ] RegexIterator.CaptureGroupsWithIterator
+1: [       OK ] RegexIterator.CaptureGroupsWithIterator (0 ms)
+1: [ RUN      ] RegexIterator.OverlappingMatches
+1: [       OK ] RegexIterator.OverlappingMatches (0 ms)
+1: [ RUN      ] RegexIterator.SourceStringMustOutliveIterator
+1: [       OK ] RegexIterator.SourceStringMustOutliveIterator (137 ms)
+1: [----------] 11 tests from RegexIterator (138 ms total)
+1: 
+1: [----------] 10 tests from RegexTokenIterator
+1: [ RUN      ] RegexTokenIterator.DefaultConstruction
+1: [       OK ] RegexTokenIterator.DefaultConstruction (0 ms)
+1: [ RUN      ] RegexTokenIterator.CopyConstructedIterator
+1: [       OK ] RegexTokenIterator.CopyConstructedIterator (0 ms)
+1: [ RUN      ] RegexTokenIterator.AssignedIterator
+1: [       OK ] RegexTokenIterator.AssignedIterator (0 ms)
+1: [ RUN      ] RegexTokenIterator.IncrementMovesToNextToken
+1: [       OK ] RegexTokenIterator.IncrementMovesToNextToken (0 ms)
+1: [ RUN      ] RegexTokenIterator.PostIncrementReturnsPreviousToken
+1: [       OK ] RegexTokenIterator.PostIncrementReturnsPreviousToken (0 ms)
+1: [ RUN      ] RegexTokenIterator.SplitNoMatchReturnsWholeInput
+1: [       OK ] RegexTokenIterator.SplitNoMatchReturnsWholeInput (0 ms)
+1: [ RUN      ] RegexTokenIterator.ExtractWholeSubmatch
+1: [       OK ] RegexTokenIterator.ExtractWholeSubmatch (0 ms)
+1: [ RUN      ] RegexTokenIterator.ExtractCaptureGroupTokens
+1: [       OK ] RegexTokenIterator.ExtractCaptureGroupTokens (0 ms)
+1: [ RUN      ] RegexTokenIterator.EmptyTokensBetweenSeparators
+1: [       OK ] RegexTokenIterator.EmptyTokensBetweenSeparators (0 ms)
+1: [ RUN      ] RegexTokenIterator.MixedSplitAndCaptureGroupTokens
+1: [       OK ] RegexTokenIterator.MixedSplitAndCaptureGroupTokens (0 ms)
+1: [----------] 10 tests from RegexTokenIterator (1 ms total)
+1: 
+1: [----------] 12 tests from RegexFlags
+1: [ RUN      ] RegexFlags.CaseInsensitiveMatching
+1: [       OK ] RegexFlags.CaseInsensitiveMatching (0 ms)
+1: [ RUN      ] RegexFlags.NoSubsSuppressesCaptureGroups
+1: [       OK ] RegexFlags.NoSubsSuppressesCaptureGroups (0 ms)
+1: [ RUN      ] RegexFlags.ContinuousSearchStartsAtBeginningOnly
+1: [       OK ] RegexFlags.ContinuousSearchStartsAtBeginningOnly (0 ms)
+1: [ RUN      ] RegexFlags.NotNullRejectsEmptyMatch
+1: [       OK ] RegexFlags.NotNullRejectsEmptyMatch (0 ms)
+1: [ RUN      ] RegexFlags.NotBolPreventsStartAnchorMatching
+1: [       OK ] RegexFlags.NotBolPreventsStartAnchorMatching (0 ms)
+1: [ RUN      ] RegexFlags.NotEolPreventsEndAnchorMatching
+1: [       OK ] RegexFlags.NotEolPreventsEndAnchorMatching (0 ms)
+1: [ RUN      ] RegexFlags.MatchNotBobPreventsBufferAnchorAtSubRangeStart
+1: [       OK ] RegexFlags.MatchNotBobPreventsBufferAnchorAtSubRangeStart (0 ms)
+1: [ RUN      ] RegexFlags.NotBowPreventsWordBoundaryAtStart
+1: [       OK ] RegexFlags.NotBowPreventsWordBoundaryAtStart (0 ms)
+1: [ RUN      ] RegexFlags.NotEowPreventsWordBoundaryAtEnd
+1: [       OK ] RegexFlags.NotEowPreventsWordBoundaryAtEnd (0 ms)
+1: [ RUN      ] RegexFlags.PrevAvailCheckPreviousCharacter
+1: [       OK ] RegexFlags.PrevAvailCheckPreviousCharacter (0 ms)
+1: [ RUN      ] RegexFlags.PrevAvailMakesMatchNotBolIgnored
+1: [       OK ] RegexFlags.PrevAvailMakesMatchNotBolIgnored (0 ms)
+1: [ RUN      ] RegexFlags.PrevAvailMakesMatchNotBowIgnored
+1: [       OK ] RegexFlags.PrevAvailMakesMatchNotBowIgnored (0 ms)
+1: [----------] 12 tests from RegexFlags (0 ms total)
+1: 
+1: [----------] 1 test from MatchFlagType
+1: [ RUN      ] MatchFlagType.MatchNotEobPreventsBufferAnchorAtSubRangeEnd
+1: [       OK ] MatchFlagType.MatchNotEobPreventsBufferAnchorAtSubRangeEnd (0 ms)
+1: [----------] 1 test from MatchFlagType (0 ms total)
+1: 
+1: [----------] 21 tests from RegexGroups
+1: [ RUN      ] RegexGroups.SimpleCaptureGroup
+1: [       OK ] RegexGroups.SimpleCaptureGroup (0 ms)
+1: [ RUN      ] RegexGroups.MultipleCaptureGroups
+1: [       OK ] RegexGroups.MultipleCaptureGroups (0 ms)
+1: [ RUN      ] RegexGroups.NestedCaptureGroups
+1: [       OK ] RegexGroups.NestedCaptureGroups (0 ms)
+1: [ RUN      ] RegexGroups.NamedGroups
+1: [       OK ] RegexGroups.NamedGroups (0 ms)
+1: [ RUN      ] RegexGroups.NamedGroupsAccessibleByNameAndIndex
+1: [       OK ] RegexGroups.NamedGroupsAccessibleByNameAndIndex (0 ms)
+1: [ RUN      ] RegexGroups.InvalidNamedGroupThrowsRegexError
+1: [       OK ] RegexGroups.InvalidNamedGroupThrowsRegexError (0 ms)
+1: [ RUN      ] RegexGroups.NonCapturingGroup
+1: [       OK ] RegexGroups.NonCapturingGroup (0 ms)
+1: [ RUN      ] RegexGroups.NonCapturingVsCapturing
+1: [       OK ] RegexGroups.NonCapturingVsCapturing (0 ms)
+1: [ RUN      ] RegexGroups.OptionalGroupMatched
+1: [       OK ] RegexGroups.OptionalGroupMatched (0 ms)
+1: [ RUN      ] RegexGroups.OptionalGroupNotMatched
+1: [       OK ] RegexGroups.OptionalGroupNotMatched (0 ms)
+1: [ RUN      ] RegexGroups.BackreferenceMatching
+1: [       OK ] RegexGroups.BackreferenceMatching (0 ms)
+1: [ RUN      ] RegexGroups.BackreferenceMatchingCaseInsensitive
+1: [       OK ] RegexGroups.BackreferenceMatchingCaseInsensitive (0 ms)
+1: [ RUN      ] RegexGroups.BackreferenceRepeatedWord
+1: [       OK ] RegexGroups.BackreferenceRepeatedWord (0 ms)
+1: [ RUN      ] RegexGroups.BackreferenceMultipleMatching
+1: [       OK ] RegexGroups.BackreferenceMultipleMatching (0 ms)
+1: [ RUN      ] RegexGroups.RepeatedCaptureGroupStoresLastIteration
+1: [       OK ] RegexGroups.RepeatedCaptureGroupStoresLastIteration (0 ms)
+1: [ RUN      ] RegexGroups.NamedBackreference
+1: [       OK ] RegexGroups.NamedBackreference (0 ms)
+1: [ RUN      ] RegexGroups.ReplaceWithBackreference
+1: [       OK ] RegexGroups.ReplaceWithBackreference (0 ms)
+1: [ RUN      ] RegexGroups.ReplaceWithBackreferenceUnchanged
+1: [       OK ] RegexGroups.ReplaceWithBackreferenceUnchanged (0 ms)
+1: [ RUN      ] RegexGroups.ReplaceWithNamedBackreference
+1: [       OK ] RegexGroups.ReplaceWithNamedBackreference (0 ms)
+1: [ RUN      ] RegexGroups.ReplaceWithOptionalGroup
+1: [       OK ] RegexGroups.ReplaceWithOptionalGroup (0 ms)
+1: [ RUN      ] RegexGroups.IterateOverAllGroupsInMatch
+1: [       OK ] RegexGroups.IterateOverAllGroupsInMatch (0 ms)
+1: [----------] 21 tests from RegexGroups (2 ms total)
+1: 
+1: [----------] 9 tests from RegexCharClasses
+1: [ RUN      ] RegexCharClasses.DigitClass
+1: [       OK ] RegexCharClasses.DigitClass (0 ms)
+1: [ RUN      ] RegexCharClasses.WordClass
+1: [       OK ] RegexCharClasses.WordClass (0 ms)
+1: [ RUN      ] RegexCharClasses.WhitespaceClass
+1: [       OK ] RegexCharClasses.WhitespaceClass (0 ms)
+1: [ RUN      ] RegexCharClasses.NotDigitClass
+1: [       OK ] RegexCharClasses.NotDigitClass (0 ms)
+1: [ RUN      ] RegexCharClasses.NotWordClass
+1: [       OK ] RegexCharClasses.NotWordClass (0 ms)
+1: [ RUN      ] RegexCharClasses.NotWhitespaceClass
+1: [       OK ] RegexCharClasses.NotWhitespaceClass (0 ms)
+1: [ RUN      ] RegexCharClasses.AnyOf
+1: [       OK ] RegexCharClasses.AnyOf (0 ms)
+1: [ RUN      ] RegexCharClasses.NotAnyOf
+1: [       OK ] RegexCharClasses.NotAnyOf (0 ms)
+1: [ RUN      ] RegexCharClasses.CharactersBetween
+1: [       OK ] RegexCharClasses.CharactersBetween (0 ms)
+1: [----------] 9 tests from RegexCharClasses (0 ms total)
+1: 
+1: [----------] 1 test from RegexLiterals
+1: [ RUN      ] RegexLiterals.EscapedMetacharacters
+1: [       OK ] RegexLiterals.EscapedMetacharacters (0 ms)
+1: [----------] 1 test from RegexLiterals (0 ms total)
+1: 
+1: [----------] 1 test from RegexWildcard
+1: [ RUN      ] RegexWildcard.DotDoesNotMatchNewline
+1: [       OK ] RegexWildcard.DotDoesNotMatchNewline (0 ms)
+1: [----------] 1 test from RegexWildcard (0 ms total)
+1: 
+1: [----------] 2 tests from RegexAnchors
+1: [ RUN      ] RegexAnchors.WordBoundary
+1: [       OK ] RegexAnchors.WordBoundary (0 ms)
+1: [ RUN      ] RegexAnchors.StartEndAnchors
+1: [       OK ] RegexAnchors.StartEndAnchors (0 ms)
+1: [----------] 2 tests from RegexAnchors (0 ms total)
+1: 
+1: [----------] 8 tests from RegexQuantifiers
+1: [ RUN      ] RegexQuantifiers.ZeroOrMore
+1: [       OK ] RegexQuantifiers.ZeroOrMore (0 ms)
+1: [ RUN      ] RegexQuantifiers.OneOrMore
+1: [       OK ] RegexQuantifiers.OneOrMore (0 ms)
+1: [ RUN      ] RegexQuantifiers.ZeroOrOne
+1: [       OK ] RegexQuantifiers.ZeroOrOne (0 ms)
+1: [ RUN      ] RegexQuantifiers.ExactCount
+1: [       OK ] RegexQuantifiers.ExactCount (0 ms)
+1: [ RUN      ] RegexQuantifiers.LowerBound
+1: [       OK ] RegexQuantifiers.LowerBound (0 ms)
+1: [ RUN      ] RegexQuantifiers.RangeCount
+1: [       OK ] RegexQuantifiers.RangeCount (0 ms)
+1: [ RUN      ] RegexQuantifiers.LazyQuantifier
+1: [       OK ] RegexQuantifiers.LazyQuantifier (0 ms)
+1: [ RUN      ] RegexQuantifiers.PossessiveQuantifier
+1: [       OK ] RegexQuantifiers.PossessiveQuantifier (0 ms)
+1: [----------] 8 tests from RegexQuantifiers (0 ms total)
+1: 
+1: [----------] 1 test from RegexAlternation
+1: [ RUN      ] RegexAlternation.SimpleAlternation
+1: [       OK ] RegexAlternation.SimpleAlternation (0 ms)
+1: [----------] 1 test from RegexAlternation (0 ms total)
+1: 
+1: [----------] 4 tests from RegexLookarounds
+1: [ RUN      ] RegexLookarounds.PositiveLookahead
+1: [       OK ] RegexLookarounds.PositiveLookahead (0 ms)
+1: [ RUN      ] RegexLookarounds.NegativeLookahead
+1: [       OK ] RegexLookarounds.NegativeLookahead (0 ms)
+1: [ RUN      ] RegexLookarounds.PositiveLookbehind
+1: [       OK ] RegexLookarounds.PositiveLookbehind (0 ms)
+1: [ RUN      ] RegexLookarounds.NegativeLookbehind
+1: [       OK ] RegexLookarounds.NegativeLookbehind (0 ms)
+1: [----------] 4 tests from RegexLookarounds (0 ms total)
+1: 
+1: [----------] 6 tests from RegexAtomicGroups
+1: [ RUN      ] RegexAtomicGroups.NoBacktrackingAcrossAlternatives
+1: [       OK ] RegexAtomicGroups.NoBacktrackingAcrossAlternatives (0 ms)
+1: [ RUN      ] RegexAtomicGroups.NoBacktrackingAfterGreedyQuantifier
+1: [       OK ] RegexAtomicGroups.NoBacktrackingAfterGreedyQuantifier (0 ms)
+1: [ RUN      ] RegexAtomicGroups.NoBacktrackingAfterLazyQuantifier
+1: [       OK ] RegexAtomicGroups.NoBacktrackingAfterLazyQuantifier (0 ms)
+1: [ RUN      ] RegexAtomicGroups.CaptureGroupsInsideAtomicGroup
+1: [       OK ] RegexAtomicGroups.CaptureGroupsInsideAtomicGroup (0 ms)
+1: [ RUN      ] RegexAtomicGroups.NestedAtomicGroups
+1: [       OK ] RegexAtomicGroups.NestedAtomicGroups (0 ms)
+1: [ RUN      ] RegexAtomicGroups.MatchingAtomicAlternatives
+1: [       OK ] RegexAtomicGroups.MatchingAtomicAlternatives (0 ms)
+1: [----------] 6 tests from RegexAtomicGroups (0 ms total)
+1: 
+1: [----------] 5 tests from RegexError
+1: [ RUN      ] RegexError.ParanthesisError
+1: [       OK ] RegexError.ParanthesisError (0 ms)
+1: [ RUN      ] RegexError.BracketError
+1: [       OK ] RegexError.BracketError (0 ms)
+1: [ RUN      ] RegexError.BraceErrorExtended
+1: [       OK ] RegexError.BraceErrorExtended (0 ms)
+1: [ RUN      ] RegexError.AmbiguousBraceCompilesPerl
+1: [       OK ] RegexError.AmbiguousBraceCompilesPerl (0 ms)
+1: [ RUN      ] RegexError.BadBraceError
+1: [       OK ] RegexError.BadBraceError (0 ms)
+1: [----------] 5 tests from RegexError (0 ms total)
+1: 
+1: [----------] 1 test from RegexErrpr
+1: [ RUN      ] RegexErrpr.EscapeError
+1: [       OK ] RegexErrpr.EscapeError (0 ms)
+1: [----------] 1 test from RegexErrpr (0 ms total)
+1: 
+1: [----------] Global test environment tear-down
+1: [==========] 156 tests from 21 test suites ran. (153 ms total)
+1: [  PASSED  ] 156 tests.
+1/1 Test #1: RegexTests .......................   Passed    0.22 sec
+
+100% tests passed, 0 tests failed out of 1
+
+Total Test time (real) =   0.22 sec

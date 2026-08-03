@@ -19,7 +19,7 @@ else
     exit 1
 fi
 
-LLVM_VERSION="$("clang++" --version | sed -n 's/.*clang version \([0-9][0-9]*\).*/\1/p' | head -n 1)"
+LLVM_VERSION="$("clang++" --version | sed -n 's/.*clang version \([0-9][0-9]*\).*/\1/p')"
 
 MULL_RUNNER="${MULL_RUNNER:-mull-runner-${LLVM_VERSION}}"
 MULL_PLUGIN="${MULL_PLUGIN:-/usr/lib/mull-ir-frontend-${LLVM_VERSION}}"

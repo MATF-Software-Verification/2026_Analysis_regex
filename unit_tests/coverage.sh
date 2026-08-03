@@ -28,6 +28,7 @@ fi
 
 rm -rf "$BUILD_DIR"
 rm -rf "$COVERAGE_DIR"
+mkdir "$COVERAGE_DIR"
  
 cmake -S "$PROJECT_ROOT" -B "$BUILD_DIR" \
     -DBOOST_ROOT="$BOOST_ROOT" \
@@ -35,15 +36,13 @@ cmake -S "$PROJECT_ROOT" -B "$BUILD_DIR" \
     -DBoost_NO_BOOST_CMAKE=ON \
     -DCMAKE_BUILD_TYPE="$BUILD_TYPE" \
     -DCMAKE_CXX_COMPILER="$CXX" \
-    -DENABLE_ASAN=OFF \
+    -DENABLE_SANITIZERS=ON \
     -DENABLE_COVERAGE=ON
  
 cmake --build "$BUILD_DIR" --parallel "$JOBS"
 
 cd "$BUILD_DIR"
-ctest --output-on-failure || true
-
-mkdir "$COVERAGE_DIR"
+ctest -V | tee "$COVERAGE_DIR/output.log" || true
 
 lcov --capture \
     --directory "$BUILD_DIR" \
