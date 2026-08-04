@@ -185,6 +185,7 @@ Zbog toga testovi uglavnom proveravaju svojstva i međusobnu konzistentnost funk
 Tokom integracije FuzzTest-a primećeno je da izgradnja alata kreira direktorijum `fuzztest/dist`
 
 U njemu se nalaze prevedene ANTLR biblioteke:
+
 ![FuzzTest problem sa generisanjem dist direktorijuma](images/antlr_in_source_folder.png)
 
 Problem je dokumentovan u okviru [GitHub tiketa](https://github.com/google/fuzztest/issues/1898).
@@ -276,3 +277,87 @@ Test demonstrira da se postavljanjem pomenute opcije prilikom `regex_search` usp
 Uspešno pokretanje testa dato je u `reports/full_match_implies_continuous_search.log`.
 
 Ovom tehnikom nisu pronađeni drugi bagovi Boost.Regex biblioteke, ali su definitivno testirane granice izdržljivosti autora. 
+
+## 4. Cppcheck
+
+Za statičku analizu izvornog koda biblioteke Boost.Regex korišćen je alat **Cppcheck**.
+
+Analizirane su `.h` i `.hpp` datoteke iz direktorijuma:
+
+`libs/regex/include/boost`
+
+Rezultati su sačuvani u XML formatu, nakon čega je pomoću alata `cppcheck-htmlreport` generisan pregledan HTML izveštaj.
+
+### 4.1 Konfiguracija alata
+
+Kao i ranije, `cppcheck.cfg.example` treba iskopirati u `cppcheck.cfg` i popuniti lokalne vrednosti, samo što treba obratiti pažnju da se `BOOST_SOURCE_ROOT` prosleđuje putanja ka izvornom kodu Boost repozitorijuma. 
+
+Alata je pokrenut sa narednim opcijama:
+
+```bash
+cppcheck \
+    -j "$JOBS" \
+    --enable=all \
+    --inconclusive \
+    --language=c++ \
+    --std=c++20 \
+    --force \
+    --platform=unix64 \
+    --xml \
+    --xml-version=2 \
+    -DBOOST_REGEX_MODULE_EXPORT="" \
+    -I"$BOOST_REGEX_SRC_DIR" "${BOOST_REGEX_FILES[@]}" \
+    2>"$XML_FILE"
+```
+Opcija `--enable=all` uključuje sve dostupne kategorije provera (osim `unusedFunction` zbog korišćenja `-j` opcije), dok `--inconclusive` uključuje i nalaze za koje alat nema potpunu sigurnost. Opcija `--force` zahteva analizu većeg broja mogućih pretprocesorskih konfiguracija, koja je uključena jer je izvorni kod bogat makroima.
+
+Analiza je prilagođena Linux platformi sa 64-bitnom arhitekturom i standardom C++20.
+
+Opcija `-DBOOST_REGEX_MODULE_EXPORT=""` je korišćena iz razloga što alat nije bio u mogućnosti da razreši dati makro, te je prijavljen značajan broj grešaka slične narednoj:
+
+```text
+BOOST_REGEX_MODULE_EXPORT template <class charT><--- There is an unknown macro here somewhere. Configuration is required. If BOOST_REGEX_MODULE_EXPORT is a macro then please configure it.
+```
+
+### 4.2 Rezultati
+
+Jedno konkretno pokretanje je dostupno unutar `reports` direktorijuma gde su dostupni izveštaj u html i xml formatu. 
+
+| Kategorija | Broj nalaza | 
+|---|---:|
+| `error` | 1 |
+| `warning` | 186 |
+| `style` | 91 |
+| `performance` | 2 |
+| `information` | 1 |
+| **Ukupno** | 587 |
+
+Ukupan broj nalaza obuhvata i one označene sa __inconclusive__, kojih ima 306. 
+
+Zbog složenosti pretprocesorskih direktiva `config.hpp` nije analiziran.
+
+Vrste defekata po brojnosti su date na nerdnoj slici preuzetoj iz izveštaja:
+
+![Defekti_statistika](images/defect_stats.png)
+
+Prve tri vrste u potpunosti potiču iz `perl_matcher.hpp`, i to u velikoj meri od linija 572 i 576. Ovo je posledica šablona, tj. alat isto upozorenje ponavlja za više instancinacija.
+
+Verovatno najozbiljni nalaz predstavlja `arrayIndexOutOfBoundsCond` u `unicode_iterator.hpp` na linijama 189 i 457. Cppcheck poruku formuliše uslovno: ili je uslov suvišan ili je moguć pristup van granica.
+
+```text
+Either the condition 'm_current==2' is redundant or the array 'm_values[3]' is accessed at index 3, which is out of bounds.
+```
+
+Ovo nije potvrdjeni defekt i zahteva dodatnu ručnu analizu sa najvišim prioritetom. 
+
+Postoji veliki broj upozorenja označenih kao `inconclusive` tipa `missingMemberCopy` a odnose se na konstruktor kopije u `perl_matcher.hpp` (linija 576). Slično za operator dodele na liniji 572 se javlja veliki broj upozorenja tipa `operatorEqVarError`. Ovo bi možda bile ozbiljne stavke na razmatranje da pre definisanja ove dve funkcije ne postoji komentar:
+
+```C++
+    // these operations aren't allowed, so are declared private,
+    // bodies are provided to keep explicit-instantiation requests happy:
+```
+
+Pored ovih nalaza, postoje i brojni nalazi kategorije `style` i `performance`, a detalji se mogu naći u izveštaju na putanju `cppcheck/reports/run_final`.
+
+## 5. Perf
+

@@ -55,13 +55,13 @@ cppcheck \
     -j "$JOBS" \
     --enable=all \
     --inconclusive \
-    --force \
     --language=c++ \
-    --std=c++17 \
+    --std=c++20 \
+    --force \
     --platform=unix64 \
-    --suppress=missingIncludeSystem \
     --xml \
     --xml-version=2 \
+    -DBOOST_REGEX_MODULE_EXPORT="" \
     -I"$BOOST_REGEX_SRC_DIR" "${BOOST_REGEX_FILES[@]}" \
     2>"$XML_FILE"
 
