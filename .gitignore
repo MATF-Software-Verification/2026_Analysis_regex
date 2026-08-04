@@ -5,7 +5,6 @@ cheatsheet.md
 fuzztest/log/
 fuzztest/summary
 fuzztest/dist
-fuzztest/reports/
 cppcheck/reports/
 sanitizers/reports/
 mull/reports/

@@ -1,0 +1,28 @@
+Note: Google Test filter = RegexFuzz.FullMatchImpliesSearchRegression
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RegexFuzz
+[ RUN      ] RegexFuzz.FullMatchImpliesSearchRegression
+/home/anja/Desktop/verifikacija/2026_Analysis_regex/fuzztest/fuzz_regex.cc:69: Failure
+Value of: full_match && !search_match
+  Actual: true
+Expected: false
+Stack trace:
+  0x55f355cc403c: FullMatchImpliesSearch()
+  0x55f355cc70de: RegexFuzz_FullMatchImpliesSearchRegression_Test::TestBody()
+  0x55f356268a82: testing::internal::HandleSehExceptionsInMethodIfSupported<>()
+  0x55f3561cdc62: testing::internal::HandleExceptionsInMethodIfSupported<>()
+  0x55f3561cd7c8: testing::Test::Run()
+  0x55f3561d0267: testing::TestInfo::Run()
+... Google Test internal frames ...
+
+[  FAILED  ] RegexFuzz.FullMatchImpliesSearchRegression (12 ms)
+[----------] 1 test from RegexFuzz (12 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (12 ms total)
+[  PASSED  ] 0 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] RegexFuzz.FullMatchImpliesSearchRegression
+
+ 1 FAILED TEST

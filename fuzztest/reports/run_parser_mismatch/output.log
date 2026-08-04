@@ -1,0 +1,593 @@
+[.] Sanitizer coverage enabled. Counter map size: 69374, Cmp map size: 262144
+Note: Google Test filter = RegexFuzz.MatchPattern
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from RegexFuzz
+[ RUN      ] RegexFuzz.MatchPattern
+FUZZTEST_PRNG_SEED=C4F0_QHB0Imh9ZJ7S8aeY4ZfIGAMkn703bJc8n1m66Y
+[*] Corpus size:     1 | Edges covered:   1709 | Fuzzing time:        869.014us | Total runs:  1.00e+00 | Runs/secs:  1150 | Max stack usage:     9920
+[*] Corpus size:     2 | Edges covered:   1760 | Fuzzing time:       1.312885ms | Total runs:  2.00e+00 | Runs/secs:  1523 | Max stack usage:     9920
+[*] Corpus size:     3 | Edges covered:   1791 | Fuzzing time:       1.675499ms | Total runs:  3.00e+00 | Runs/secs:  1790 | Max stack usage:     9920
+[*] Corpus size:     4 | Edges covered:   2307 | Fuzzing time:       2.601039ms | Total runs:  5.00e+00 | Runs/secs:  1922 | Max stack usage:    11136
+[*] Corpus size:     5 | Edges covered:   2312 | Fuzzing time:      13.695421ms | Total runs:  6.00e+00 | Runs/secs:   438 | Max stack usage:    11136
+[*] Corpus size:     6 | Edges covered:   2347 | Fuzzing time:      25.678878ms | Total runs:  7.00e+00 | Runs/secs:   272 | Max stack usage:    11136
+[*] Corpus size:     7 | Edges covered:   2800 | Fuzzing time:      37.067554ms | Total runs:  8.00e+00 | Runs/secs:   215 | Max stack usage:    13632
+[*] Corpus size:     8 | Edges covered:   3036 | Fuzzing time:      52.468925ms | Total runs:  9.00e+00 | Runs/secs:   171 | Max stack usage:    13632
+[*] Corpus size:     9 | Edges covered:   3054 | Fuzzing time:      61.987783ms | Total runs:  1.00e+01 | Runs/secs:   161 | Max stack usage:    13632
+[*] Corpus size:    10 | Edges covered:   3066 | Fuzzing time:      62.490302ms | Total runs:  1.10e+01 | Runs/secs:   176 | Max stack usage:    13632
+[*] Corpus size:    11 | Edges covered:   3066 | Fuzzing time:      66.402425ms | Total runs:  1.20e+01 | Runs/secs:   180 | Max stack usage:    13632
+[*] Corpus size:    12 | Edges covered:   3068 | Fuzzing time:      70.691279ms | Total runs:  1.40e+01 | Runs/secs:   198 | Max stack usage:    13632
+[*] Corpus size:    13 | Edges covered:   3087 | Fuzzing time:      78.049613ms | Total runs:  1.50e+01 | Runs/secs:   192 | Max stack usage:    13632
+[*] Corpus size:    14 | Edges covered:   3087 | Fuzzing time:      86.805345ms | Total runs:  1.60e+01 | Runs/secs:   184 | Max stack usage:    13632
+[*] Corpus size:    15 | Edges covered:   3107 | Fuzzing time:      99.899547ms | Total runs:  1.70e+01 | Runs/secs:   170 | Max stack usage:    13632
+[.] Fuzzing timeout set to: 1m
+[*] Corpus size:    16 | Edges covered:   3107 | Fuzzing time:     109.172929ms | Total runs:  1.80e+01 | Runs/secs:   164 | Max stack usage:    13632
+[*] Corpus size:    17 | Edges covered:   3109 | Fuzzing time:      109.69276ms | Total runs:  1.90e+01 | Runs/secs:   173 | Max stack usage:    13632
+[*] Corpus size:    18 | Edges covered:   3111 | Fuzzing time:     110.330168ms | Total runs:  2.20e+01 | Runs/secs:   199 | Max stack usage:    13632
+[*] Corpus size:    19 | Edges covered:   3111 | Fuzzing time:     113.075474ms | Total runs:  5.10e+01 | Runs/secs:   451 | Max stack usage:    13632
+[*] Corpus size:    20 | Edges covered:   3111 | Fuzzing time:     117.698723ms | Total runs:  5.90e+01 | Runs/secs:   501 | Max stack usage:    13632
+[*] Corpus size:    21 | Edges covered:   3170 | Fuzzing time:     126.436174ms | Total runs:  6.80e+01 | Runs/secs:   537 | Max stack usage:    13632
+[*] Corpus size:    22 | Edges covered:   3170 | Fuzzing time:     126.983201ms | Total runs:  6.90e+01 | Runs/secs:   543 | Max stack usage:    13632
+[*] Corpus size:    23 | Edges covered:   3170 | Fuzzing time:     134.267304ms | Total runs:  7.90e+01 | Runs/secs:   588 | Max stack usage:    13632
+[*] Corpus size:    24 | Edges covered:   3170 | Fuzzing time:     138.788917ms | Total runs:  8.20e+01 | Runs/secs:   590 | Max stack usage:    13632
+[*] Corpus size:    25 | Edges covered:   3213 | Fuzzing time:     146.746102ms | Total runs:  8.30e+01 | Runs/secs:   565 | Max stack usage:    13632
+[*] Corpus size:    26 | Edges covered:   3215 | Fuzzing time:     151.207324ms | Total runs:  8.40e+01 | Runs/secs:   555 | Max stack usage:    13632
+[*] Corpus size:    27 | Edges covered:   3216 | Fuzzing time:     155.578892ms | Total runs:  8.60e+01 | Runs/secs:   552 | Max stack usage:    13632
+[*] Corpus size:    28 | Edges covered:   3229 | Fuzzing time:     160.274464ms | Total runs:  8.70e+01 | Runs/secs:   542 | Max stack usage:    13632
+[*] Corpus size:    29 | Edges covered:   3245 | Fuzzing time:     165.201687ms | Total runs:  9.10e+01 | Runs/secs:   550 | Max stack usage:    13632
+[*] Corpus size:    30 | Edges covered:   3245 | Fuzzing time:     169.607523ms | Total runs:  9.20e+01 | Runs/secs:   542 | Max stack usage:    13632
+[*] Corpus size:    31 | Edges covered:   3246 | Fuzzing time:     174.034732ms | Total runs:  9.30e+01 | Runs/secs:   534 | Max stack usage:    13632
+[*] Corpus size:    32 | Edges covered:   3254 | Fuzzing time:     178.795709ms | Total runs:  9.50e+01 | Runs/secs:   531 | Max stack usage:    13632
+[*] Corpus size:    33 | Edges covered:   3257 | Fuzzing time:     183.874062ms | Total runs:  9.90e+01 | Runs/secs:   538 | Max stack usage:    13632
+[*] Corpus size:    34 | Edges covered:   3257 | Fuzzing time:       188.3348ms | Total runs:  1.01e+02 | Runs/secs:   536 | Max stack usage:    13632
+[*] Corpus size:    35 | Edges covered:   3258 | Fuzzing time:      200.05235ms | Total runs:  1.03e+02 | Runs/secs:   514 | Max stack usage:    13632
+[*] Corpus size:    36 | Edges covered:   3259 | Fuzzing time:      206.79597ms | Total runs:  1.06e+02 | Runs/secs:   512 | Max stack usage:    13632
+[*] Corpus size:    37 | Edges covered:   3260 | Fuzzing time:       207.4962ms | Total runs:  1.07e+02 | Runs/secs:   515 | Max stack usage:    13632
+[*] Corpus size:    38 | Edges covered:   3262 | Fuzzing time:     212.121602ms | Total runs:  1.09e+02 | Runs/secs:   513 | Max stack usage:    13632
+[*] Corpus size:    39 | Edges covered:   3262 | Fuzzing time:     216.418019ms | Total runs:  1.10e+02 | Runs/secs:   508 | Max stack usage:    13632
+[*] Corpus size:    40 | Edges covered:   3272 | Fuzzing time:     228.204986ms | Total runs:  1.14e+02 | Runs/secs:   499 | Max stack usage:    13632
+[*] Corpus size:    41 | Edges covered:   3275 | Fuzzing time:     233.161079ms | Total runs:  1.20e+02 | Runs/secs:   514 | Max stack usage:    13632
+[*] Corpus size:    42 | Edges covered:   3280 | Fuzzing time:     238.823879ms | Total runs:  1.21e+02 | Runs/secs:   506 | Max stack usage:    13632
+[*] Corpus size:    43 | Edges covered:   3284 | Fuzzing time:     244.653562ms | Total runs:  1.22e+02 | Runs/secs:   498 | Max stack usage:    13632
+[*] Corpus size:    44 | Edges covered:   3289 | Fuzzing time:     248.997771ms | Total runs:  1.23e+02 | Runs/secs:   493 | Max stack usage:    13632
+[*] Corpus size:    45 | Edges covered:   3291 | Fuzzing time:     253.340864ms | Total runs:  1.24e+02 | Runs/secs:   489 | Max stack usage:    13632
+[*] Corpus size:    46 | Edges covered:   3293 | Fuzzing time:     258.913404ms | Total runs:  1.38e+02 | Runs/secs:   532 | Max stack usage:    13632
+[*] Corpus size:    47 | Edges covered:   3294 | Fuzzing time:     265.890571ms | Total runs:  1.46e+02 | Runs/secs:   549 | Max stack usage:    13632
+[*] Corpus size:    48 | Edges covered:   3297 | Fuzzing time:     270.597173ms | Total runs:  1.47e+02 | Runs/secs:   543 | Max stack usage:    13632
+[*] Corpus size:    49 | Edges covered:   3298 | Fuzzing time:     275.284688ms | Total runs:  1.48e+02 | Runs/secs:   537 | Max stack usage:    13632
+[*] Corpus size:    50 | Edges covered:   3298 | Fuzzing time:      284.59098ms | Total runs:  1.54e+02 | Runs/secs:   541 | Max stack usage:    13632
+[*] Corpus size:    51 | Edges covered:   3298 | Fuzzing time:     296.375049ms | Total runs:  1.58e+02 | Runs/secs:   533 | Max stack usage:    13632
+[*] Corpus size:    52 | Edges covered:   3299 | Fuzzing time:     308.609895ms | Total runs:  1.84e+02 | Runs/secs:   596 | Max stack usage:    13632
+[*] Corpus size:    53 | Edges covered:   3301 | Fuzzing time:     315.275612ms | Total runs:  1.91e+02 | Runs/secs:   605 | Max stack usage:    13632
+[*] Corpus size:    54 | Edges covered:   3301 | Fuzzing time:     320.377404ms | Total runs:  1.96e+02 | Runs/secs:   611 | Max stack usage:    13632
+[*] Corpus size:    55 | Edges covered:   3306 | Fuzzing time:     325.941661ms | Total runs:  2.05e+02 | Runs/secs:   628 | Max stack usage:    13632
+[*] Corpus size:    56 | Edges covered:   3308 | Fuzzing time:     332.099358ms | Total runs:  2.07e+02 | Runs/secs:   623 | Max stack usage:    13632
+[*] Corpus size:    57 | Edges covered:   3309 | Fuzzing time:     337.085104ms | Total runs:  2.11e+02 | Runs/secs:   625 | Max stack usage:    13632
+[*] Corpus size:    58 | Edges covered:   3310 | Fuzzing time:     342.082287ms | Total runs:  2.14e+02 | Runs/secs:   625 | Max stack usage:    13632
+[*] Corpus size:    59 | Edges covered:   3319 | Fuzzing time:     352.288244ms | Total runs:  2.15e+02 | Runs/secs:   610 | Max stack usage:    13632
+[*] Corpus size:    60 | Edges covered:   3320 | Fuzzing time:     369.101415ms | Total runs:  2.76e+02 | Runs/secs:   747 | Max stack usage:    13632
+[*] Corpus size:    61 | Edges covered:   3322 | Fuzzing time:      378.65552ms | Total runs:  2.78e+02 | Runs/secs:   734 | Max stack usage:    13632
+[*] Corpus size:    62 | Edges covered:   3322 | Fuzzing time:     383.599721ms | Total runs:  2.81e+02 | Runs/secs:   732 | Max stack usage:    13632
+[*] Corpus size:    63 | Edges covered:   3323 | Fuzzing time:     392.454203ms | Total runs:  2.86e+02 | Runs/secs:   728 | Max stack usage:    13632
+[*] Corpus size:    64 | Edges covered:   3328 | Fuzzing time:     404.577315ms | Total runs:  3.33e+02 | Runs/secs:   823 | Max stack usage:    13632
+[*] Corpus size:    65 | Edges covered:   3328 | Fuzzing time:     409.497705ms | Total runs:  3.35e+02 | Runs/secs:   818 | Max stack usage:    13632
+[*] Corpus size:    66 | Edges covered:   3328 | Fuzzing time:     414.517998ms | Total runs:  3.38e+02 | Runs/secs:   815 | Max stack usage:    13632
+[*] Corpus size:    67 | Edges covered:   3328 | Fuzzing time:     426.786982ms | Total runs:  3.40e+02 | Runs/secs:   796 | Max stack usage:    13632
+[*] Corpus size:    68 | Edges covered:   3328 | Fuzzing time:     435.550769ms | Total runs:  3.68e+02 | Runs/secs:   844 | Max stack usage:    13632
+[*] Corpus size:    69 | Edges covered:   3328 | Fuzzing time:     440.287192ms | Total runs:  3.69e+02 | Runs/secs:   838 | Max stack usage:    13632
+[*] Corpus size:    70 | Edges covered:   3328 | Fuzzing time:     451.556969ms | Total runs:  3.72e+02 | Runs/secs:   823 | Max stack usage:    13632
+[*] Corpus size:    71 | Edges covered:   3328 | Fuzzing time:     463.208453ms | Total runs:  3.92e+02 | Runs/secs:   846 | Max stack usage:    13632
+[*] Corpus size:    72 | Edges covered:   3329 | Fuzzing time:     473.904622ms | Total runs:  3.97e+02 | Runs/secs:   837 | Max stack usage:    13632
+[*] Corpus size:    73 | Edges covered:   3334 | Fuzzing time:     484.779878ms | Total runs:  4.02e+02 | Runs/secs:   829 | Max stack usage:    13632
+[*] Corpus size:    74 | Edges covered:   3336 | Fuzzing time:     497.970031ms | Total runs:  4.04e+02 | Runs/secs:   811 | Max stack usage:    13632
+[*] Corpus size:    75 | Edges covered:   3338 | Fuzzing time:      511.81302ms | Total runs:  4.07e+02 | Runs/secs:   795 | Max stack usage:    13632
+[*] Corpus size:    76 | Edges covered:   3345 | Fuzzing time:     524.945407ms | Total runs:  4.09e+02 | Runs/secs:   779 | Max stack usage:    13632
+[*] Corpus size:    77 | Edges covered:   3345 | Fuzzing time:      538.63128ms | Total runs:  4.13e+02 | Runs/secs:   766 | Max stack usage:    13632
+[*] Corpus size:    78 | Edges covered:   3345 | Fuzzing time:     552.795775ms | Total runs:  4.15e+02 | Runs/secs:   750 | Max stack usage:    13632
+[*] Corpus size:    79 | Edges covered:   3347 | Fuzzing time:     564.849305ms | Total runs:  4.17e+02 | Runs/secs:   738 | Max stack usage:    13632
+[*] Corpus size:    80 | Edges covered:   3347 | Fuzzing time:     580.946911ms | Total runs:  4.27e+02 | Runs/secs:   735 | Max stack usage:    13632
+[*] Corpus size:    81 | Edges covered:   3347 | Fuzzing time:     596.083496ms | Total runs:  4.33e+02 | Runs/secs:   726 | Max stack usage:    13632
+[*] Corpus size:    82 | Edges covered:   3349 | Fuzzing time:     608.690118ms | Total runs:  4.34e+02 | Runs/secs:   713 | Max stack usage:    13632
+[*] Corpus size:    83 | Edges covered:   3349 | Fuzzing time:     615.252844ms | Total runs:  4.36e+02 | Runs/secs:   708 | Max stack usage:    13632
+[*] Corpus size:    84 | Edges covered:   3353 | Fuzzing time:     627.645525ms | Total runs:  4.67e+02 | Runs/secs:   744 | Max stack usage:    13632
+[*] Corpus size:    85 | Edges covered:   3354 | Fuzzing time:     635.228491ms | Total runs:  4.77e+02 | Runs/secs:   750 | Max stack usage:    13632
+[*] Corpus size:    86 | Edges covered:   3354 | Fuzzing time:     642.364796ms | Total runs:  4.84e+02 | Runs/secs:   753 | Max stack usage:    13632
+[*] Corpus size:    87 | Edges covered:   3354 | Fuzzing time:     650.434148ms | Total runs:  4.86e+02 | Runs/secs:   747 | Max stack usage:    13632
+[*] Corpus size:    88 | Edges covered:   3359 | Fuzzing time:     657.270628ms | Total runs:  4.88e+02 | Runs/secs:   742 | Max stack usage:    13632
+[*] Corpus size:    89 | Edges covered:   3360 | Fuzzing time:     663.085153ms | Total runs:  5.00e+02 | Runs/secs:   754 | Max stack usage:    13632
+[*] Corpus size:    90 | Edges covered:   3360 | Fuzzing time:     668.696213ms | Total runs:  5.12e+02 | Runs/secs:   765 | Max stack usage:    13632
+[*] Corpus size:    91 | Edges covered:   3361 | Fuzzing time:      674.05967ms | Total runs:  5.19e+02 | Runs/secs:   769 | Max stack usage:    13632
+[*] Corpus size:    92 | Edges covered:   3361 | Fuzzing time:     680.269947ms | Total runs:  5.33e+02 | Runs/secs:   783 | Max stack usage:    13632
+[*] Corpus size:    93 | Edges covered:   3361 | Fuzzing time:     698.397337ms | Total runs:  5.39e+02 | Runs/secs:   771 | Max stack usage:    13632
+[*] Corpus size:    94 | Edges covered:   3361 | Fuzzing time:     707.454252ms | Total runs:  5.40e+02 | Runs/secs:   763 | Max stack usage:    13632
+[*] Corpus size:    95 | Edges covered:   3361 | Fuzzing time:      717.74743ms | Total runs:  5.44e+02 | Runs/secs:   757 | Max stack usage:    13632
+[*] Corpus size:    96 | Edges covered:   3361 | Fuzzing time:     733.226296ms | Total runs:  5.90e+02 | Runs/secs:   804 | Max stack usage:    13632
+[*] Corpus size:    97 | Edges covered:   3363 | Fuzzing time:     743.730357ms | Total runs:  6.20e+02 | Runs/secs:   833 | Max stack usage:    13632
+[*] Corpus size:    98 | Edges covered:   3363 | Fuzzing time:     752.262316ms | Total runs:  6.22e+02 | Runs/secs:   826 | Max stack usage:    13632
+[*] Corpus size:    99 | Edges covered:   3363 | Fuzzing time:     760.633583ms | Total runs:  6.42e+02 | Runs/secs:   844 | Max stack usage:    13632
+[*] Corpus size:   100 | Edges covered:   3364 | Fuzzing time:     769.467855ms | Total runs:  6.52e+02 | Runs/secs:   847 | Max stack usage:    13632
+[*] Corpus size:   101 | Edges covered:   3364 | Fuzzing time:     791.180587ms | Total runs:  7.35e+02 | Runs/secs:   928 | Max stack usage:    13632
+[*] Corpus size:   102 | Edges covered:   3365 | Fuzzing time:     811.536457ms | Total runs:  7.36e+02 | Runs/secs:   906 | Max stack usage:    13632
+[*] Corpus size:   103 | Edges covered:   3366 | Fuzzing time:     827.027677ms | Total runs:  7.62e+02 | Runs/secs:   921 | Max stack usage:    13632
+[*] Corpus size:   104 | Edges covered:   3366 | Fuzzing time:     831.160352ms | Total runs:  7.88e+02 | Runs/secs:   948 | Max stack usage:    13632
+[*] Corpus size:   105 | Edges covered:   3367 | Fuzzing time:     842.045216ms | Total runs:  7.93e+02 | Runs/secs:   941 | Max stack usage:    13632
+[*] Corpus size:   106 | Edges covered:   3367 | Fuzzing time:     854.217518ms | Total runs:  8.07e+02 | Runs/secs:   944 | Max stack usage:    13632
+[*] Corpus size:   107 | Edges covered:   3368 | Fuzzing time:     868.284431ms | Total runs:  8.38e+02 | Runs/secs:   965 | Max stack usage:    13632
+[*] Corpus size:   108 | Edges covered:   3368 | Fuzzing time:     880.824643ms | Total runs:  8.43e+02 | Runs/secs:   957 | Max stack usage:    13632
+[*] Corpus size:   109 | Edges covered:   3368 | Fuzzing time:     894.963498ms | Total runs:  8.44e+02 | Runs/secs:   943 | Max stack usage:    13632
+[*] Corpus size:   110 | Edges covered:   3369 | Fuzzing time:     910.352381ms | Total runs:  8.72e+02 | Runs/secs:   957 | Max stack usage:    13632
+[*] Corpus size:   111 | Edges covered:   3372 | Fuzzing time:     912.706033ms | Total runs:  8.82e+02 | Runs/secs:   966 | Max stack usage:    13632
+[*] Corpus size:   112 | Edges covered:   3374 | Fuzzing time:     926.130241ms | Total runs:  8.84e+02 | Runs/secs:   954 | Max stack usage:    13632
+[*] Corpus size:   113 | Edges covered:   3374 | Fuzzing time:     938.297701ms | Total runs:  8.85e+02 | Runs/secs:   943 | Max stack usage:    13632
+[*] Corpus size:   114 | Edges covered:   3374 | Fuzzing time:      950.01262ms | Total runs:  8.86e+02 | Runs/secs:   932 | Max stack usage:    13632
+[*] Corpus size:   115 | Edges covered:   3376 | Fuzzing time:     964.587073ms | Total runs:  9.03e+02 | Runs/secs:   936 | Max stack usage:    13632
+[*] Corpus size:   116 | Edges covered:   3378 | Fuzzing time:     982.800511ms | Total runs:  9.28e+02 | Runs/secs:   944 | Max stack usage:    13632
+[*] Corpus size:   117 | Edges covered:   3379 | Fuzzing time:     995.930178ms | Total runs:  9.33e+02 | Runs/secs:   936 | Max stack usage:    13632
+[*] Corpus size:   118 | Edges covered:   3385 | Fuzzing time:     1.009298856s | Total runs:  9.40e+02 | Runs/secs:   931 | Max stack usage:    13632
+[*] Corpus size:   119 | Edges covered:   3385 | Fuzzing time:        1.022211s | Total runs:  9.46e+02 | Runs/secs:   925 | Max stack usage:    13632
+[*] Corpus size:   120 | Edges covered:   3386 | Fuzzing time:     1.040332104s | Total runs:  9.70e+02 | Runs/secs:   932 | Max stack usage:    13632
+[*] Corpus size:   121 | Edges covered:   3386 | Fuzzing time:     1.051095904s | Total runs:  9.77e+02 | Runs/secs:   929 | Max stack usage:    13632
+[*] Corpus size:   122 | Edges covered:   3386 | Fuzzing time:     1.062379647s | Total runs:  9.95e+02 | Runs/secs:   936 | Max stack usage:    13632
+[*] Corpus size:   123 | Edges covered:   3386 | Fuzzing time:     1.075792411s | Total runs:  1.04e+03 | Runs/secs:   962 | Max stack usage:    13632
+[*] Corpus size:   124 | Edges covered:   3386 | Fuzzing time:     1.098611844s | Total runs:  1.12e+03 | Runs/secs:  1022 | Max stack usage:    13632
+[*] Corpus size:   125 | Edges covered:   3386 | Fuzzing time:     1.116990198s | Total runs:  1.22e+03 | Runs/secs:  1094 | Max stack usage:    13632
+[*] Corpus size:   126 | Edges covered:   3386 | Fuzzing time:     1.135460316s | Total runs:  1.27e+03 | Runs/secs:  1117 | Max stack usage:    13632
+[*] Corpus size:   127 | Edges covered:   3386 | Fuzzing time:     1.144550353s | Total runs:  1.27e+03 | Runs/secs:  1109 | Max stack usage:    13632
+[*] Corpus size:   128 | Edges covered:   3386 | Fuzzing time:     1.154210433s | Total runs:  1.27e+03 | Runs/secs:  1102 | Max stack usage:    13632
+[*] Corpus size:   129 | Edges covered:   3386 | Fuzzing time:     1.163609636s | Total runs:  1.27e+03 | Runs/secs:  1094 | Max stack usage:    13632
+[*] Corpus size:   130 | Edges covered:   3386 | Fuzzing time:     1.175745876s | Total runs:  1.28e+03 | Runs/secs:  1092 | Max stack usage:    13632
+[*] Corpus size:   131 | Edges covered:   3387 | Fuzzing time:     1.184599447s | Total runs:  1.29e+03 | Runs/secs:  1085 | Max stack usage:    13632
+[*] Corpus size:   132 | Edges covered:   3387 | Fuzzing time:     1.194290123s | Total runs:  1.29e+03 | Runs/secs:  1079 | Max stack usage:    13632
+[*] Corpus size:   133 | Edges covered:   3387 | Fuzzing time:     1.204334102s | Total runs:  1.29e+03 | Runs/secs:  1071 | Max stack usage:    13632
+[*] Corpus size:   134 | Edges covered:   3387 | Fuzzing time:     1.220756123s | Total runs:  1.32e+03 | Runs/secs:  1079 | Max stack usage:    13632
+[*] Corpus size:   135 | Edges covered:   3388 | Fuzzing time:      1.24859362s | Total runs:  1.34e+03 | Runs/secs:  1074 | Max stack usage:    13632
+[*] Corpus size:   136 | Edges covered:   3388 | Fuzzing time:     1.259676664s | Total runs:  1.40e+03 | Runs/secs:  1111 | Max stack usage:    13632
+[*] Corpus size:   137 | Edges covered:   3389 | Fuzzing time:     1.273575433s | Total runs:  1.44e+03 | Runs/secs:  1132 | Max stack usage:    13632
+[*] Corpus size:   138 | Edges covered:   3389 | Fuzzing time:     1.283870213s | Total runs:  1.49e+03 | Runs/secs:  1160 | Max stack usage:    13632
+[*] Corpus size:   139 | Edges covered:   3389 | Fuzzing time:     1.298215163s | Total runs:  1.50e+03 | Runs/secs:  1153 | Max stack usage:    13632
+[*] Corpus size:   140 | Edges covered:   3391 | Fuzzing time:     1.313972156s | Total runs:  1.52e+03 | Runs/secs:  1154 | Max stack usage:    13632
+[*] Corpus size:   141 | Edges covered:   3391 | Fuzzing time:     1.327530747s | Total runs:  1.52e+03 | Runs/secs:  1144 | Max stack usage:    13632
+[*] Corpus size:   142 | Edges covered:   3391 | Fuzzing time:     1.340853325s | Total runs:  1.52e+03 | Runs/secs:  1135 | Max stack usage:    13632
+[*] Corpus size:   143 | Edges covered:   3391 | Fuzzing time:     1.348942562s | Total runs:  1.53e+03 | Runs/secs:  1131 | Max stack usage:    13632
+[*] Corpus size:   144 | Edges covered:   3391 | Fuzzing time:     1.356793289s | Total runs:  1.53e+03 | Runs/secs:  1129 | Max stack usage:    13632
+[*] Corpus size:   145 | Edges covered:   3391 | Fuzzing time:     1.369827473s | Total runs:  1.58e+03 | Runs/secs:  1150 | Max stack usage:    13632
+[*] Corpus size:   146 | Edges covered:   3391 | Fuzzing time:     1.388941475s | Total runs:  1.58e+03 | Runs/secs:  1137 | Max stack usage:    13632
+[*] Corpus size:   147 | Edges covered:   3391 | Fuzzing time:     1.409229386s | Total runs:  1.58e+03 | Runs/secs:  1121 | Max stack usage:    13632
+[*] Corpus size:   148 | Edges covered:   3391 | Fuzzing time:     1.428555179s | Total runs:  1.59e+03 | Runs/secs:  1110 | Max stack usage:    13632
+[*] Corpus size:   149 | Edges covered:   3391 | Fuzzing time:     1.446795997s | Total runs:  1.63e+03 | Runs/secs:  1123 | Max stack usage:    13632
+[*] Corpus size:   150 | Edges covered:   3391 | Fuzzing time:     1.455679745s | Total runs:  1.66e+03 | Runs/secs:  1141 | Max stack usage:    13632
+[*] Corpus size:   151 | Edges covered:   3402 | Fuzzing time:     1.468879171s | Total runs:  1.67e+03 | Runs/secs:  1137 | Max stack usage:    13632
+[*] Corpus size:   152 | Edges covered:   3402 | Fuzzing time:     1.482043553s | Total runs:  1.68e+03 | Runs/secs:  1133 | Max stack usage:    13632
+[*] Corpus size:   153 | Edges covered:   3402 | Fuzzing time:     1.495984118s | Total runs:  1.69e+03 | Runs/secs:  1132 | Max stack usage:    13632
+[*] Corpus size:   154 | Edges covered:   3402 | Fuzzing time:     1.514334078s | Total runs:  1.75e+03 | Runs/secs:  1152 | Max stack usage:    13632
+[*] Corpus size:   155 | Edges covered:   3402 | Fuzzing time:     1.531560551s | Total runs:  1.75e+03 | Runs/secs:  1140 | Max stack usage:    13632
+[*] Corpus size:   156 | Edges covered:   3424 | Fuzzing time:     1.548642803s | Total runs:  1.75e+03 | Runs/secs:  1128 | Max stack usage:    13632
+[*] Corpus size:   157 | Edges covered:   3424 | Fuzzing time:       1.5659876s | Total runs:  1.75e+03 | Runs/secs:  1116 | Max stack usage:    13632
+[*] Corpus size:   158 | Edges covered:   3424 | Fuzzing time:     1.583983483s | Total runs:  1.75e+03 | Runs/secs:  1105 | Max stack usage:    13632
+[*] Corpus size:   159 | Edges covered:   3425 | Fuzzing time:     1.600296102s | Total runs:  1.75e+03 | Runs/secs:  1094 | Max stack usage:    13632
+[*] Corpus size:   160 | Edges covered:   3425 | Fuzzing time:      1.61706085s | Total runs:  1.75e+03 | Runs/secs:  1084 | Max stack usage:    13632
+[*] Corpus size:   161 | Edges covered:   3425 | Fuzzing time:     1.635472301s | Total runs:  1.76e+03 | Runs/secs:  1074 | Max stack usage:    13632
+[*] Corpus size:   162 | Edges covered:   3425 | Fuzzing time:     1.652365034s | Total runs:  1.76e+03 | Runs/secs:  1065 | Max stack usage:    13632
+[*] Corpus size:   163 | Edges covered:   3425 | Fuzzing time:     1.669816758s | Total runs:  1.76e+03 | Runs/secs:  1054 | Max stack usage:    13632
+[*] Corpus size:   164 | Edges covered:   3435 | Fuzzing time:     1.688242812s | Total runs:  1.76e+03 | Runs/secs:  1045 | Max stack usage:    13632
+[*] Corpus size:   165 | Edges covered:   3435 | Fuzzing time:     1.705859315s | Total runs:  1.77e+03 | Runs/secs:  1035 | Max stack usage:    13632
+[*] Corpus size:   166 | Edges covered:   3435 | Fuzzing time:     1.724144483s | Total runs:  1.77e+03 | Runs/secs:  1027 | Max stack usage:    13632
+[*] Corpus size:   167 | Edges covered:   3439 | Fuzzing time:     1.744307695s | Total runs:  1.77e+03 | Runs/secs:  1015 | Max stack usage:    13632
+[*] Corpus size:   168 | Edges covered:   3440 | Fuzzing time:     1.768085936s | Total runs:  1.79e+03 | Runs/secs:  1012 | Max stack usage:    13632
+[*] Corpus size:   169 | Edges covered:   3440 | Fuzzing time:      1.79100408s | Total runs:  1.95e+03 | Runs/secs:  1088 | Max stack usage:    13632
+[*] Corpus size:   170 | Edges covered:   3447 | Fuzzing time:     1.804592194s | Total runs:  1.96e+03 | Runs/secs:  1085 | Max stack usage:    13632
+[*] Corpus size:   171 | Edges covered:   3447 | Fuzzing time:     1.816985476s | Total runs:  1.96e+03 | Runs/secs:  1078 | Max stack usage:    13632
+[*] Corpus size:   172 | Edges covered:   3447 | Fuzzing time:     1.832525952s | Total runs:  1.98e+03 | Runs/secs:  1079 | Max stack usage:    13632
+[*] Corpus size:   173 | Edges covered:   3447 | Fuzzing time:     1.845216528s | Total runs:  2.00e+03 | Runs/secs:  1085 | Max stack usage:    13632
+[*] Corpus size:   174 | Edges covered:   3447 | Fuzzing time:     1.862640501s | Total runs:  2.00e+03 | Runs/secs:  1075 | Max stack usage:    13632
+[*] Corpus size:   175 | Edges covered:   3447 | Fuzzing time:     1.879722292s | Total runs:  2.00e+03 | Runs/secs:  1066 | Max stack usage:    13632
+[*] Corpus size:   176 | Edges covered:   3447 | Fuzzing time:     1.897015621s | Total runs:  2.01e+03 | Runs/secs:  1058 | Max stack usage:    13632
+[*] Corpus size:   177 | Edges covered:   3448 | Fuzzing time:     1.919117703s | Total runs:  2.02e+03 | Runs/secs:  1052 | Max stack usage:    13632
+[*] Corpus size:   178 | Edges covered:   3449 | Fuzzing time:     1.934929137s | Total runs:  2.02e+03 | Runs/secs:  1044 | Max stack usage:    13632
+[*] Corpus size:   179 | Edges covered:   3449 | Fuzzing time:     1.952067788s | Total runs:  2.02e+03 | Runs/secs:  1037 | Max stack usage:    13632
+[*] Corpus size:   180 | Edges covered:   3449 | Fuzzing time:     1.971910955s | Total runs:  2.03e+03 | Runs/secs:  1030 | Max stack usage:    13632
+[*] Corpus size:   181 | Edges covered:   3452 | Fuzzing time:     1.988953175s | Total runs:  2.04e+03 | Runs/secs:  1025 | Max stack usage:    13632
+[*] Corpus size:   182 | Edges covered:   3455 | Fuzzing time:      2.00063262s | Total runs:  2.05e+03 | Runs/secs:  1024 | Max stack usage:    13632
+[*] Corpus size:   183 | Edges covered:   3457 | Fuzzing time:     2.007617421s | Total runs:  2.05e+03 | Runs/secs:  1021 | Max stack usage:    13632
+[*] Corpus size:   184 | Edges covered:   3462 | Fuzzing time:     2.018469958s | Total runs:  2.06e+03 | Runs/secs:  1018 | Max stack usage:    13632
+[*] Corpus size:   185 | Edges covered:   3463 | Fuzzing time:     2.025869583s | Total runs:  2.06e+03 | Runs/secs:  1014 | Max stack usage:    13632
+[*] Corpus size:   186 | Edges covered:   3463 | Fuzzing time:     2.036574568s | Total runs:  2.06e+03 | Runs/secs:  1011 | Max stack usage:    13632
+[*] Corpus size:   187 | Edges covered:   3464 | Fuzzing time:     2.046331671s | Total runs:  2.06e+03 | Runs/secs:  1008 | Max stack usage:    13632
+[*] Corpus size:   188 | Edges covered:   3464 | Fuzzing time:     2.062477797s | Total runs:  2.09e+03 | Runs/secs:  1013 | Max stack usage:    13632
+[*] Corpus size:   189 | Edges covered:   3465 | Fuzzing time:     2.075218917s | Total runs:  2.10e+03 | Runs/secs:  1010 | Max stack usage:    13632
+[*] Corpus size:   190 | Edges covered:   3467 | Fuzzing time:     2.093990869s | Total runs:  2.13e+03 | Runs/secs:  1016 | Max stack usage:    13632
+[*] Corpus size:   191 | Edges covered:   3467 | Fuzzing time:     2.107237115s | Total runs:  2.14e+03 | Runs/secs:  1013 | Max stack usage:    13632
+[*] Corpus size:   192 | Edges covered:   3467 | Fuzzing time:     2.127872471s | Total runs:  2.14e+03 | Runs/secs:  1007 | Max stack usage:    13632
+[*] Corpus size:   193 | Edges covered:   3471 | Fuzzing time:     2.144950538s | Total runs:  2.14e+03 | Runs/secs:  1000 | Max stack usage:    13632
+[*] Corpus size:   194 | Edges covered:   3471 | Fuzzing time:     2.169434855s | Total runs:  2.18e+03 | Runs/secs:  1002 | Max stack usage:    13632
+[*] Corpus size:   195 | Edges covered:   3471 | Fuzzing time:     2.190857361s | Total runs:  2.24e+03 | Runs/secs:  1022 | Max stack usage:    13632
+[*] Corpus size:   196 | Edges covered:   3471 | Fuzzing time:     2.208403627s | Total runs:  2.34e+03 | Runs/secs:  1058 | Max stack usage:    13632
+[*] Corpus size:   197 | Edges covered:   3473 | Fuzzing time:     2.218191736s | Total runs:  2.36e+03 | Runs/secs:  1061 | Max stack usage:    13632
+[*] Corpus size:   198 | Edges covered:   3473 | Fuzzing time:     2.229809151s | Total runs:  2.36e+03 | Runs/secs:  1057 | Max stack usage:    13632
+[*] Corpus size:   199 | Edges covered:   3473 | Fuzzing time:     2.240816557s | Total runs:  2.36e+03 | Runs/secs:  1053 | Max stack usage:    13632
+[*] Corpus size:   200 | Edges covered:   3473 | Fuzzing time:     2.266136521s | Total runs:  2.45e+03 | Runs/secs:  1081 | Max stack usage:    13632
+[*] Corpus size:   201 | Edges covered:   3473 | Fuzzing time:     2.286165518s | Total runs:  2.45e+03 | Runs/secs:  1072 | Max stack usage:    13632
+[*] Corpus size:   202 | Edges covered:   3473 | Fuzzing time:     2.313471231s | Total runs:  2.46e+03 | Runs/secs:  1063 | Max stack usage:    13632
+[*] Corpus size:   203 | Edges covered:   3473 | Fuzzing time:     2.335206302s | Total runs:  2.46e+03 | Runs/secs:  1054 | Max stack usage:    13632
+[*] Corpus size:   204 | Edges covered:   3473 | Fuzzing time:     2.354986183s | Total runs:  2.46e+03 | Runs/secs:  1045 | Max stack usage:    13632
+[*] Corpus size:   205 | Edges covered:   3473 | Fuzzing time:     2.376189523s | Total runs:  2.47e+03 | Runs/secs:  1037 | Max stack usage:    13632
+[*] Corpus size:   206 | Edges covered:   3473 | Fuzzing time:     2.401340271s | Total runs:  2.47e+03 | Runs/secs:  1029 | Max stack usage:    13632
+[*] Corpus size:   207 | Edges covered:   3473 | Fuzzing time:     2.421700031s | Total runs:  2.48e+03 | Runs/secs:  1022 | Max stack usage:    13632
+[*] Corpus size:   208 | Edges covered:   3476 | Fuzzing time:     2.453172936s | Total runs:  2.55e+03 | Runs/secs:  1040 | Max stack usage:    13632
+[*] Corpus size:   209 | Edges covered:   3477 | Fuzzing time:     2.460118091s | Total runs:  2.60e+03 | Runs/secs:  1058 | Max stack usage:    13632
+[*] Corpus size:   210 | Edges covered:   3477 | Fuzzing time:     2.469729309s | Total runs:  2.64e+03 | Runs/secs:  1069 | Max stack usage:    13632
+[*] Corpus size:   211 | Edges covered:   3477 | Fuzzing time:      2.49039555s | Total runs:  2.65e+03 | Runs/secs:  1062 | Max stack usage:    13632
+[*] Corpus size:   212 | Edges covered:   3477 | Fuzzing time:     2.514703345s | Total runs:  2.67e+03 | Runs/secs:  1062 | Max stack usage:    13632
+[*] Corpus size:   213 | Edges covered:   3478 | Fuzzing time:     2.542758717s | Total runs:  2.74e+03 | Runs/secs:  1078 | Max stack usage:    13632
+[*] Corpus size:   214 | Edges covered:   3485 | Fuzzing time:     2.559436318s | Total runs:  2.82e+03 | Runs/secs:  1102 | Max stack usage:    13632
+[*] Corpus size:   215 | Edges covered:   3486 | Fuzzing time:     2.572304798s | Total runs:  2.83e+03 | Runs/secs:  1100 | Max stack usage:    13632
+[*] Corpus size:   216 | Edges covered:   3491 | Fuzzing time:     2.586154853s | Total runs:  2.86e+03 | Runs/secs:  1105 | Max stack usage:    13632
+[*] Corpus size:   217 | Edges covered:   3494 | Fuzzing time:     2.599101217s | Total runs:  2.86e+03 | Runs/secs:  1100 | Max stack usage:    13632
+[*] Corpus size:   218 | Edges covered:   3494 | Fuzzing time:     2.616565048s | Total runs:  2.90e+03 | Runs/secs:  1110 | Max stack usage:    13632
+[*] Corpus size:   219 | Edges covered:   3494 | Fuzzing time:     2.619932689s | Total runs:  2.92e+03 | Runs/secs:  1113 | Max stack usage:    13632
+[*] Corpus size:   220 | Edges covered:   3495 | Fuzzing time:     2.626119035s | Total runs:  2.92e+03 | Runs/secs:  1111 | Max stack usage:    13632
+[*] Corpus size:   221 | Edges covered:   3495 | Fuzzing time:     2.634231922s | Total runs:  2.96e+03 | Runs/secs:  1124 | Max stack usage:    13632
+[*] Corpus size:   222 | Edges covered:   3495 | Fuzzing time:     2.648159538s | Total runs:  3.00e+03 | Runs/secs:  1133 | Max stack usage:    13632
+[*] Corpus size:   223 | Edges covered:   3495 | Fuzzing time:     2.659038468s | Total runs:  3.03e+03 | Runs/secs:  1140 | Max stack usage:    13632
+[*] Corpus size:   224 | Edges covered:   3499 | Fuzzing time:     2.678394651s | Total runs:  3.03e+03 | Runs/secs:  1132 | Max stack usage:    13632
+[*] Corpus size:   225 | Edges covered:   3499 | Fuzzing time:      2.69856966s | Total runs:  3.04e+03 | Runs/secs:  1125 | Max stack usage:    13632
+[*] Corpus size:   226 | Edges covered:   3499 | Fuzzing time:     2.722650404s | Total runs:  3.06e+03 | Runs/secs:  1123 | Max stack usage:    13632
+[*] Corpus size:   227 | Edges covered:   3504 | Fuzzing time:     2.728646922s | Total runs:  3.06e+03 | Runs/secs:  1122 | Max stack usage:    13632
+[*] Corpus size:   228 | Edges covered:   3504 | Fuzzing time:     2.743652258s | Total runs:  3.10e+03 | Runs/secs:  1129 | Max stack usage:    13632
+[*] Corpus size:   229 | Edges covered:   3504 | Fuzzing time:     2.762012164s | Total runs:  3.10e+03 | Runs/secs:  1123 | Max stack usage:    13632
+[*] Corpus size:   230 | Edges covered:   3504 | Fuzzing time:     2.782793598s | Total runs:  3.11e+03 | Runs/secs:  1117 | Max stack usage:    13632
+[*] Corpus size:   231 | Edges covered:   3504 | Fuzzing time:      2.80377882s | Total runs:  3.12e+03 | Runs/secs:  1112 | Max stack usage:    13632
+[*] Corpus size:   232 | Edges covered:   3504 | Fuzzing time:     2.822613845s | Total runs:  3.13e+03 | Runs/secs:  1107 | Max stack usage:    13632
+[*] Corpus size:   233 | Edges covered:   3505 | Fuzzing time:     2.839162988s | Total runs:  3.16e+03 | Runs/secs:  1111 | Max stack usage:    13632
+[*] Corpus size:   234 | Edges covered:   3505 | Fuzzing time:     2.849786413s | Total runs:  3.16e+03 | Runs/secs:  1109 | Max stack usage:    13632
+[*] Corpus size:   235 | Edges covered:   3505 | Fuzzing time:     2.872224471s | Total runs:  3.25e+03 | Runs/secs:  1130 | Max stack usage:    13632
+[*] Corpus size:   236 | Edges covered:   3505 | Fuzzing time:     2.899437237s | Total runs:  3.32e+03 | Runs/secs:  1144 | Max stack usage:    13632
+[*] Corpus size:   237 | Edges covered:   3505 | Fuzzing time:     2.913095601s | Total runs:  3.32e+03 | Runs/secs:  1141 | Max stack usage:    13632
+[*] Corpus size:   238 | Edges covered:   3506 | Fuzzing time:     2.932060099s | Total runs:  3.36e+03 | Runs/secs:  1144 | Max stack usage:    13632
+[*] Corpus size:   239 | Edges covered:   3510 | Fuzzing time:     2.960929194s | Total runs:  3.52e+03 | Runs/secs:  1188 | Max stack usage:    13632
+[*] Corpus size:   240 | Edges covered:   3517 | Fuzzing time:     2.974233922s | Total runs:  3.52e+03 | Runs/secs:  1184 | Max stack usage:    13632
+[*] Corpus size:   241 | Edges covered:   3518 | Fuzzing time:     2.986935451s | Total runs:  3.52e+03 | Runs/secs:  1179 | Max stack usage:    13632
+[*] Corpus size:   242 | Edges covered:   3531 | Fuzzing time:     3.000803309s | Total runs:  3.53e+03 | Runs/secs:  1175 | Max stack usage:    13632
+[*] Corpus size:   243 | Edges covered:   3531 | Fuzzing time:     3.013962223s | Total runs:  3.53e+03 | Runs/secs:  1170 | Max stack usage:    13632
+[*] Corpus size:   244 | Edges covered:   3531 | Fuzzing time:      3.03734265s | Total runs:  3.57e+03 | Runs/secs:  1175 | Max stack usage:    13632
+[*] Corpus size:   245 | Edges covered:   3531 | Fuzzing time:     3.044156773s | Total runs:  3.57e+03 | Runs/secs:  1173 | Max stack usage:    13632
+[*] Corpus size:   246 | Edges covered:   3533 | Fuzzing time:     3.054556531s | Total runs:  3.58e+03 | Runs/secs:  1171 | Max stack usage:    13632
+[*] Corpus size:   247 | Edges covered:   3534 | Fuzzing time:      3.07830659s | Total runs:  3.71e+03 | Runs/secs:  1205 | Max stack usage:    13632
+[*] Corpus size:   248 | Edges covered:   3534 | Fuzzing time:     3.099347414s | Total runs:  3.82e+03 | Runs/secs:  1232 | Max stack usage:    13632
+[*] Corpus size:   249 | Edges covered:   3534 | Fuzzing time:     3.120237219s | Total runs:  3.89e+03 | Runs/secs:  1247 | Max stack usage:    13632
+[*] Corpus size:   250 | Edges covered:   3534 | Fuzzing time:     3.136157878s | Total runs:  3.90e+03 | Runs/secs:  1242 | Max stack usage:    13632
+[*] Corpus size:   251 | Edges covered:   3534 | Fuzzing time:     3.151566948s | Total runs:  3.90e+03 | Runs/secs:  1237 | Max stack usage:    13632
+[*] Corpus size:   252 | Edges covered:   3534 | Fuzzing time:     3.180283901s | Total runs:  3.99e+03 | Runs/secs:  1254 | Max stack usage:    13632
+[*] Corpus size:   253 | Edges covered:   3534 | Fuzzing time:     3.192687981s | Total runs:  3.99e+03 | Runs/secs:  1250 | Max stack usage:    13632
+[*] Corpus size:   254 | Edges covered:   3534 | Fuzzing time:     3.208883203s | Total runs:  4.00e+03 | Runs/secs:  1247 | Max stack usage:    13632
+[*] Corpus size:   255 | Edges covered:   3534 | Fuzzing time:     3.221942727s | Total runs:  4.00e+03 | Runs/secs:  1243 | Max stack usage:    13632
+[*] Corpus size:   256 | Edges covered:   3534 | Fuzzing time:      3.24157196s | Total runs:  4.04e+03 | Runs/secs:  1244 | Max stack usage:    13632
+[*] Corpus size:   257 | Edges covered:   3534 | Fuzzing time:     3.258596258s | Total runs:  4.05e+03 | Runs/secs:  1244 | Max stack usage:    13632
+[*] Corpus size:   258 | Edges covered:   3536 | Fuzzing time:     3.278032594s | Total runs:  4.07e+03 | Runs/secs:  1240 | Max stack usage:    13632
+[*] Corpus size:   259 | Edges covered:   3536 | Fuzzing time:      3.29543195s | Total runs:  4.07e+03 | Runs/secs:  1235 | Max stack usage:    13632
+[*] Corpus size:   260 | Edges covered:   3537 | Fuzzing time:     3.323795333s | Total runs:  4.15e+03 | Runs/secs:  1247 | Max stack usage:    13632
+[*] Corpus size:   261 | Edges covered:   3542 | Fuzzing time:     3.333366171s | Total runs:  4.16e+03 | Runs/secs:  1248 | Max stack usage:    13632
+[*] Corpus size:   262 | Edges covered:   3543 | Fuzzing time:     3.365799565s | Total runs:  4.27e+03 | Runs/secs:  1269 | Max stack usage:    13632
+[*] Corpus size:   263 | Edges covered:   3543 | Fuzzing time:     3.384868769s | Total runs:  4.34e+03 | Runs/secs:  1282 | Max stack usage:    13632
+[*] Corpus size:   264 | Edges covered:   3543 | Fuzzing time:     3.400599016s | Total runs:  4.36e+03 | Runs/secs:  1281 | Max stack usage:    13632
+[*] Corpus size:   265 | Edges covered:   3543 | Fuzzing time:     3.418886767s | Total runs:  4.36e+03 | Runs/secs:  1276 | Max stack usage:    13632
+[*] Corpus size:   266 | Edges covered:   3544 | Fuzzing time:     3.433983895s | Total runs:  4.37e+03 | Runs/secs:  1272 | Max stack usage:    13632
+[*] Corpus size:   267 | Edges covered:   3544 | Fuzzing time:     3.448153882s | Total runs:  4.38e+03 | Runs/secs:  1269 | Max stack usage:    13632
+[*] Corpus size:   268 | Edges covered:   3545 | Fuzzing time:     3.465527694s | Total runs:  4.40e+03 | Runs/secs:  1268 | Max stack usage:    13632
+[*] Corpus size:   269 | Edges covered:   3546 | Fuzzing time:     3.481406856s | Total runs:  4.42e+03 | Runs/secs:  1268 | Max stack usage:    13632
+[*] Corpus size:   270 | Edges covered:   3546 | Fuzzing time:     3.499877919s | Total runs:  4.42e+03 | Runs/secs:  1262 | Max stack usage:    13632
+[*] Corpus size:   271 | Edges covered:   3546 | Fuzzing time:     3.518987567s | Total runs:  4.43e+03 | Runs/secs:  1258 | Max stack usage:    13632
+[*] Corpus size:   272 | Edges covered:   3548 | Fuzzing time:     3.539794223s | Total runs:  4.45e+03 | Runs/secs:  1257 | Max stack usage:    13632
+[*] Corpus size:   273 | Edges covered:   3548 | Fuzzing time:     3.581600825s | Total runs:  4.60e+03 | Runs/secs:  1283 | Max stack usage:    13632
+[*] Corpus size:   274 | Edges covered:   3548 | Fuzzing time:     3.603363856s | Total runs:  4.60e+03 | Runs/secs:  1275 | Max stack usage:    13632
+[*] Corpus size:   275 | Edges covered:   3550 | Fuzzing time:     3.637484692s | Total runs:  4.61e+03 | Runs/secs:  1267 | Max stack usage:    13632
+[*] Corpus size:   276 | Edges covered:   3551 | Fuzzing time:     3.671235341s | Total runs:  4.63e+03 | Runs/secs:  1260 | Max stack usage:    13632
+[*] Corpus size:   277 | Edges covered:   3553 | Fuzzing time:     3.683238427s | Total runs:  4.63e+03 | Runs/secs:  1257 | Max stack usage:    13632
+[*] Corpus size:   278 | Edges covered:   3553 | Fuzzing time:     3.695362033s | Total runs:  4.66e+03 | Runs/secs:  1261 | Max stack usage:    13632
+[*] Corpus size:   279 | Edges covered:   3554 | Fuzzing time:     3.711721089s | Total runs:  4.68e+03 | Runs/secs:  1261 | Max stack usage:    13632
+[*] Corpus size:   280 | Edges covered:   3556 | Fuzzing time:     3.730481437s | Total runs:  4.75e+03 | Runs/secs:  1274 | Max stack usage:    13632
+[*] Corpus size:   281 | Edges covered:   3556 | Fuzzing time:     3.747962847s | Total runs:  4.82e+03 | Runs/secs:  1286 | Max stack usage:    13632
+[*] Corpus size:   282 | Edges covered:   3558 | Fuzzing time:     3.780196541s | Total runs:  4.97e+03 | Runs/secs:  1314 | Max stack usage:    13632
+[*] Corpus size:   283 | Edges covered:   3558 | Fuzzing time:     3.804081938s | Total runs:  4.98e+03 | Runs/secs:  1310 | Max stack usage:    13632
+[*] Corpus size:   284 | Edges covered:   3559 | Fuzzing time:     3.827023964s | Total runs:  4.99e+03 | Runs/secs:  1303 | Max stack usage:    13632
+[*] Corpus size:   285 | Edges covered:   3559 | Fuzzing time:     3.855067352s | Total runs:  5.00e+03 | Runs/secs:  1296 | Max stack usage:    13632
+[*] Corpus size:   286 | Edges covered:   3560 | Fuzzing time:     3.889642544s | Total runs:  5.05e+03 | Runs/secs:  1297 | Max stack usage:    13632
+[*] Corpus size:   287 | Edges covered:   3560 | Fuzzing time:     3.916763227s | Total runs:  5.14e+03 | Runs/secs:  1312 | Max stack usage:    13632
+[*] Corpus size:   288 | Edges covered:   3564 | Fuzzing time:     3.931404611s | Total runs:  5.15e+03 | Runs/secs:  1310 | Max stack usage:    13632
+[*] Corpus size:   289 | Edges covered:   3567 | Fuzzing time:     3.945084756s | Total runs:  5.16e+03 | Runs/secs:  1307 | Max stack usage:    13632
+[*] Corpus size:   290 | Edges covered:   3567 | Fuzzing time:     3.960775282s | Total runs:  5.17e+03 | Runs/secs:  1306 | Max stack usage:    13632
+[*] Corpus size:   291 | Edges covered:   3567 | Fuzzing time:     3.981150551s | Total runs:  5.18e+03 | Runs/secs:  1300 | Max stack usage:    14368
+[*] Corpus size:   292 | Edges covered:   3567 | Fuzzing time:     4.002389533s | Total runs:  5.18e+03 | Runs/secs:  1294 | Max stack usage:    14368
+[*] Corpus size:   293 | Edges covered:   3567 | Fuzzing time:     4.024120508s | Total runs:  5.18e+03 | Runs/secs:  1287 | Max stack usage:    14368
+[*] Corpus size:   294 | Edges covered:   3567 | Fuzzing time:     4.044257758s | Total runs:  5.18e+03 | Runs/secs:  1281 | Max stack usage:    14368
+[*] Corpus size:   295 | Edges covered:   3567 | Fuzzing time:     4.076032014s | Total runs:  5.26e+03 | Runs/secs:  1289 | Max stack usage:    14368
+[*] Corpus size:   296 | Edges covered:   3567 | Fuzzing time:     4.094347549s | Total runs:  5.30e+03 | Runs/secs:  1295 | Max stack usage:    14368
+[*] Corpus size:   297 | Edges covered:   3567 | Fuzzing time:     4.114096362s | Total runs:  5.31e+03 | Runs/secs:  1290 | Max stack usage:    14368
+[*] Corpus size:   298 | Edges covered:   3567 | Fuzzing time:     4.135208088s | Total runs:  5.32e+03 | Runs/secs:  1286 | Max stack usage:    14368
+[*] Corpus size:   299 | Edges covered:   3567 | Fuzzing time:     4.166255939s | Total runs:  5.40e+03 | Runs/secs:  1294 | Max stack usage:    14368
+[*] Corpus size:   300 | Edges covered:   3567 | Fuzzing time:     4.188083672s | Total runs:  5.43e+03 | Runs/secs:  1296 | Max stack usage:    14368
+[*] Corpus size:   301 | Edges covered:   3568 | Fuzzing time:     4.240972764s | Total runs:  5.66e+03 | Runs/secs:  1335 | Max stack usage:    14368
+[*] Corpus size:   302 | Edges covered:   3569 | Fuzzing time:      4.25168222s | Total runs:  5.67e+03 | Runs/secs:  1333 | Max stack usage:    14368
+[*] Corpus size:   303 | Edges covered:   3571 | Fuzzing time:     4.265317124s | Total runs:  5.67e+03 | Runs/secs:  1329 | Max stack usage:    14368
+[*] Corpus size:   304 | Edges covered:   3571 | Fuzzing time:      4.29351968s | Total runs:  5.73e+03 | Runs/secs:  1334 | Max stack usage:    14368
+[*] Corpus size:   305 | Edges covered:   3571 | Fuzzing time:     4.308382789s | Total runs:  5.80e+03 | Runs/secs:  1345 | Max stack usage:    14368
+[*] Corpus size:   306 | Edges covered:   3571 | Fuzzing time:     4.329751746s | Total runs:  5.82e+03 | Runs/secs:  1345 | Max stack usage:    14368
+[*] Corpus size:   307 | Edges covered:   3572 | Fuzzing time:     4.339077526s | Total runs:  5.83e+03 | Runs/secs:  1344 | Max stack usage:    14368
+[*] Corpus size:   308 | Edges covered:   3573 | Fuzzing time:     4.354095297s | Total runs:  5.88e+03 | Runs/secs:  1351 | Max stack usage:    14368
+[*] Corpus size:   309 | Edges covered:   3575 | Fuzzing time:     4.371890576s | Total runs:  5.90e+03 | Runs/secs:  1349 | Max stack usage:    14368
+[*] Corpus size:   310 | Edges covered:   3575 | Fuzzing time:     4.391937208s | Total runs:  5.94e+03 | Runs/secs:  1352 | Max stack usage:    14368
+[*] Corpus size:   311 | Edges covered:   3576 | Fuzzing time:     4.424824069s | Total runs:  6.12e+03 | Runs/secs:  1383 | Max stack usage:    14368
+[*] Corpus size:   312 | Edges covered:   3576 | Fuzzing time:     4.436137633s | Total runs:  6.16e+03 | Runs/secs:  1387 | Max stack usage:    14368
+[*] Corpus size:   313 | Edges covered:   3576 | Fuzzing time:     4.451746212s | Total runs:  6.18e+03 | Runs/secs:  1387 | Max stack usage:    14368
+[*] Corpus size:   314 | Edges covered:   3576 | Fuzzing time:     4.464997693s | Total runs:  6.18e+03 | Runs/secs:  1385 | Max stack usage:    14368
+[*] Corpus size:   315 | Edges covered:   3576 | Fuzzing time:     4.475322499s | Total runs:  6.19e+03 | Runs/secs:  1382 | Max stack usage:    14368
+[*] Corpus size:   316 | Edges covered:   3576 | Fuzzing time:     4.487141017s | Total runs:  6.20e+03 | Runs/secs:  1380 | Max stack usage:    14368
+[*] Corpus size:   317 | Edges covered:   3576 | Fuzzing time:     4.504670358s | Total runs:  6.20e+03 | Runs/secs:  1375 | Max stack usage:    14368
+[*] Corpus size:   318 | Edges covered:   3576 | Fuzzing time:     4.524398416s | Total runs:  6.20e+03 | Runs/secs:  1371 | Max stack usage:    14368
+[*] Corpus size:   319 | Edges covered:   3576 | Fuzzing time:     4.542929231s | Total runs:  6.20e+03 | Runs/secs:  1365 | Max stack usage:    14368
+[*] Corpus size:   320 | Edges covered:   3580 | Fuzzing time:     4.562370937s | Total runs:  6.21e+03 | Runs/secs:  1361 | Max stack usage:    14368
+[*] Corpus size:   321 | Edges covered:   3580 | Fuzzing time:       4.5784012s | Total runs:  6.21e+03 | Runs/secs:  1357 | Max stack usage:    14368
+[*] Corpus size:   322 | Edges covered:   3580 | Fuzzing time:     4.596832097s | Total runs:  6.22e+03 | Runs/secs:  1352 | Max stack usage:    14368
+[*] Corpus size:   323 | Edges covered:   3580 | Fuzzing time:     4.615243894s | Total runs:  6.22e+03 | Runs/secs:  1347 | Max stack usage:    14368
+[*] Corpus size:   324 | Edges covered:   3580 | Fuzzing time:     4.637296243s | Total runs:  6.24e+03 | Runs/secs:  1345 | Max stack usage:    14368
+[*] Corpus size:   325 | Edges covered:   3584 | Fuzzing time:     4.648118516s | Total runs:  6.28e+03 | Runs/secs:  1350 | Max stack usage:    14368
+[*] Corpus size:   326 | Edges covered:   3587 | Fuzzing time:     4.663985587s | Total runs:  6.36e+03 | Runs/secs:  1363 | Max stack usage:    14368
+[*] Corpus size:   327 | Edges covered:   3588 | Fuzzing time:     4.679774881s | Total runs:  6.43e+03 | Runs/secs:  1373 | Max stack usage:    14368
+[*] Corpus size:   328 | Edges covered:   3588 | Fuzzing time:      4.70201944s | Total runs:  6.52e+03 | Runs/secs:  1385 | Max stack usage:    14368
+[*] Corpus size:   329 | Edges covered:   3588 | Fuzzing time:     4.722676937s | Total runs:  6.52e+03 | Runs/secs:  1380 | Max stack usage:    14368
+[*] Corpus size:   330 | Edges covered:   3590 | Fuzzing time:     4.749032107s | Total runs:  6.55e+03 | Runs/secs:  1378 | Max stack usage:    14368
+[*] Corpus size:   331 | Edges covered:   3590 | Fuzzing time:     4.768712822s | Total runs:  6.56e+03 | Runs/secs:  1375 | Max stack usage:    14368
+[*] Corpus size:   332 | Edges covered:   3590 | Fuzzing time:     4.788473924s | Total runs:  6.57e+03 | Runs/secs:  1371 | Max stack usage:    14368
+[*] Corpus size:   333 | Edges covered:   3591 | Fuzzing time:     4.805469565s | Total runs:  6.58e+03 | Runs/secs:  1368 | Max stack usage:    14368
+[*] Corpus size:   334 | Edges covered:   3592 | Fuzzing time:     4.824216181s | Total runs:  6.60e+03 | Runs/secs:  1368 | Max stack usage:    14368
+[*] Corpus size:   335 | Edges covered:   3592 | Fuzzing time:     4.845645762s | Total runs:  6.60e+03 | Runs/secs:  1362 | Max stack usage:    14368
+[*] Corpus size:   336 | Edges covered:   3592 | Fuzzing time:     4.875385151s | Total runs:  6.65e+03 | Runs/secs:  1363 | Max stack usage:    14368
+[*] Corpus size:   337 | Edges covered:   3599 | Fuzzing time:     4.904085066s | Total runs:  6.70e+03 | Runs/secs:  1366 | Max stack usage:    14368
+[*] Corpus size:   338 | Edges covered:   3605 | Fuzzing time:     4.919124003s | Total runs:  6.73e+03 | Runs/secs:  1367 | Max stack usage:    14368
+[*] Corpus size:   339 | Edges covered:   3605 | Fuzzing time:     4.924282489s | Total runs:  6.74e+03 | Runs/secs:  1368 | Max stack usage:    14368
+[*] Corpus size:   340 | Edges covered:   3605 | Fuzzing time:     4.940907257s | Total runs:  6.75e+03 | Runs/secs:  1365 | Max stack usage:    14368
+[*] Corpus size:   341 | Edges covered:   3606 | Fuzzing time:     4.955656554s | Total runs:  6.76e+03 | Runs/secs:  1363 | Max stack usage:    14368
+[*] Corpus size:   342 | Edges covered:   3606 | Fuzzing time:     4.978597785s | Total runs:  6.80e+03 | Runs/secs:  1364 | Max stack usage:    14368
+[*] Corpus size:   343 | Edges covered:   3606 | Fuzzing time:     5.001066202s | Total runs:  6.80e+03 | Runs/secs:  1359 | Max stack usage:    14368
+[*] Corpus size:   344 | Edges covered:   3607 | Fuzzing time:     5.022780941s | Total runs:  6.80e+03 | Runs/secs:  1354 | Max stack usage:    14368
+[*] Corpus size:   345 | Edges covered:   3607 | Fuzzing time:     5.037205717s | Total runs:  6.82e+03 | Runs/secs:  1354 | Max stack usage:    14368
+[*] Corpus size:   346 | Edges covered:   3613 | Fuzzing time:     5.050425138s | Total runs:  6.83e+03 | Runs/secs:  1352 | Max stack usage:    14368
+[*] Corpus size:   347 | Edges covered:   3613 | Fuzzing time:     5.069531037s | Total runs:  6.87e+03 | Runs/secs:  1355 | Max stack usage:    14368
+[*] Corpus size:   348 | Edges covered:   3613 | Fuzzing time:     5.084899977s | Total runs:  6.88e+03 | Runs/secs:  1352 | Max stack usage:    14368
+[*] Corpus size:   349 | Edges covered:   3614 | Fuzzing time:     5.115779956s | Total runs:  7.02e+03 | Runs/secs:  1371 | Max stack usage:    14368
+[*] Corpus size:   350 | Edges covered:   3614 | Fuzzing time:     5.119671811s | Total runs:  7.02e+03 | Runs/secs:  1371 | Max stack usage:    70976
+[*] Corpus size:   351 | Edges covered:   3615 | Fuzzing time:     5.130778095s | Total runs:  7.02e+03 | Runs/secs:  1368 | Max stack usage:    70976
+[*] Corpus size:   352 | Edges covered:   3615 | Fuzzing time:     5.145961433s | Total runs:  7.07e+03 | Runs/secs:  1374 | Max stack usage:    70976
+[*] Corpus size:   353 | Edges covered:   3629 | Fuzzing time:     5.160234403s | Total runs:  7.08e+03 | Runs/secs:  1372 | Max stack usage:    70976
+[*] Corpus size:   354 | Edges covered:   3629 | Fuzzing time:     5.213750534s | Total runs:  7.46e+03 | Runs/secs:  1430 | Max stack usage:    70976
+[*] Corpus size:   355 | Edges covered:   3629 | Fuzzing time:     5.228805047s | Total runs:  7.47e+03 | Runs/secs:  1428 | Max stack usage:    70976
+[*] Corpus size:   356 | Edges covered:   3635 | Fuzzing time:     5.245121647s | Total runs:  7.49e+03 | Runs/secs:  1428 | Max stack usage:    70976
+[*] Corpus size:   357 | Edges covered:   3635 | Fuzzing time:     5.264489505s | Total runs:  7.53e+03 | Runs/secs:  1429 | Max stack usage:    70976
+[*] Corpus size:   358 | Edges covered:   3635 | Fuzzing time:     5.273746666s | Total runs:  7.54e+03 | Runs/secs:  1429 | Max stack usage:    70976
+[*] Corpus size:   359 | Edges covered:   3635 | Fuzzing time:     5.291346218s | Total runs:  7.56e+03 | Runs/secs:  1427 | Max stack usage:    70976
+[*] Corpus size:   360 | Edges covered:   3666 | Fuzzing time:     5.307445472s | Total runs:  7.56e+03 | Runs/secs:  1424 | Max stack usage:    70976
+[*] Corpus size:   361 | Edges covered:   3666 | Fuzzing time:     5.323102544s | Total runs:  7.57e+03 | Runs/secs:  1421 | Max stack usage:    70976
+[*] Corpus size:   362 | Edges covered:   3666 | Fuzzing time:     5.343855777s | Total runs:  7.59e+03 | Runs/secs:  1420 | Max stack usage:    70976
+[*] Corpus size:   363 | Edges covered:   3666 | Fuzzing time:     5.367084863s | Total runs:  7.61e+03 | Runs/secs:  1418 | Max stack usage:    70976
+[*] Corpus size:   364 | Edges covered:   3666 | Fuzzing time:     5.387378846s | Total runs:  7.69e+03 | Runs/secs:  1427 | Max stack usage:    70976
+[*] Corpus size:   365 | Edges covered:   3667 | Fuzzing time:     5.404070426s | Total runs:  7.71e+03 | Runs/secs:  1426 | Max stack usage:    70976
+[*] Corpus size:   366 | Edges covered:   3667 | Fuzzing time:     5.424335602s | Total runs:  7.77e+03 | Runs/secs:  1433 | Max stack usage:    70976
+[*] Corpus size:   367 | Edges covered:   3667 | Fuzzing time:     5.443069233s | Total runs:  7.81e+03 | Runs/secs:  1435 | Max stack usage:    70976
+[*] Corpus size:   368 | Edges covered:   3667 | Fuzzing time:     5.485865108s | Total runs:  7.91e+03 | Runs/secs:  1442 | Max stack usage:    70976
+[*] Corpus size:   369 | Edges covered:   3667 | Fuzzing time:     5.517001024s | Total runs:  7.97e+03 | Runs/secs:  1444 | Max stack usage:    70976
+[*] Corpus size:   370 | Edges covered:   3667 | Fuzzing time:     5.552933293s | Total runs:  8.05e+03 | Runs/secs:  1449 | Max stack usage:    70976
+[*] Corpus size:   371 | Edges covered:   3667 | Fuzzing time:     5.586556025s | Total runs:  8.07e+03 | Runs/secs:  1444 | Max stack usage:    70976
+[*] Corpus size:   372 | Edges covered:   3667 | Fuzzing time:     5.612408433s | Total runs:  8.12e+03 | Runs/secs:  1446 | Max stack usage:    70976
+[*] Corpus size:   373 | Edges covered:   3667 | Fuzzing time:     5.628059769s | Total runs:  8.13e+03 | Runs/secs:  1444 | Max stack usage:    70976
+[*] Corpus size:   374 | Edges covered:   3667 | Fuzzing time:     5.676470123s | Total runs:  8.28e+03 | Runs/secs:  1458 | Max stack usage:    70976
+[*] Corpus size:   375 | Edges covered:   3667 | Fuzzing time:     5.718066747s | Total runs:  8.42e+03 | Runs/secs:  1471 | Max stack usage:    70976
+[*] Corpus size:   376 | Edges covered:   3667 | Fuzzing time:      5.73357985s | Total runs:  8.42e+03 | Runs/secs:  1469 | Max stack usage:    70976
+[*] Corpus size:   377 | Edges covered:   3667 | Fuzzing time:     5.749313448s | Total runs:  8.47e+03 | Runs/secs:  1472 | Max stack usage:    70976
+[*] Corpus size:   378 | Edges covered:   3667 | Fuzzing time:     5.772032711s | Total runs:  8.47e+03 | Runs/secs:  1467 | Max stack usage:    70976
+[*] Corpus size:   379 | Edges covered:   3667 | Fuzzing time:     5.798604038s | Total runs:  8.48e+03 | Runs/secs:  1462 | Max stack usage:    70976
+[*] Corpus size:   380 | Edges covered:   3668 | Fuzzing time:     5.829573417s | Total runs:  8.54e+03 | Runs/secs:  1465 | Max stack usage:    70976
+[*] Corpus size:   381 | Edges covered:   3668 | Fuzzing time:     5.853270769s | Total runs:  8.65e+03 | Runs/secs:  1478 | Max stack usage:    70976
+[*] Corpus size:   382 | Edges covered:   3668 | Fuzzing time:     5.871725844s | Total runs:  8.67e+03 | Runs/secs:  1476 | Max stack usage:    70976
+[*] Corpus size:   383 | Edges covered:   3668 | Fuzzing time:      5.92474893s | Total runs:  8.79e+03 | Runs/secs:  1483 | Max stack usage:    70976
+[*] Corpus size:   384 | Edges covered:   3670 | Fuzzing time:     5.948468928s | Total runs:  8.84e+03 | Runs/secs:  1485 | Max stack usage:    70976
+[*] Corpus size:   385 | Edges covered:   3670 | Fuzzing time:     5.976166938s | Total runs:  8.90e+03 | Runs/secs:  1489 | Max stack usage:    70976
+[*] Corpus size:   386 | Edges covered:   3670 | Fuzzing time:     6.001180775s | Total runs:  8.98e+03 | Runs/secs:  1495 | Max stack usage:    70976
+[*] Corpus size:   387 | Edges covered:   3671 | Fuzzing time:     6.012358849s | Total runs:  9.01e+03 | Runs/secs:  1498 | Max stack usage:    70976
+[*] Corpus size:   388 | Edges covered:   3671 | Fuzzing time:     6.032176935s | Total runs:  9.06e+03 | Runs/secs:  1501 | Max stack usage:    70976
+[*] Corpus size:   389 | Edges covered:   3671 | Fuzzing time:      6.07727553s | Total runs:  9.19e+03 | Runs/secs:  1512 | Max stack usage:    70976
+[*] Corpus size:   390 | Edges covered:   3671 | Fuzzing time:     6.103639353s | Total runs:  9.20e+03 | Runs/secs:  1507 | Max stack usage:    70976
+[*] Corpus size:   391 | Edges covered:   3671 | Fuzzing time:     6.135680928s | Total runs:  9.26e+03 | Runs/secs:  1508 | Max stack usage:    70976
+[*] Corpus size:   392 | Edges covered:   3671 | Fuzzing time:     6.160410943s | Total runs:  9.26e+03 | Runs/secs:  1503 | Max stack usage:    70976
+[*] Corpus size:   393 | Edges covered:   3672 | Fuzzing time:     6.184835593s | Total runs:  9.27e+03 | Runs/secs:  1498 | Max stack usage:    70976
+[*] Corpus size:   394 | Edges covered:   3673 | Fuzzing time:     6.199410236s | Total runs:  9.28e+03 | Runs/secs:  1496 | Max stack usage:    70976
+[*] Corpus size:   395 | Edges covered:   3673 | Fuzzing time:     6.217633758s | Total runs:  9.30e+03 | Runs/secs:  1496 | Max stack usage:    70976
+[*] Corpus size:   396 | Edges covered:   3673 | Fuzzing time:      6.24460488s | Total runs:  9.36e+03 | Runs/secs:  1498 | Max stack usage:    70976
+[*] Corpus size:   397 | Edges covered:   3674 | Fuzzing time:     6.275984724s | Total runs:  9.49e+03 | Runs/secs:  1512 | Max stack usage:    70976
+[*] Corpus size:   398 | Edges covered:   3674 | Fuzzing time:     6.298782588s | Total runs:  9.57e+03 | Runs/secs:  1519 | Max stack usage:    70976
+[*] Corpus size:   399 | Edges covered:   3674 | Fuzzing time:     6.322809091s | Total runs:  9.58e+03 | Runs/secs:  1515 | Max stack usage:    70976
+[*] Corpus size:   400 | Edges covered:   3674 | Fuzzing time:     6.364528594s | Total runs:  9.71e+03 | Runs/secs:  1526 | Max stack usage:    70976
+[*] Corpus size:   401 | Edges covered:   3674 | Fuzzing time:     6.416785337s | Total runs:  9.99e+03 | Runs/secs:  1556 | Max stack usage:    70976
+[*] Corpus size:   402 | Edges covered:   3674 | Fuzzing time:     6.438165388s | Total runs:  1.01e+04 | Runs/secs:  1563 | Max stack usage:    70976
+[*] Corpus size:   403 | Edges covered:   3674 | Fuzzing time:     6.458064857s | Total runs:  1.01e+04 | Runs/secs:  1571 | Max stack usage:    70976
+[*] Corpus size:   404 | Edges covered:   3674 | Fuzzing time:     6.492073028s | Total runs:  1.02e+04 | Runs/secs:  1578 | Max stack usage:    70976
+[*] Corpus size:   405 | Edges covered:   3674 | Fuzzing time:     6.510936069s | Total runs:  1.03e+04 | Runs/secs:  1579 | Max stack usage:    70976
+[*] Corpus size:   406 | Edges covered:   3674 | Fuzzing time:     6.520113526s | Total runs:  1.03e+04 | Runs/secs:  1579 | Max stack usage:    70976
+[*] Corpus size:   407 | Edges covered:   3674 | Fuzzing time:     6.542562008s | Total runs:  1.03e+04 | Runs/secs:  1577 | Max stack usage:    70976
+[*] Corpus size:   408 | Edges covered:   3676 | Fuzzing time:     6.572668569s | Total runs:  1.04e+04 | Runs/secs:  1580 | Max stack usage:    70976
+[*] Corpus size:   409 | Edges covered:   3676 | Fuzzing time:     6.582714689s | Total runs:  1.04e+04 | Runs/secs:  1581 | Max stack usage:    70976
+[*] Corpus size:   410 | Edges covered:   3676 | Fuzzing time:     6.600313988s | Total runs:  1.04e+04 | Runs/secs:  1579 | Max stack usage:    70976
+[*] Corpus size:   411 | Edges covered:   3676 | Fuzzing time:     6.622210819s | Total runs:  1.04e+04 | Runs/secs:  1576 | Max stack usage:    70976
+[*] Corpus size:   412 | Edges covered:   3676 | Fuzzing time:     6.644755725s | Total runs:  1.04e+04 | Runs/secs:  1572 | Max stack usage:    70976
+[*] Corpus size:   413 | Edges covered:   3677 | Fuzzing time:     6.671648121s | Total runs:  1.05e+04 | Runs/secs:  1575 | Max stack usage:    70976
+[*] Corpus size:   414 | Edges covered:   3677 | Fuzzing time:     6.691254163s | Total runs:  1.05e+04 | Runs/secs:  1571 | Max stack usage:    70976
+[*] Corpus size:   415 | Edges covered:   3677 | Fuzzing time:     6.711995136s | Total runs:  1.05e+04 | Runs/secs:  1567 | Max stack usage:    70976
+[*] Corpus size:   416 | Edges covered:   3677 | Fuzzing time:     6.732360258s | Total runs:  1.05e+04 | Runs/secs:  1563 | Max stack usage:    70976
+[*] Corpus size:   417 | Edges covered:   3677 | Fuzzing time:     6.751879333s | Total runs:  1.05e+04 | Runs/secs:  1559 | Max stack usage:    70976
+[*] Corpus size:   418 | Edges covered:   3677 | Fuzzing time:     6.786748623s | Total runs:  1.06e+04 | Runs/secs:  1565 | Max stack usage:    70976
+[*] Corpus size:   419 | Edges covered:   3677 | Fuzzing time:     6.811189259s | Total runs:  1.06e+04 | Runs/secs:  1561 | Max stack usage:    70976
+[*] Corpus size:   420 | Edges covered:   3677 | Fuzzing time:     6.849260971s | Total runs:  1.07e+04 | Runs/secs:  1569 | Max stack usage:    70976
+[*] Corpus size:   421 | Edges covered:   3688 | Fuzzing time:     6.875190837s | Total runs:  1.08e+04 | Runs/secs:  1565 | Max stack usage:    70976
+[*] Corpus size:   422 | Edges covered:   3689 | Fuzzing time:     6.920239518s | Total runs:  1.08e+04 | Runs/secs:  1566 | Max stack usage:    70976
+[*] Corpus size:   423 | Edges covered:   3689 | Fuzzing time:     6.940564248s | Total runs:  1.09e+04 | Runs/secs:  1571 | Max stack usage:    70976
+[*] Corpus size:   424 | Edges covered:   3689 | Fuzzing time:      6.97654308s | Total runs:  1.10e+04 | Runs/secs:  1573 | Max stack usage:    70976
+[*] Corpus size:   425 | Edges covered:   3690 | Fuzzing time:     6.994407715s | Total runs:  1.10e+04 | Runs/secs:  1576 | Max stack usage:    70976
+[*] Corpus size:   426 | Edges covered:   3690 | Fuzzing time:     7.055773787s | Total runs:  1.13e+04 | Runs/secs:  1604 | Max stack usage:    70976
+[*] Corpus size:   427 | Edges covered:   3690 | Fuzzing time:     7.079466103s | Total runs:  1.13e+04 | Runs/secs:  1601 | Max stack usage:    70976
+[*] Corpus size:   428 | Edges covered:   3690 | Fuzzing time:     7.103432026s | Total runs:  1.13e+04 | Runs/secs:  1597 | Max stack usage:    70976
+[*] Corpus size:   429 | Edges covered:   3691 | Fuzzing time:     7.145366732s | Total runs:  1.15e+04 | Runs/secs:  1609 | Max stack usage:    70976
+/home/anja/Desktop/verifikacija/2026_Analysis_regex/fuzztest/fuzz_regex.cc:35: Failure
+Expected equality of these values:
+  matched_boost
+    Which is: true
+  matched_str
+    Which is: false
+Stack trace:
+  0x5ded66ac3650: MatchPattern()
+  0x5ded66d13451: fuzztest::internal::FixtureDriver<>::Test()::{lambda()#1}::operator()<>()
+  0x5ded66d13273: std::__1::__invoke_constexpr<>()
+  0x5ded66d13211: std::__1::__apply_tuple_impl<>()
+  0x5ded66d131a0: std::__1::apply<>()
+  0x5ded66d1277f: fuzztest::internal::FixtureDriver<>::Test()
+  0x5ded66e72387: fuzztest::internal::FuzzTestFuzzerImpl::RunOneInput()::$_12::operator()()
+  0x5ded66e72265: std::__1::__invoke<>()
+  0x5ded66e7223d: std::__1::invoke<>()
+  0x5ded66e721dd: absl::lts_20260526::internal_any_invocable::InvokeR<>()
+  0x5ded66e72192: absl::lts_20260526::internal_any_invocable::LocalInvoker<>()
+  0x5ded66eaaf0c: absl::lts_20260526::internal_any_invocable::Impl<>::operator()()
+  0x5ded66eaae74: fuzztest::internal::UntypedFixtureDriver::RunFuzzTestIteration()
+  0x5ded66e59e37: fuzztest::internal::FuzzTestFuzzerImpl::RunOneInput()
+  0x5ded66e61a81: fuzztest::internal::FuzzTestFuzzerImpl::TrySample()
+  0x5ded66e62de1: fuzztest::internal::FuzzTestFuzzerImpl::TrySampleAndUpdateInMemoryCorpus()
+  0x5ded66e75760: fuzztest::internal::FuzzTestFuzzerImpl::RunInFuzzingMode()::$_14::operator()()::{lambda()#1}::operator()()
+  0x5ded66e74ea4: fuzztest::internal::FuzzTestFuzzerImpl::RunInFuzzingMode()::$_14::operator()()
+  0x5ded66e727d5: std::__1::__invoke<>()
+  0x5ded66e727ad: std::__1::invoke<>()
+  0x5ded66e7277d: absl::lts_20260526::internal_any_invocable::InvokeR<>()
+  0x5ded66e72752: absl::lts_20260526::internal_any_invocable::RemoteInvoker<>()
+  0x5ded66eaaf0c: absl::lts_20260526::internal_any_invocable::Impl<>::operator()()
+  0x5ded66eaae44: fuzztest::internal::UntypedFixtureDriver::RunFuzzTest()
+  0x5ded66e6729e: fuzztest::internal::FuzzTestFuzzerImpl::RunInFuzzingMode()
+  0x5ded66e27094: fuzztest::internal::GTest_TestAdaptor::TestBody()
+  0x5ded670663b2: testing::internal::HandleSehExceptionsInMethodIfSupported<>()
+  0x5ded66fcaf62: testing::internal::HandleExceptionsInMethodIfSupported<>()
+  0x5ded66fcaac8: testing::Test::Run()
+  0x5ded66fcd567: testing::TestInfo::Run()
+... Google Test internal frames ...
+
+[*] Corpus size:   430 | Edges covered:   5106 | Fuzzing time:     7.520976106s | Total runs:  1.15e+04 | Runs/secs:  1531 | Max stack usage:    70976
+/home/anja/Desktop/verifikacija/2026_Analysis_regex/fuzztest/fuzz_regex.cc:35: Failure
+Expected equality of these values:
+  matched_boost
+    Which is: true
+  matched_str
+    Which is: false
+Stack trace:
+  0x5ded66ac3650: MatchPattern()
+  0x5ded66d13451: fuzztest::internal::FixtureDriver<>::Test()::{lambda()#1}::operator()<>()
+  0x5ded66d13273: std::__1::__invoke_constexpr<>()
+  0x5ded66d13211: std::__1::__apply_tuple_impl<>()
+  0x5ded66d131a0: std::__1::apply<>()
+  0x5ded66d1277f: fuzztest::internal::FixtureDriver<>::Test()
+  0x5ded66e72387: fuzztest::internal::FuzzTestFuzzerImpl::RunOneInput()::$_12::operator()()
+  0x5ded66e72265: std::__1::__invoke<>()
+  0x5ded66e7223d: std::__1::invoke<>()
+  0x5ded66e721dd: absl::lts_20260526::internal_any_invocable::InvokeR<>()
+  0x5ded66e72192: absl::lts_20260526::internal_any_invocable::LocalInvoker<>()
+  0x5ded66eaaf0c: absl::lts_20260526::internal_any_invocable::Impl<>::operator()()
+  0x5ded66eaae74: fuzztest::internal::UntypedFixtureDriver::RunFuzzTestIteration()
+  0x5ded66e59e37: fuzztest::internal::FuzzTestFuzzerImpl::RunOneInput()
+  0x5ded66e669a9: fuzztest::internal::FuzzTestFuzzerImpl::MinimizeNonFatalFailureLocally()
+  0x5ded66e7588e: fuzztest::internal::FuzzTestFuzzerImpl::RunInFuzzingMode()::$_14::operator()()::{lambda()#1}::operator()()
+  0x5ded66e74ea4: fuzztest::internal::FuzzTestFuzzerImpl::RunInFuzzingMode()::$_14::operator()()
+  0x5ded66e727d5: std::__1::__invoke<>()
+  0x5ded66e727ad: std::__1::invoke<>()
+  0x5ded66e7277d: absl::lts_20260526::internal_any_invocable::InvokeR<>()
+  0x5ded66e72752: absl::lts_20260526::internal_any_invocable::RemoteInvoker<>()
+  0x5ded66eaaf0c: absl::lts_20260526::internal_any_invocable::Impl<>::operator()()
+  0x5ded66eaae44: fuzztest::internal::UntypedFixtureDriver::RunFuzzTest()
+  0x5ded66e6729e: fuzztest::internal::FuzzTestFuzzerImpl::RunInFuzzingMode()
+  0x5ded66e27094: fuzztest::internal::GTest_TestAdaptor::TestBody()
+  0x5ded670663b2: testing::internal::HandleSehExceptionsInMethodIfSupported<>()
+  0x5ded66fcaf62: testing::internal::HandleExceptionsInMethodIfSupported<>()
+  0x5ded66fcaac8: testing::Test::Run()
+  0x5ded66fcd567: testing::TestInfo::Run()
+... Google Test internal frames ...
+
+/home/anja/Desktop/verifikacija/2026_Analysis_regex/fuzztest/fuzz_regex.cc:35: Failure
+Expected equality of these values:
+  matched_boost
+    Which is: true
+  matched_str
+    Which is: false
+Stack trace:
+  0x5ded66ac3650: MatchPattern()
+  0x5ded66d13451: fuzztest::internal::FixtureDriver<>::Test()::{lambda()#1}::operator()<>()
+  0x5ded66d13273: std::__1::__invoke_constexpr<>()
+  0x5ded66d13211: std::__1::__apply_tuple_impl<>()
+  0x5ded66d131a0: std::__1::apply<>()
+  0x5ded66d1277f: fuzztest::internal::FixtureDriver<>::Test()
+  0x5ded66e72387: fuzztest::internal::FuzzTestFuzzerImpl::RunOneInput()::$_12::operator()()
+  0x5ded66e72265: std::__1::__invoke<>()
+  0x5ded66e7223d: std::__1::invoke<>()
+  0x5ded66e721dd: absl::lts_20260526::internal_any_invocable::InvokeR<>()
+  0x5ded66e72192: absl::lts_20260526::internal_any_invocable::LocalInvoker<>()
+  0x5ded66eaaf0c: absl::lts_20260526::internal_any_invocable::Impl<>::operator()()
+  0x5ded66eaae74: fuzztest::internal::UntypedFixtureDriver::RunFuzzTestIteration()
+  0x5ded66e59e37: fuzztest::internal::FuzzTestFuzzerImpl::RunOneInput()
+  0x5ded66e75929: fuzztest::internal::FuzzTestFuzzerImpl::RunInFuzzingMode()::$_14::operator()()::{lambda()#1}::operator()()
+  0x5ded66e74ea4: fuzztest::internal::FuzzTestFuzzerImpl::RunInFuzzingMode()::$_14::operator()()
+  0x5ded66e727d5: std::__1::__invoke<>()
+  0x5ded66e727ad: std::__1::invoke<>()
+  0x5ded66e7277d: absl::lts_20260526::internal_any_invocable::InvokeR<>()
+  0x5ded66e72752: absl::lts_20260526::internal_any_invocable::RemoteInvoker<>()
+  0x5ded66eaaf0c: absl::lts_20260526::internal_any_invocable::Impl<>::operator()()
+  0x5ded66eaae44: fuzztest::internal::UntypedFixtureDriver::RunFuzzTest()
+  0x5ded66e6729e: fuzztest::internal::FuzzTestFuzzerImpl::RunInFuzzingMode()
+  0x5ded66e27094: fuzztest::internal::GTest_TestAdaptor::TestBody()
+  0x5ded670663b2: testing::internal::HandleSehExceptionsInMethodIfSupported<>()
+  0x5ded66fcaf62: testing::internal::HandleExceptionsInMethodIfSupported<>()
+  0x5ded66fcaac8: testing::Test::Run()
+  0x5ded66fcd567: testing::TestInfo::Run()
+... Google Test internal frames ...
+
+
+=================================================================
+=== Fuzzing stats
+
+Elapsed time: 8.453486712s
+Total runs: 21555
+Edges covered: 5106
+Total edges: 69374
+Corpus size: 430
+Max stack used: 70976
+
+=================================================================
+=== BUG FOUND!
+
+/home/anja/Desktop/verifikacija/2026_Analysis_regex/fuzztest/fuzz_regex.cc:44: Counterexample found for RegexFuzz.MatchPattern.
+The test fails with input:
+argument 0: "."
+argument 1: "\012"
+
+=================================================================
+=== Regression test draft
+
+TEST(RegexFuzz, MatchPatternRegression) {
+  MatchPattern(
+    ".",
+    "\n"
+  );
+}
+
+Please note that the code generated above is best effort and is intended
+to be used as a draft regression test.
+For reproducing findings please rely on file based reproduction.
+[.] No reproducer output location specified - not writing the reproducer file.
+
+=================================================================
+*** SIGABRT received at time=1785777214 on cpu 4 ***
+PC: @     0x7dc2904969bc  (unknown)  pthread_kill
+    @     0x5ded670aa8bc        256  absl::lts_20260526::WriteFailureInfo()
+    @     0x5ded670a9ccb        352  absl::lts_20260526::AbslFailureSignalHandler()
+    @     0x5ded66e568c9       1056  fuzztest::internal::HandleCrash()
+    @     0x7dc290442520  (unknown)  (unknown)

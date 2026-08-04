@@ -296,6 +296,3 @@ TEST(RegexSearch, ReportsUnmatchedOptionalSubexpression) {
     EXPECT_EQ("", match[1].str());
     EXPECT_EQ(0, match.length(1));
 }
-
-
-

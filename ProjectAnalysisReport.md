@@ -53,8 +53,7 @@ Izveštaj o pokrivenosti daje naredne infromacije:
 | Grane | 1835 | 6057 | 30.3% |
 
 Detaljnija statistika data je na slici:
-
-[!Detaljna statistika pokrivenosti](images/coverage.png)
+![Detaljna statistika pokrivenosti](images/coverage.png)
 
 Najviša pokrivenosti ostvarena je u javnim funkcijama koja testovi direktno pozivaju. Datoteke `regex_match.hpp`, `regex_search.hpp`, `regex_replace.hpp`, `regex_iterator.hpp`, `regex_token_iterator.hpp`, `basic_regex.hpp` i `sub_match.hpp` imaju veoma visoku pokrivenost linija i funkcija, što je u skladu sa predmetima testiranja. Slabiju pokrivenost imaju moduli zaduženi za parsiranje regularnih izraza, a kako je naše testiranje obuhvatilo samo osnovne konstrukte regularnih izraza ovo bismo tumačili kao solidne rezultate. Primećuje se da je porkivenost grana u svim datotekama značajno gora od ostale dve metrike, čemu doprinose i brojni izuzeci u okviru biblioteke. 
 
@@ -109,3 +108,171 @@ Eksperimenta radi, modifikovana je skripta za pokretanje alata tako da se poziva
 ==118136== For lists of detected and suppressed errors, rerun with: -s
 ==118136== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 ```
+
+## 3. Google FuzzTest
+
+Za generisanje velikog broja različitih ulaza korišćen je alat **Google FuzzTest**. Testovi su napisani u datoteci fuzz_regex.cc, dok skripta fuzzer.sh konfiguriše projekat, izgrađuje izvršivu datoteku i pojedinačno pokreće izabrane fuzz testove. Direktorijum alata je `fuzztest`. 
+
+### 3.1 Konfiguracija alata
+
+Za izgradnju je neophodan Clang. Vreme izvršavanja svakog testa određuje se promenljivom FUZZ_DURATION, dok se testovi koji se pokreću mogu navesti promenljivom FUZZ_TARGETS. Oba polja se definišu u okviru konfiguracionog fajla `fuzztest.cfg`, a primer jednog takvog fajla je dat u `fuzztest.cfg.example`. Konfiguracioni fajl se podešava kao i ranije. Dodatno, polje `FUZZ_TARGETS` nije neophodno, i tada će se fuzz testovi pokrenuti nad svim testovima definisanim u `fuzz_regex.cc`. Bitno je napomenuti da ovo nije preporučljivo, zbog prirode testa `MatchPattern` kojeg je najbolje pokretati odvojeno. 
+
+### 3.2 Testovi
+
+#### `MatchPattern`
+
+Test koristi diferencijalno testiranje. Isti izraz i ulaz prosleđuju se bibliotekama Boost.Regex i std::regex, nakon čega se njihovi rezultati porede.
+
+Iako obe biblioteke koriste režim označen kao ECMAScript, njihova podržana sintaksa i ponašanje nisu potpuno isti. Zbog toga različit rezultat ne mora da predstavlja grešku u Boost.Regex biblioteci.
+
+Ovo se naročito odnosi na wildcard karakter `.` koji u boost::regex biblioteci ne može da se upati sa karakterom za novi red. Primer ovakvog odudaranja može se naći u `reports/run_parser_mismatch/output.log`. 
+
+Da bi se donekle imitiralo ovakvo ponašanje, definisali smo opciju `boost::regex_constants::match_not_dot_newline`: 
+```c++
+bool matched_boost = boost::regex_match(input_str, pattern_boost, boost::regex_constants::match_not_dot_newline);
+```
+Ali je ovo povuklo druge probleme: nemogućnost da se upari `\f` jer se tretira kao terminator linije. Ovo ponašanje je dato u `reports/run_inverted_parser_mismatch/output.log`
+
+
+#### `RegexGeneratedInputAlwaysMatches`
+
+FuzzTest generiše adrese elektronske pošte koje odgovaraju unapred definisanom regularnom izrazu. Za ovo je korišćen poseban domen `fuzztest::InRegexp` FuzzTest alata. Zatim se proverava da li `boost::regex_match` prihvata svaki generisani string.
+
+Ovim testom se proverava osnovna usklađenost generatora ulaza i Boost.Regex implementacije za ograničenu sintaksu izraza.
+
+#### `FullMatchImpliesSearch`
+
+Test generiše proizvoljan regularni izraz i proizvoljan ulazni string. Proverava se svojstvo da uspešno potpuno podudaranje pomoću `regex_match` mora da podrazumeva i uspešnu pretragu pomoću `regex_search`.
+
+Test ne zahteva unapred poznat očekivani rezultat, već proverava logički odnos između dve funkcije biblioteke.
+
+#### `ReplaceWithFormat`
+
+Generišu se regularni izraz, ulazni string i format zamene. Porede se rezultati dva preopterećenja funkcije `regex_replace`.
+
+Ako podudaranje nije pronađeno, dodatno se proverava da je ulazni string ostao nepromenjen.
+
+#### `IteratorWalk`
+
+Test prolazi kroz sva podudaranja pomoću klase `boost::sregex_iterator`. Za svako podudaranje proveravaju se pozicija, dužina, sadržaj i stanje grupe.
+
+Na kraju se proverava da je iterator dostigao završnu vrednost.
+
+### 3.3 Ograničenja testova
+
+#### Nedostatak precizno definisane azbuke
+
+Za većinu testova regularni izrazi se generišu pomoću domena:
+
+```c++
+fuzztest::Arbitrary<std::string>()
+```
+
+Na taj način se generišu proizvoljni karakteri, uključujući veliki broj stringova koji nisu validni regularni izrazi. Takvi ulazi izazivaju `boost::regex_error` i test ih odbacuje.
+
+Posledica je da značajan deo generisanih ulaza ne dolazi do stvarnog izvršavanja operacija podudaranja, zamene ili iteriranja. Fuzzer zato troši deo vremena na sintaksno neispravne izraze umesto na složene, ali validne regularne izraze.
+
+Precizniji domen mogao bi da ograniči generisanje na podržane literale, klase znakova, kvantifikatore, grupe i operatore.
+
+#### Problem proročišta
+
+Kod fuzz testiranja često nije moguće unapred odrediti tačan očekivani rezultat za nasumično generisani regularni izraz i ulaz.
+
+Zbog toga testovi uglavnom proveravaju svojstva i međusobnu konzistentnost funkcija. Ipak, one ne mogu da potvrde da je svaki rezultat semantički ispravan. Dve funkcije mogu imati istu grešku i proizvesti isti rezultat, pa test takvu grešku neće pronaći.
+
+### 3.4 Problem pronađen u alatu FuzzTest
+
+Tokom integracije FuzzTest-a primećeno je da izgradnja alata kreira direktorijum `fuzztest/dist`
+
+U njemu se nalaze prevedene ANTLR biblioteke:
+![FuzzTest problem sa generisanjem dist direktorijuma](images/antlr_in_source_folder.png)
+
+Problem je dokumentovan u okviru [GitHub tiketa](https://github.com/google/fuzztest/issues/1898).
+
+Direktorijum dist dodat je u .gitignore, kako generisane ANTLR biblioteke ne bi bile uključene u repozitorijum.
+
+Jos jedan uočen problem prilikom izgradnje je `segmentation fault` greška:
+![Segmentation Fault tokom izgradnje](images/antlr_build_segfault.png) 
+Medjutim, nije bilo moguće reprodukoavati je. 
+
+### 3.5 Rezultati 
+
+Prilikom brojnih pokretanja kako pojedinačnih, tako i grupnih fuzz testova, u velikom broju slučajeva testovi bi završili uspešno. Rezultati ovakvih pokretanja se mogu naći u `reports/run_example` i `reports/run_example_without_replace`.
+
+Međutim u značajnom broju slučajeva, dešavale bi se greške segmentacije pre nego što FuzzTest uopšte krene sa radom, o čemu svedoči log fajl u `reports/run_segfault_replace_with_format`. 
+
+U datom slučaju test je pokrenut nad `RegexFuzz.ReplaceWithFormat`, ali ponovnim izvršavanjem dobijani su rezultati bez grešaka kao u `reports/run_success_replace_with_format`. 
+
+Pokretanjem 
+
+```bash
+exec > >(tee -a "$REPORT_DIR/test_discovery.log") 2>&1
+for run in $(seq 1 200); do
+    echo "Discovery run ${run}"
+    ASAN_OPTIONS="detect_leaks=1" \
+    LSAN_OPTIONS="verbosity=1:log_threads=1" \
+    "$BUILD_DIR/fuzz_regex" --gtest_list_tests >/dev/null || {
+        echo "Crashed during test discovery"
+        break
+    }
+done
+```
+
+je utvrđeno da do greške dođe prilikom inicijalizacije sanitajzera adresa. Output log se moež naći u `reports/run_asan_failure_at_initialization`.
+
+Data greška je dokumentovana u okviru [tiketa](https://github.com/google/sanitizers/issues/1716). 
+
+Jedan od navedenih rešenja jeste da se smanji randomizacija za mapiranje memorije. Na sistemu na kojem su pokrenuti testovi to je ostvareno komandom:
+
+```bash
+sudo sysctl -w vm.mmap_rnd_bits=28
+```
+
+nakon čega se ponovnim pokretanjem prethodnih komandi greška nije ispoljila. Rezultat je dat u `reports/run_asan_success_after_fix`. 
+
+Zaista, greška se nije ponovo ispoljila ni prilikom pokretanja fuzz testova. Par uspešnih pokretanja dato je u okviru `reports` direktorijuma(`run_success_final1/2`).
+
+U jednom od pokretanja (`reports/run_match_search_inconsistency`) je FuzzTest otkrio interesantno ponašanje:
+
+```console
+Counterexample found for RegexFuzz.FullMatchImpliesSearch.
+The test fails with input:
+argument 0: "\X$"
+argument 1: "\000"
+```
+
+Kreiran je regresioni test koji odgovara pronađenom kontraprimeru `FullMatchImpliesSearchRegression` i on se može pokrenuti naredbom:
+
+```bash
+./build_fuzz/fuzz_regex --gtest_filter=RegexFuzz.FullMatchImpliesSearchRegression
+```
+Neuspešno izvršavanje testa dato je u `reports/full_match_implies_search_regression.log`.
+
+Objašnjenje za ovo ponašanje je optimizacija koja se koristi prilikom `regex_search` za preskakanje karaktera kojima ne može početi uparivanje na početku. U `perl_matcher_common.hpp` u funkcijama `find_restart_any`, `find_restart_word` i `find_restart_line` se javljaju pozivi 
+
+```C++
+can_start(*position, _map, (unsigned char)mask_any)
+```
+
+koji dovode do ovog ponašanja, jer na osnovu argumenta `_map` koja se dobija kao rezultat poziva funkcije `get_map` iz `basic_regex.hpp` koja vraća
+
+```C++
+   unsigned char               m_startmap[1 << CHAR_BIT]; // which characters can start a match
+```
+
+Ovo polje se konstruiše u `basic_regex_creator.hpp` u funkciji `create_startmap` koja kroz `switch` naredbu obradjuje različite sintaksičke elemente definisane u nabrojivom tipu `syntax_element_type` (`states.hpp`). Ova naredba ne obradjuje `syntax_element_combining` što je upravo karakter `\X`. Prema dokumentaciji Perl sintakse dostavljene uz samu biblioteku \X predtsavlja:
+
+```text
+\X Matches a combining character sequence: that is any non-combining character followed by a sequence of zero or more combining characters. 
+``` 
+
+Ovo se ne javlja kao problem u `regex_match` jer forsira podudaranje celokupnog ulaznog stringa. Zbog toga može da upari \X i null karakter \000 (tj. \0).
+
+Opcija `match_continuous` forsira `regex_search` da uparivanje počne od podsekvence koja počinje od prvog elementa, što bi trebalo da spreči korišćenje pomenute optimizacije. Demonstracija ove hipoteze data je kroz test `RegexFuzz.FullMatchImpliesContinuousSearch` koja se može pokrenuti komandom:
+```bash  
+./build_fuzz/fuzz_regex --gtest_filter=RegexFuzz.FullMatchImpliesContinuousSearch 
+```
+Test demonstrira da se postavljanjem pomenute opcije prilikom `regex_search` uspešno uparuju ulazni string i regularni izraz dati u kontraprimeru FuzzTesta, ali ne predstavlja i rešenje datog problema.
+Uspešno pokretanje testa dato je u `reports/full_match_implies_continuous_search.log`.
+
+Ovom tehnikom nisu pronađeni drugi bagovi Boost.Regex biblioteke, ali su definitivno testirane granice izdržljivosti autora. 

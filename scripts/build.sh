@@ -21,7 +21,7 @@ ENABLE_SANITIZERS="${ENABLE_SANITIZERS:-OFF}"
 CXX="${CXX:-g++}"
 JOBS="${JOBS:-$(nproc)}"
 
-if [[ -z "${BOOST_ROOT:-}" || ! -d "$BOOST_ROOT"]]; then
+if [[ -z "${BOOST_ROOT:-}" || ! -d "$BOOST_ROOT" ]]; then
     echo "BOOST_ROOT is not set or does not exist"
     exit 1
 fi
@@ -33,6 +33,6 @@ cmake -S "$PROJECT_ROOT" -B "$BUILD_DIR" \
     -DBoost_NO_BOOST_CMAKE=ON \
     -DCMAKE_BUILD_TYPE="$BUILD_TYPE" \
     -DCMAKE_CXX_COMPILER="$CXX" \
-    -DENABLE_SANITIZERS="$ENABLE_SANIRIZERS"
+    -DENABLE_SANITIZERS="$ENABLE_SANITIZERS"
  
 cmake --build "$BUILD_DIR" --parallel "$JOBS"

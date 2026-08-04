@@ -37,7 +37,6 @@ target_link_libraries(fuzz_regex PRIVATE Boost::regex)
 
 link_fuzztest(fuzz_regex)
 
-
-
+gtest_discover_tests(fuzz_regex)
 
 

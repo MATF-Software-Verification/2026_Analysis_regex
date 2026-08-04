@@ -59,5 +59,5 @@ valgrind \
     --track-origins=yes \
     --num-callers=30 \
     --log-file="$LOG_FILE" \
-    "$BUILD_DIR/regex_app" 18 100 | tee "$REPORT_DIR/output.log"
+    "$BUILD_DIR/regex_tests" | tee "$REPORT_DIR/output.log"
 echo "Valgrind Memcheck report: $LOG_FILE"

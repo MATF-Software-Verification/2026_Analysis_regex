@@ -1,0 +1,5 @@
+Discovery run 1
+[.] Sanitizer coverage enabled. Counter map size: 69576, Cmp map size: 262144
+Discovery run 2
+./fuzztest/fuzzer.sh: ред 16: 220065 Неуспех сегментације               (језгрени избачај) "$BUILD_DIR/fuzz_regex" --gtest_list_tests > /dev/null
+Crashed during test discovery
