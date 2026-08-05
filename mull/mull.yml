@@ -7,7 +7,7 @@ includePaths:
   - .*/include/boost/regex/.*
 
 excludePaths:
-  - .*/2026_Analysis_regex/tests/.*
+  - .*/2026_Analysis_regex/unit_tests/.*
   - .*googletest.*
   - .*googlemock.*
   - .*gtest.*

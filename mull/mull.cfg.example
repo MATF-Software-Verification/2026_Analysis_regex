@@ -9,3 +9,4 @@ BOOST_ROOT=
 # Optional: default are shown below
 MULL_TIMEOUT_MS=10000
 MULL_WORKERS=4
+LD_SEARCH_PATH=usr/lib/

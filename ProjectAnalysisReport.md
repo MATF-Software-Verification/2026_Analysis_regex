@@ -1,5 +1,7 @@
 # Izveštaj analize Boost.Regex
 
+> Some people, when confronted with a problem, think “I know, I’ll use regular expressions.” Now they have two problems.
+
 ## 1. Jedinični testovi
 
 Za funkcionalno i API testiranje biblioteke Boost.Regex korišćen je okvir `Google Test`, uz alat `gcov\lcov` za generisanje izvetštaja o pokrivenosti.
@@ -348,7 +350,7 @@ Verovatno najozbiljni nalaz predstavlja `arrayIndexOutOfBoundsCond` u `unicode_i
 Either the condition 'm_current==2' is redundant or the array 'm_values[3]' is accessed at index 3, which is out of bounds.
 ```
 
-Ovo nije potvrdjeni defekt i zahteva dodatnu ručnu analizu sa najvišim prioritetom. 
+Ovo nije potvrdjeni defekt i zahteva dodatnu ručnu analizu.
 
 Postoji veliki broj upozorenja označenih kao `inconclusive` tipa `missingMemberCopy` a odnose se na konstruktor kopije u `perl_matcher.hpp` (linija 576). Slično za operator dodele na liniji 572 se javlja veliki broj upozorenja tipa `operatorEqVarError`. Ovo bi možda bile ozbiljne stavke na razmatranje da pre definisanja ove dve funkcije ne postoji komentar:
 
@@ -364,7 +366,7 @@ Pored ovih nalaza, postoje i brojni nalazi kategorije `style` i `performance`, a
 Za analizu performansi biblioteke Boost.Regex korišćen je alat **perf**. Analiza je izvršena nad:
 
 - `regex_app` - prethodno pomenut namenski program sa veštačkim regex scenarijima namenjenim za opterećenje algoritma za podudaranje
-- regex_tests - testovi jedinica koda.
+- `regex_tests` - testovi jedinica koda.
 
 Alat `perf stat` korišćen je za prikupljanje ukupnih hardverskih brojača, dok su `perf record` i `perf report` korišćeni za pronalaženje funkcija u kojima program provodi najveći deo vremena.
 
@@ -386,8 +388,6 @@ Korišćenjem `PERF_STAT_REPEAT=5` `perf stat` je pokrenuo dati izvršivi fajl 5
 
 U odgovarajućim direktorijumima sa izveštajima nalaze se `perf_stat.txt` datoteke koje prikazuju rezultati merenje `perf stat` alata. Zbog arhitekture procesora, rezultati su razdvojeni na `cpu_core` i `cpu_atom` (performance i efficiency jezgra).
 
-Skoro celokupno izvršavanje oba programa odvijalo se na `cpu_core` jezgrima
-
 ```console
 #regex_app
 2571381723      cpu_atom/instructions/           #    1,38  insn per cycle              ( +- 46,48% )  (0,05%)
@@ -408,12 +408,6 @@ Za `regex_app` se javlja mali broj pogrešno predviđenih grana (0.34%) te ono n
 
 
 Uporedimo topdown rezultate za oba programa:
-```console 
-48,2 %  tma_backend_bound      
-38,3 %  tma_bad_speculation    
-35,4 %  tma_frontend_bound     
-38,1 %  tma_retiring    
-```
 
 | TodownL1| regex_tests | regex_app | 
 |---|---:|---:|
@@ -423,7 +417,7 @@ Uporedimo topdown rezultate za oba programa:
 | bad speculation | 6.7% | 8.3% |
 
 Kratko objasnjenje svake metrike:
-- **retiring** - kapacitet procesora potrošen na instrukcije koje su uspešno izvršene
+- **retiring** - udeo pipeline slotova na kojima su se instrukcije uspesno izvršile
 - **frontend bound** - gubitak usled nemogućnosti da se dohvate instrukcije dovoljno brzo
 - **backend bound** - gubitak usled čekanja na podatke ili izvšnu jedinicu
 - **bas speculation** - gubitak usled lošeg predviđanja grana i sl.
@@ -453,3 +447,59 @@ Ovde se vidi jasna razlika izmedju dva programa. `regex_app` najviše vreme prov
 Iako u regex engine-u postoje odbrambeni mehanizmi usled kompleksnosti prilikom kreiranja podudaranja, oni možda nisu dovoljno sofisticirani, naročito kada su u pitanju zlonamerni regularni izrazi. Ovo je samo spekulacija na osnovu činjenice da se prilikom pokretanja `regex_app` uz argumente 30 (kontroliše veličinu ulaza) i 1000 (rezultat rada alata i ispis programa se mogu naći u `reports/run_complexity_errors`) za scenarije `ambiguous alternation` i `nested quantifier ` u svakoj iteraciji su prijavljene greške usled kompleksnosti, a vreme provedeno u backtracking mehanizmima nije beznačajno.
 
 ## 6. Mull
+
+Za mutaciono testiranje projekta korišćen je alat **Mull**. Cilj ove vrste testiranja jeste procena kvaliteta jediničnih testova unošenjem malih izmena u analizirani programski kod. 
+
+Svaka takva izmena naziva se mutant. Nakon generisanja mutanta pokreće se skup testova:
+- mutant je __ubijen__ ako neki test nakon izmene padne
+- mutant je __preživeo__ ako svi testovi i dalje prolaze
+
+Veći procenat ubijenih mutanata obično ukazuje na kvalitetniji skup testova, jer testovi uspešno razlikuju originalni program od njegovih izmenjenih verzija.
+
+### 6.1 Konfiguracija alata
+
+Direktorijum alata je `mull`. Konfiguracioni fajl `mull.cfg` može se dobiti kopiranjem `mull.cfg.example` unutar direktorijuma i popunjavanjem odgovarajućih vrednosti. Alat se pokreće pomoću skripte `mull/mull.sh`.
+
+U okviru `mull.yml` mogu se definisati razne opcije alata. Jedna od njih jeste definisanje vrsta mutacija. Korišćeno je:
+```yml
+mutators:
+  - cxx_all
+  - cxx_logical
+```
+Detaljnije informacija o grupama mutatora mogu se naći na [linku](https://mull-project.com/reference/mutators/). 
+
+Takođe, u okviru `mull.yml` definisano je ograničenje za generisanje mutanata na zaglavlja biblioteke Booost.Regex.
+
+U jednom od priloženih pokretanja (`reports/run_missing_dynamic_libs`) alata javila su se upozorenja o dinamičkim bibliotekama:
+```console
+[warning] Could not find dynamic library: libstdc++.so.6
+[warning] Could not find dynamic library: libm.so.6
+[warning] Could not find dynamic library: libgcc_s.so.1
+[warning] Could not find dynamic library: libc.so.6
+```
+One znače da ih Mull nije našao na priloženoj putanji, čija je podrazumevana vrednost `usr/lib/`. Tačne dinamičke zavisnosti mogu se proveriti naredbom:
+
+```bash
+ldd build_mull/regex_tests
+```
+A zatim odgovarajući prefiks izlistanih putanja upisati u polje `LD_SEARCH_PATH`  u `mull.cfg`.
+
+Za uspešno pokretanje alata jako je bitna naredna opcija `-DCMAKE_NO_SYSTEM_FROM_IMPORTED=ON` jer se bez nje Boost.Regex include direktorijum sa zaglavljima CMake tretira kao sistemske i mull ne vrši mutacije nad njima. Primer takvog neuspešnog pokretanja dat je u `reports/run_no_mutation`. 
+
+### 6.2 Rezultati
+
+U `reports/run_success` je sačuvan jedan primer izlaza pokrenutog alata koji je pokrenut sa opcijom `--reporters Elements` radi generisanja preglednog HTML izveštaja.
+Izveštaj se može otvoriti pomoću komanda:
+```bash
+cd "$REPORT_DIR"
+python3 -m http.server 8000
+```
+A zatim u pretraživaču otvaramo `http://127.0.0.1:8000/mull_reports.html`.
+
+Ukupno je kreirano 2371 mutanata, od kojih je preživelo 1712, a dobijem `mutation score` je 27%.
+
+Najvećih broj preživelih mutacija potiče iz `basic_regex_parser.hpp` - čak 714. 
+Najveći deo preživelih mutanata obuhvata promene vezane za operatore poredjenja i logičke operatore i zamene vrednosti konstantom. Ovo ukazuje da postojeći testovi ne aktiviraju ili ne proveravaju dovoljno precizno putanje u parseru kako on nije deo javnog API-ja biblioteke. Ovo smo i ranije naglasili prilikom kreiranja testova koji su vršili proveru samo osnovnih konstrukata regularnih izraza. 
+
+Mutation score je prilicno nizak i pokazuje da postoji značajan prostor za poboljšanje testova. Rezultat Mull analize zato ne ukazuje neposredno na greške u biblioteci, već pruža smernice za ciljano proširenje testova.
+ 

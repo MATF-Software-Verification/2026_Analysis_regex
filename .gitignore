@@ -2,10 +2,8 @@ build*/
 *.cfg
 *.info
 cheatsheet.md
-fuzztest/log/
-fuzztest/summary
 fuzztest/dist
-sanitizers/reports/
-mull/reports/
+sanitizers/
+
 
 

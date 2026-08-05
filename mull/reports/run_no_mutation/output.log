@@ -1,0 +1,6 @@
+[info] Using config /home/anja/Desktop/verifikacija/2026_Analysis_regex/mull/mull.yml
+[info] Warm up run (threads: 1)
+
+       [################################] 1/1. Finished in 11ms
+[info] No mutants found. Mutation score: infinitely high
+[info] Total execution time: 26ms
