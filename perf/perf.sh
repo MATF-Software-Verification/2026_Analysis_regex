@@ -50,9 +50,8 @@ cmake -S "${PROJECT_ROOT}" -B "${BUILD_DIR}" \
     -DBoost_NO_SYSTEM_PATHS=ON \
     -DBoost_NO_BOOST_CMAKE=ON \
     -DCMAKE_BUILD_TYPE="$BUILD_TYPE" \
-    -DCMAKE_CXX_FLAGS="-fno-omit-frame-pointer" \
     -DCMAKE_CXX_COMPILER="$CXX" \
-    -DENABLE_ASAN=OFF \
+    -DENABLE_SANITIZERS=OFF \
     -DENABLE_COVERAGE=OFF \
 
 cmake --build "${BUILD_DIR}" --parallel "$JOBS"

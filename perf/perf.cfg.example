@@ -11,6 +11,7 @@ BUILD_TYPE=RelWithDebInfo
 CXX=g++
 JOBS=$(nproc)
 
+# Required: Perf targets, use only one per run
 #Settings for regex_tests
 PERF_TARGET=regex_tests
 PERF_TARGET_ARGS=(

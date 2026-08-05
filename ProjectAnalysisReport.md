@@ -361,3 +361,95 @@ Pored ovih nalaza, postoje i brojni nalazi kategorije `style` i `performance`, a
 
 ## 5. Perf
 
+Za analizu performansi biblioteke Boost.Regex korišćen je alat **perf**. Analiza je izvršena nad:
+
+- `regex_app` - prethodno pomenut namenski program sa veštačkim regex scenarijima namenjenim za opterećenje algoritma za podudaranje
+- regex_tests - testovi jedinica koda.
+
+Alat `perf stat` korišćen je za prikupljanje ukupnih hardverskih brojača, dok su `perf record` i `perf report` korišćeni za pronalaženje funkcija u kojima program provodi najveći deo vremena.
+
+Direktorijum alata je `perf`.
+
+### 5.1 Konfiguracija alata
+
+Kao i ranije kreira se konfiguracioni fajl `perf.cfg`. Neophodno je definisati `PERF_TARGET` i `PERF_ARGS`.
+Dodatno za pokretanje skripte `perf.sh` moguće da je neophodno podesiti opcije
+
+```bash
+sudo sysctl -w kernel.kptr_restrict=0
+sudo sysctl -w kernel.perf_event_paranoid=1
+```
+
+### 5.2 Rezultati
+
+Korišćenjem `PERF_STAT_REPEAT=5` `perf stat` je pokrenuo dati izvršivi fajl 5 puta. Izlaz ove komdane dat je u `perf/reports/run_regex_app/perf_stat_output.log` i `perf/reports/run_regex_tests/perf_stat_output.log`. U svakom pokretanju oba programa su imala iste rezultate izvršavanja.
+
+U odgovarajućim direktorijumima sa izveštajima nalaze se `perf_stat.txt` datoteke koje prikazuju rezultati merenje `perf stat` alata. Zbog arhitekture procesora, rezultati su razdvojeni na `cpu_core` i `cpu_atom` (performance i efficiency jezgra).
+
+Skoro celokupno izvršavanje oba programa odvijalo se na `cpu_core` jezgrima
+
+```console
+#regex_app
+2571381723      cpu_atom/instructions/           #    1,38  insn per cycle              ( +- 46,48% )  (0,05%)
+12041986332      cpu_core/instructions/           #    2,47  insn per cycle              ( +-  0,04% )  (99,95%)
+
+#regex_tests
+2096820455      cpu_atom/instructions/           #    1,59  insn per cycle              ( +- 22,03% )  (0,18%)
+7738671674      cpu_core/instructions/           #    3,20  insn per cycle              ( +-  0,11% )  (99,81%)
+```
+`cpu_core/instructions` za oba programa ima jako visok **PMU multiplexing coverage** (preko 99%). To znači da je preko 99% vremena izvršavanja dati dogadjaj koristio fizički brojač, što znači da su dobijeni rezultati jako bliski direktnom merenju. S druge strane, dogadjaj `cpu_atom/instructions/` beleži jako nizak procenat za **PMU multiplexing coverage**, što znači da su date vrednosti rezultat statističke aproksimacije. Upareno sa visokom varijanskom (46,48% i 22,03%) izmedju različitih izvršavanja, čini informacije o dogadjaju nepouzdanim, te se on neće uzimati u razmatranje u daljoj analizi. Korišćenje `-a` opcije (za sakupljanje infromacija na svim procesorima) prilikom pokretanja `perf stat` bi dao precizinije rezultate za `cpu_atom/instructions/`, ali smatramo ad ovo infromacija nije toliko bitna, te to nećemo raditi.
+
+Varijansa izmedju različitih pokretanja za `cpu_core/instructions` je jako mala, >1% za oba programa, te dobijene rezultate možemo smatrati pouzdanim. 
+
+Iskorišćenost procesora je za oba programa preko 99% (na osnovu CPUs utilized polja), dakle nema čekanja, što čini date rezultate medju programima uporedivim.
+
+Možemo primetiti da `regex_app` izvšava oko 1.55 puta više instrukcija od `regex_tests`, a u svakom ciklusu je uspešno izvršeno 2.47 instrukcija (`insn per cycle`) što je manje od 3.2 za `regex_tests`.
+Za `regex_app` se javlja mali broj pogrešno predviđenih grana (0.34%) te ono nije glavni uzrok za gubitak performansi. 
+
+
+Uporedimo topdown rezultate za oba programa:
+```console 
+48,2 %  tma_backend_bound      
+38,3 %  tma_bad_speculation    
+35,4 %  tma_frontend_bound     
+38,1 %  tma_retiring    
+```
+
+| TodownL1| regex_tests | regex_app | 
+|---|---:|---:|
+| retiring | 49.6% | 38.1% |
+| frontend bound | 40.6% | 5.4% |
+| backend bound | 3.0% | 48.2% |
+| bad speculation | 6.7% | 8.3% |
+
+Kratko objasnjenje svake metrike:
+- **retiring** - kapacitet procesora potrošen na instrukcije koje su uspešno izvršene
+- **frontend bound** - gubitak usled nemogućnosti da se dohvate instrukcije dovoljno brzo
+- **backend bound** - gubitak usled čekanja na podatke ili izvšnu jedinicu
+- **bas speculation** - gubitak usled lošeg predviđanja grana i sl.
+
+(Za oba programa ove metrike smatramo pozdanim usled pokrivenosti od preko 99.8%.)
+
+`regex_tests` ima veći i značajan gubitak usled čekanja da se dohvate instrukcije, dok se kod `regex_app` javlja obrnut problem: značajan gubitak zbog čekanja da se dohvaćene insturkcije izvrše ili čekanja na podatke.
+
+Ovo zapravo ima smisla, jer dati programi opterećuju mehanizme regularnih izraza (regex engine) na različite načine: `regex_tests` se sastoji od velikog broja raznolikih instrukcija, tj. velikog broja različitih putanja kroz kod i dodatno se koriste mehanizmi Google Test-a, dok `regex_app` ima fiksiranu putanju koje se ponavljaju veliki broj puta. 
+
+Pomoću alata `perf record` i `perf report` kreirani su izveštaji `perf_report.txt` koji se nalaze u odgovarajućim poddirektorijumima unutar `reports`. Dodatno, parametrom `PERF_PERCENT_LIMIT=0.5` smo izveštaje ograničili na nalaze preko 0.5%.
+
+Za `regex_app` utvrđuje se da se najviše vremena provelo u izvršavanju narednih instrukcija (dato je prvih 5, koji čine više od polivine uzoraka):
+-   29.67% `perl_matcher:match_all_states`
+-   16.76% `perl_matcher::match_rep` 
+-   10.52% `perl_matcher::unwind`       
+-   10.52% `perl_matcher:unwind_char_repeat`
+-   8.81% `perl_matcher::match_char_repeat` 
+
+Za `regex_tests` prvih 3:
+-   15.13% `basic_regex_creator::create_startmap`
+-   10.26%  `basic_regex_creator::append_set `   
+-   8.67%  `basic_regex_creator::isctype`
+
+Ovde se vidi jasna razlika izmedju dva programa. `regex_app` najviše vreme provodi u matcher-u, dok `regex_tests` u kreiranju regularnih izraza, što i jeste slučaj. 
+
+Iako u regex engine-u postoje odbrambeni mehanizmi usled kompleksnosti prilikom kreiranja podudaranja, oni možda nisu dovoljno sofisticirani, naročito kada su u pitanju zlonamerni regularni izrazi. Ovo je samo spekulacija na osnovu činjenice da se prilikom pokretanja `regex_app` uz argumente 30 (kontroliše veličinu ulaza) i 1000 (rezultat rada alata i ispis programa se mogu naći u `reports/run_complexity_errors`) za scenarije `ambiguous alternation` i `nested quantifier ` u svakoj iteraciji su prijavljene greške usled kompleksnosti, a vreme provedeno u backtracking mehanizmima nije beznačajno.
+
+## 6. Mull

@@ -16,8 +16,6 @@ Anja Cvetković 1009/2024 (mi241009@alas.matf.bg.ac.rs)
 |---|---|---|
 | GoogleTest with LCOV | Funkcionalno i API testiranje sa merenjem pokrivenosti | `unit_tests/` |
 | Valgrind Memcheck | Otkrivanje curenja memorije i neispravnih pristupa memoriji | `valgrind/memcheck/` |
-| AddressSanitizer| Otkrivanje grešaka pri radu sa memorijom | `sanitizers/` |
-| UndefinedBehaviorSanitizer | Otkrivanje nedefinisanog ponašanja | `sanitizers/` |
 | Google FuzzTest | Generisanje velikog broja neočekivanih ulaza | `fuzztest/` |
 | Mull | Procena kvaliteta testova mutacionim testiranjem | `mull/` |
 | perf | Merenje izvršavanja i pronalaženje skupih funkcija | `perf/` |
